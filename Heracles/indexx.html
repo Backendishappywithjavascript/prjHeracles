@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset='utf-8'/>
+	<title> Jogo </title>
+	<script type="text/javascript">
+		function vwValue()
+		{
+			return document.documentElement.clientWidth / 100;
+		}
+		function vwToPx(vw)
+		{
+			var px = vwValue();
+			px = vw.substr(0, vw.length - 2);
+			return px + 'px';
+		}
+		function checkInteractability()
+		{
+			var player = document.getElementById('player');	
+			var portaInformatica = document.getElementById('portaInformatica');
+			var portaEnfermagem = document.getElementById('portaEnfermagem');
+			var portaInscricao = document.getElementById('portaInscricao');
+			var portaTurismo = document.getElementById('portaTurismo');
+			var portaEdificacoes = document.getElementById('portaEdificacoes');
+			var portas = new Array(portaInformatica,portaEnfermagem,portaEdificacoes,portaTurismo,portaInscricao)
+			for(let count = 0;count < portas.length; count++)
+			{
+				if (
+					//Código opressor
+					parseFloat(player.style.left.substr(0,parseFloat(player.style.left.length) - 2)) +
+					(parseFloat(player.style.width.substr(0,parseFloat(player.style.width.length) - 2)) / 2) >
+			    	parseFloat(portas[count].style.left.substr(0,parseFloat(portas[count].style.left.length) - 2))  &&
+			    	parseFloat(player.style.left.substr(0,parseFloat(player.style.left.length) - 2)) + 
+			    	(parseFloat(player.style.width.substr(0,parseFloat(player.style.width.length) - 2)) / 2) <
+			    	(parseFloat(portas[count].style.left.substr(0,parseFloat(portas[count].style.left.length) - 2)) +	
+			    	parseFloat(portas[count].style.width.substr(0,parseFloat(portas[count].style.width.length) - 2))))
+				{
+					if(portas[count].style.backgroundImage.substr(-5) != 'gif")')
+					{
+						portas[count].style.backgroundImage = portas[count].style.backgroundImage.substr(0,portas[count].style.backgroundImage.length - 5) + 'gif")';
+					}
+			   		else
+			   		{
+			   			
+			   		}
+				}
+				else
+				{
+					if(portas[count].style.backgroundImage.substr(-5) == 'gif")')
+					{
+						portas[count].style.backgroundImage = portas[count].style.backgroundImage.substr(0,portas[count].style.backgroundImage.length - 5) + 'png")';
+					}
+				}
+			}
+		}
+		
+		function interact()
+		{
+			// Elementos
+			var player = document.getElementById('player');	
+			var portaInformatica = document.getElementById('portaInformatica');
+			var portaEnfermagem = document.getElementById('portaEnfermagem');
+			var portaTurismo = document.getElementById('portaTurismo');
+			var portaEdificacoes = document.getElementById('portaEdificacoes');
+			var portaInscricao = document.getElementById('portaInscricao');
+			var portas = new Array(portaInformatica,portaEnfermagem,portaTurismo,portaEdificacoes,portaInscricao)
+			for(let count = 0;count < portas.length; count++)
+			{
+				if (
+					//Código opressor
+					parseFloat(player.style.left.substr(0,parseFloat(player.style.left.length) - 2)) +
+					(parseFloat(player.style.width.substr(0,parseFloat(player.style.width.length) - 2)) / 2) >
+			    	parseFloat(portas[count].style.left.substr(0,parseFloat(portas[count].style.left.length) - 2))  &&
+			    	parseFloat(player.style.left.substr(0,parseFloat(player.style.left.length) - 2)) + 
+			    	(parseFloat(player.style.width.substr(0,parseFloat(player.style.width.length) - 2)) / 2) <
+			    	(parseFloat(portas[count].style.left.substr(0,parseFloat(portas[count].style.left.length) - 2)) +	
+			    	parseFloat(portas[count].style.width.substr(0,parseFloat(portas[count].style.width.length) - 2))))
+			    {
+			    	var confirmar = confirm('Deseja ir para ' + portas[count].getAttribute('NAME') + '?');
+			    	if(confirmar == true)
+			    	{
+			    		switch(count)
+			    		{
+			    			case 4:
+			    				window.open("https://www.vestibulinhoetec.com.br/candidato/dados-acesso.asp");
+			    				break;
+			    		}
+			    		 
+			    	}
+			    }
+			}
+		}
+		
+		window.onkeydown = () => {
+			var player = document.getElementById('player');						
+			switch(event.keyCode)
+			{			
+				case 32:
+					alert("Player Left " + parseFloat(player.style.left.substr(0,parseFloat(player.style.left.length) - 2)));
+					alert("Player Width: " + player.style.width);	
+					alert("View Width Value: " + vwValue());				
+					break;
+				case 69:
+					interact();
+					break;	
+				case 39:
+					if(parseFloat(player.style.left.substr(0,parseFloat(player.style.left.length) - 2)) >= 73.85)
+					{
+
+					}
+					else
+					{
+						player.style.left = (parseFloat(player.style.left.substr(0,parseFloat(player.style.left.length) - 2)) + 0.30)+'vw';
+					}			
+					checkInteractability();		
+					break;
+				case 37:
+					if(parseFloat(player.style.left.substr(0,parseFloat(player.style.left.length) - 2)) <= 0.05)
+					{
+
+					}
+					else
+					{
+						player.style.left = (parseFloat(player.style.left.substr(0,parseFloat(player.style.left.length) - 2)) - 0.30)+'vw';
+					}	
+					checkInteractability();
+					break;	
+			}
+		}
+	</script>
+</head>
+<body>
+	<div id="container">
+		<div id="infoDiv">
+			Use as setas para se mover!
+			<br />
+			Aperte "E" para interagir com o ambiente!
+		</div>
+	 	<div id='player' style="
+	 	left: 0.05vw;
+	 	height: 12vw;
+	 	width: 6vw;">
+ 		</div>
+
+ 		<div id="portaInformatica" name='Desenvolvimento de Sistemas' style="
+	 	background-image: url('img/portas/portaDS.png');
+		background-size: 100% 100%;
+ 		left: 30vw;
+		height: 17vw;
+		width: 8vw;">
+
+ 		</div>
+ 		<div id="portaEnfermagem" name='Enfermagem' style="
+	 	background-image: url('img/portas/portaENF.png');
+		background-size: 100% 100%;
+ 		left: 40vw;
+		height: 17vw;
+		width: 8vw;">
+
+ 		</div>
+ 		<div id="portaEdificacoes" name='Edificações' style="
+ 		background-image: url('img/portas/portaEDI.png');
+		background-size: 100% 100%;
+ 		left: 50vw;
+		height: 17vw;
+		width: 8vw;">
+
+ 		</div>
+ 		<div id="portaTurismo" name='Turismo' style="
+	 	background-image: url('img/portas/portaTUR.png');
+		background-size: 100% 100%;
+ 		left: 60vw;
+		height: 17vw;
+		width: 8vw;">
+
+ 		</div>
+ 		<div id="portaInscricao" name='Inscreva-se' style="
+ 		background-image: url('img/portas/portaINSC.png');
+		background-size: 100% 100%;
+ 		left: 70vw;
+		height: 17vw;
+		width: 8vw;">
+
+ 		</div>
+	</div>
+
+
+</body>
+</html>
+<style type="text/css">
+*
+{
+	padding: 0;
+	margin: 0;
+}
+html
+{
+	width: 100%;
+	height: 100%;
+	overflow: none;
+}
+body
+{
+	width: 100%;
+	height: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+#container
+{
+	width: 80vw;
+	height: 60vh;
+	border: 1px black solid;
+}
+#infoDiv
+{
+	position: absolute;
+	font-family: 'Cd';	
+}
+#player
+{	
+	position: relative;	
+	background: red;
+	top: calc(100% - 12vw);
+	z-index: 10;
+}
+#portaInformatica, #portaEnfermagem, #portaInscricao, #portaTurismo, #portaEdificacoes
+{
+	position: relative;
+	border: 1px black solid;
+}
+#portaInformatica
+{
+	top: calc(100% - 29vw - 2px);
+}
+#portaEnfermagem
+{
+	top: calc(100% - 46vw - 4px);
+}
+#portaEdificacoes
+{
+	top: calc(100% - 63vw - 6px);
+}
+#portaTurismo
+{
+	top: calc(100% - 80vw - 8px);
+}
+#portaInscricao
+{
+	top: calc(100% - 97vw - 10px);
+}
+</style>
