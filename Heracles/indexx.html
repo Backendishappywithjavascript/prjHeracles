@@ -4,6 +4,46 @@
 	<meta charset='utf-8'/>
 	<title> Jogo </title>
 	<script type="text/javascript">
+		function janelaTemporaria(pagina, caso, dd1, dd2, dd3, orig,ext,dd4) {
+		
+		var xmlhttp = createRequest();
+		var obj = document.getElementById("container");
+		switch (caso) {
+			case'exibirPrimeiraImagem':
+				obj = document.getElementById("primeiroJogador");	
+				break;
+			}				
+
+    			var dados = "caso=" + escape(caso)+'&dd1='+ escape(dd1)+'&dd2='+ escape(dd2)+'&dd3='+ escape(dd3)+"&dado1="+escape(dd1)+"&dado2="+escape(dd2)+"&dado3="+escape(dd3)
+				+'&orig='+ escape(orig)+'&dd4='+ escape(dd4)+'&retorno='+ escape(ext)+'&origem='+ escape(orig);	
+				if(orig =='novaOrdCarga') dados= dados+'&motorista='+ext;
+	
+				obj.innerHTML = "<p class=\"jan_lista bold\" style=\" padding:50px;\">Aguarde...</p>";
+	
+				xmlhttp.open("POST", pagina, true);
+				xmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");	
+				xmlhttp.onreadystatechange = function() {
+				if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+			
+		
+				switch(orig){
+
+				case'atualizar':
+				location.reload();
+				break;
+
+			
+					default:
+					obj.innerHTML = xmlhttp.responseText;
+					break;
+					}
+					
+					}
+	
+	
+				}	
+			xmlhttp.send(dados);
+		}
 		function vwValue()
 		{
 			return document.documentElement.clientWidth / 100;
@@ -137,6 +177,8 @@
 			Aperte "E" para interagir com o ambiente!
 		</div>
 	 	<div id='player' style="
+	 	background-image: url('img/heracles.png');
+		background-size: 100% 100%;
 	 	left: 0.05vw;
 	 	height: 12vw;
 	 	width: 6vw;">
@@ -221,33 +263,32 @@ body
 #player
 {	
 	position: relative;	
-	background: red;
 	top: calc(100% - 12vw);
 	z-index: 10;
 }
 #portaInformatica, #portaEnfermagem, #portaInscricao, #portaTurismo, #portaEdificacoes
 {
 	position: relative;
-	border: 1px black solid;
 }
 #portaInformatica
 {
-	top: calc(100% - 29vw - 2px);
+	top: calc(100% - 29vw);
 }
 #portaEnfermagem
 {
-	top: calc(100% - 46vw - 4px);
+	top: calc(100% - 46vw);
 }
 #portaEdificacoes
 {
-	top: calc(100% - 63vw - 6px);
+	top: calc(100% - 63vw);
 }
 #portaTurismo
 {
-	top: calc(100% - 80vw - 8px);
+	top: calc(100% - 80vw);
 }
 #portaInscricao
 {
-	top: calc(100% - 97vw - 10px);
+	top: calc(100% - 97vw);
 }
 </style>
+
