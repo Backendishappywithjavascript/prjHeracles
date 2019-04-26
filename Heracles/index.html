@@ -4,6 +4,13 @@
 	<meta charset='utf-8'/>
 	<title> Jogo </title>
 	<script type="text/javascript">
+	
+		//controle da movimentação do personagem
+		var moverDireitaPermissao = false; 
+		var moverEsquerdaPermissao = false; 
+		var controleMovimentoEsquerda = false;
+		var controleMovimentoDireita = false;
+		
 		function janelaTemporaria(pagina, caso, dd1, dd2, dd3, orig,ext,dd4) {
 		
 		var xmlhttp = createRequest();
@@ -131,8 +138,8 @@
 			}
 		}
 		
-		window.onkeydown = () => {
-			var player = document.getElementById('player');						
+		window.onkeydown = () => {		
+			var player = document.getElementById('player');
 			switch(event.keyCode)
 			{			
 				case 32:
@@ -144,29 +151,79 @@
 					interact();
 					break;	
 				case 39:
-					if(parseFloat(player.style.left.substr(0,parseFloat(player.style.left.length) - 2)) >= 73.85)
+					moverEsquerdaPermissao = false;
+					moverDireitaPermissao = true;
+					if(controleMovimentoDireita)
 					{
-
+						
 					}
 					else
 					{
-						player.style.left = (parseFloat(player.style.left.substr(0,parseFloat(player.style.left.length) - 2)) + 0.30)+'vw';
-					}			
-					checkInteractability();		
+						moverDireita();
+						controleMovimentoDireita = true;
+					}
 					break;
 				case 37:
-					if(parseFloat(player.style.left.substr(0,parseFloat(player.style.left.length) - 2)) <= 0.05)
+					moverDireitaPermissao = false;
+					moverEsquerdaPermissao = true;
+					if(controleMovimentoEsquerda)
 					{
-
+						
 					}
 					else
 					{
-						player.style.left = (parseFloat(player.style.left.substr(0,parseFloat(player.style.left.length) - 2)) - 0.30)+'vw';
-					}	
-					checkInteractability();
+						moverEsquerda();
+						controleMovimentoEsquerda = true;
+					}
 					break;	
+			}}
+			window.onkeyup = () => {					
+			switch(event.keyCode)
+			{	
+				case 39:
+						moverDireitaPermissao = false;
+						controleMovimentoDireita = false;
+					break;
+				case 37:
+						moverEsquerdaPermissao = false;
+						controleMovimentoEsquerda = false;
+					break;	
+			}}
+			function moverDireita()
+			{
+				var player = document.getElementById('player');
+				if(parseFloat(player.style.left.substr(0,parseFloat(player.style.left.length) - 2)) >= 73.85)
+				{
+
+				}
+				else
+				{
+					player.style.left = (parseFloat(player.style.left.substr(0,parseFloat(player.style.left.length) - 2)) + 0.15)+'vw';
+					checkInteractability();
+					if(moverDireitaPermissao)
+					{
+						setTimeout(()=>{moverDireita()},10);
+					}
+				}			
 			}
-		}
+			function moverEsquerda()
+			{
+				var player = document.getElementById('player');
+				if(parseFloat(player.style.left.substr(0,parseFloat(player.style.left.length) - 2)) <= 0.05)
+				{
+
+				}
+				else
+				{
+					player.style.left = (parseFloat(player.style.left.substr(0,parseFloat(player.style.left.length) - 2)) - 0.15)+'vw';
+					checkInteractability();
+					if(moverEsquerdaPermissao)
+					{
+						setTimeout(()=>{moverEsquerda()},10);
+					}
+					
+				}	
+			}
 	</script>
 </head>
 <body>
