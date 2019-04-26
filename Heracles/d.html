@@ -26,7 +26,10 @@
 				break;	
 			case'exibirInfo':
 				obj = document.getElementById('showInfo');	
-				break;		
+				break;	
+			case'limparInfo':
+				obj = document.getElementById('showInfo');	
+				break;	
 			}				
 
     			var dados = "caso=" + escape(caso)+'&dd1='+ escape(dd1)+'&dd2='+ escape(dd2)+'&dd3='+ escape(dd3)+"&dado1="+escape(dd1)+"&dado2="+escape(dd2)+"&dado3="+escape(dd3)
@@ -167,13 +170,13 @@
 			var professora = document.getElementById('professora');
 			
 			//INF INFORMAÇÃO
-			var computadorUmInfo = "Pau no cu de quem está lendo";
-			var computadorDoisInfo = "Pau no cu";
-			var computadorTresInfo = "de quem";
-			var professoraInfo = "está lendo";
+			var computadorUmPhoto = "img/telas/telaJavaScript.jpg";
+			var computadorDoisPhoto = "img/telas/telaHTMLCSS.jpg";
+			var computadorTresPhoto = "img/telas/telaCSharp.jpg";
+			var professoraPhoto = "está lendo";
 			
 			var objetos = new Array(computadorUm,computadorDois,computadorTres,professora);
-			var objetosInfo = new Array(computadorUmInfo,computadorDoisInfo,computadorTresInfo,professoraInfo);
+			var objetosInfo = new Array(computadorUmPhoto,computadorDoisPhoto,computadorTresPhoto,professoraPhoto);
 			switch(document.getElementById('container').getAttribute('data-screen'))
 			{
 				case'main':
@@ -215,7 +218,7 @@
 			    		(parseFloat(objetos[count].style.left.substr(0,parseFloat(objetos[count].style.left.length) - 2)) +	
 			    		parseFloat(objetos[count].style.width.substr(0,parseFloat(objetos[count].style.width.length) - 2))))
 						{
-			   				alert(objetos[count].getAttribute('NAME'));
+							document.getElementById('escurecer').style.visibility = 'visible';
 			   				tmpJan('indexX.php', 'exibirInfo', objetosInfo[count]);
 						}
 						else
@@ -331,6 +334,9 @@
 	</script>
 </head>
 <body>
+	<div id='escurecer' style='visibility: hidden;'>
+			
+	</div>
 	<div id="container" data-screen='main' style='background-image: url("img/fundos/main.png");background-size: 100% 100%;'>
 		<div id="infoDiv">
 			Use as setas para se mover!

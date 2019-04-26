@@ -3,13 +3,14 @@ switch($_POST['caso'])
 {
     case 'entrarPrincipal':
         ?>
+        <div id='escurecer' style='visibility: hidden;'>
+			
+	    </div>
         <div id="container" style='background-image: url("img/fundos/principal.png");background-size: 100% 100%;'>
-		<div id="infoDiv">
-			Use as setas para se mover!
-			<br />
-			Aperte "E" para interagir com o ambiente!
-		</div>
 		<div id="interactabilityDiv">
+			
+		</div>
+		<div id="showInfo">
 			
 		</div>
 	 	<div id='player' style="
@@ -58,13 +59,14 @@ switch($_POST['caso'])
         break;
     case 'entrarInformatica':
         ?>
+        <div id='escurecer' style='visibility: hidden;'>
+			
+	    </div>
         <div id="container" data-screen='inf' style='background-image: url("img/fundos/salaDS.png");background-size: 100% 100%;'>
-		<div id="infoDiv">
-			Use as setas para se mover!
-			<br />
-			Aperte "E" para interagir com o ambiente!
-		</div>
 		<div id="interactabilityDiv">
+			
+		</div>
+		<div id="showInfo">
 			
 		</div>
 	 	<div id='player' style="
@@ -95,6 +97,7 @@ switch($_POST['caso'])
 	    <div id="computadorTres" name='Computador: CSS' style="
 	 	background-image: url('img/objetos/compUm.png');
 		background-size: 100% 100%;
+		transform: scaleX(-1);
  		left: 60vw;
 		height: 17vw;
 		width: 16vw;">
@@ -113,9 +116,12 @@ switch($_POST['caso'])
     case'exibirInfo':
         ?>
         <div>
-            <?php echo $_POST['dd1']?>
+            <img style='height: 30vw;width: 35vw;' src="<?php echo $_POST['dd1']?>" />
+            <span style='position: absolute; left: 41vw;top: -5.5vw; color: red;font-size:3vw;cursor: pointer;' onclick="document.getElementById('escurecer').style.visibility = 'hidden';tmpJan('indexX.php','limparInfo')">X</span>
         </div>
         <?php
+        break;
+    case'limparInfo':
         break;
 }
 ?>
