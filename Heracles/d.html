@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset='utf-8'/>
+	<link rel="stylesheet" href="style.css" type="text/css" />
+	<title> Jogo </title>
+	<script type="text/javascript" src="lib/ajax.js"></script>
+	<script type="text/javascript">
+	
+		//controle da movimentação do personagem
+		var movimentandoDireita = false; 
+		var movimentandoEsquerda = false; 
+		var controleMovimentoEsquerda = false;
+		var controleMovimentoDireita = false;
+		
+		function tmpJan(pagina, caso, dd1, dd2, dd3, orig,ext,dd4) {
+		
+		var xmlhttp = createRequest();
+		var obj = document.body;
+		switch (caso) {
+			case'entrarInformatica':
+				obj = document.body;	
+				break;
+			case'entrarPrincipal':
+				obj = document.body;	
+				break;	
+			}				
+
+    			var dados = "caso=" + escape(caso)+'&dd1='+ escape(dd1)+'&dd2='+ escape(dd2)+'&dd3='+ escape(dd3)+"&dado1="+escape(dd1)+"&dado2="+escape(dd2)+"&dado3="+escape(dd3)
+				+'&orig='+ escape(orig)+'&dd4='+ escape(dd4)+'&retorno='+ escape(ext)+'&origem='+ escape(orig);	
+				if(orig =='novaOrdCarga') dados= dados+'&motorista='+ext;
+	
+				obj.innerHTML = "<p class=\"jan_lista bold\" style=\" padding:50px;\">Aguarde...</p>";
+	
+				xmlhttp.open("POST", pagina, true);
+				xmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");	
+				xmlhttp.onreadystatechange = function() {
+				if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+			
+		
+				switch(orig){
+
+				case'atualizar':
+				location.reload();
+				break;
+
+			
+					default:
+					obj.innerHTML = xmlhttp.responseText;
+					break;
+					}
+					
+					}
+	
+	
+				}	
+			xmlhttp.send(dados);
+		}
+		function vwValue()
+		{
+			return document.documentElement.clientWidth / 100;
+		}
+		function vwToPx(vw)
+		{
+			var px = vwValue();
+			px = vw.substr(0, vw.length - 2);
+			return px + 'px';
+		}
+		function checkInteractability()
+		{
+			var player = document.getElementById('player');	
+			
+			//MAIN
+			var portaInformatica = document.getElementById('portaInformatica');
+			var portaEnfermagem = document.getElementById('portaEnfermagem');
+			var portaInscricao = document.getElementById('portaInscricao');
+			var portaTurismo = document.getElementById('portaTurismo');
+			var portaEdificacoes = document.getElementById('portaEdificacoes');
+			var portas = new Array(portaInformatica,portaEnfermagem,portaEdificacoes,portaTurismo,portaInscricao);
+			
+			//INF
+			var computadorUm = document.getElementById('computadorUm');
+			var computadorDois = document.getElementById('computadorDois');
+			var computadorTres = document.getElementById('computadorTres');
+			var professora = document.getElementById('professora');
+			var objetos = new Array(computadorUm,computadorDois,computadorTres,professora);
+			
+			switch(document.getElementById('container').getAttribute('data-screen'))
+			{
+				case'main':	
+				for(let count = 0;count < portas.length; count++)
+				{
+					if (//Código opressor
+					parseFloat(player.style.left.substr(0,parseFloat(player.style.left.length) - 2)) +
+					(parseFloat(player.style.width.substr(0,parseFloat(player.style.width.length) - 2)) / 2) >
+			    	parseFloat(portas[count].style.left.substr(0,parseFloat(portas[count].style.left.length) - 2))  &&
+			    	parseFloat(player.style.left.substr(0,parseFloat(player.style.left.length) - 2)) + 
+			    	(parseFloat(player.style.width.substr(0,parseFloat(player.style.width.length) - 2)) / 2) <
+			    	(parseFloat(portas[count].style.left.substr(0,parseFloat(portas[count].style.left.length) - 2)) +	
+			    	parseFloat(portas[count].style.width.substr(0,parseFloat(portas[count].style.width.length) - 2))))
+					{
+						if(portas[count].style.backgroundImage.substr(-5) != 'gif")')
+						{
+							portas[count].style.backgroundImage = portas[count].style.backgroundImage.substr(0,portas[count].style.backgroundImage.length - 5) + 'gif")';
+						}
+			   			else
+			   			{
+			   			
+			   			}
+			   			document.getElementById('interactabilityDiv').innerHTML = portas[count].getAttribute('NAME');
+					}
+					else
+					{
+						if(portas[count].style.backgroundImage.substr(-5) == 'gif")')
+						{
+							portas[count].style.backgroundImage = portas[count].style.backgroundImage.substr(0,portas[count].style.backgroundImage.length - 5) + 'png")';
+							document.getElementById('interactabilityDiv').innerHTML = "";
+						}
+					}
+				}
+				break;
+				case'inf':
+				for(let count = 0;count < objetos.length; count++)
+				{
+					if (//Código opressor
+					parseFloat(player.style.left.substr(0,parseFloat(player.style.left.length) - 2)) +
+					(parseFloat(player.style.width.substr(0,parseFloat(player.style.width.length) - 2)) / 2) >
+			    	parseFloat(objetos[count].style.left.substr(0,parseFloat(objetos[count].style.left.length) - 2))  &&
+			    	parseFloat(player.style.left.substr(0,parseFloat(player.style.left.length) - 2)) + 
+			    	(parseFloat(player.style.width.substr(0,parseFloat(player.style.width.length) - 2)) / 2) <
+			    	(parseFloat(objetos[count].style.left.substr(0,parseFloat(objetos[count].style.left.length) - 2)) +	
+			    	parseFloat(objetos[count].style.width.substr(0,parseFloat(objetos[count].style.width.length) - 2))))
+					{
+						if(objetos[count].style.backgroundImage.substr(-5) != 'gif")')
+						{
+							objetos[count].style.backgroundImage = objetos[count].style.backgroundImage.substr(0,objetos[count].style.backgroundImage.length - 5) + 'gif")';
+						}
+			   			else
+			   			{
+			   			
+			   			}
+			   			document.getElementById('interactabilityDiv').innerHTML = objetos[count].getAttribute('NAME');
+					}
+					else
+					{
+						if(objetos[count].style.backgroundImage.substr(-5) == 'gif")')
+						{
+							objetos[count].style.backgroundImage = objetos[count].style.backgroundImage.substr(0,objetos[count].style.backgroundImage.length - 5) + 'png")';
+							document.getElementById('interactabilityDiv').innerHTML = "";
+						}
+					}
+				}
+					break;
+			}
+		}
+		
+		function interact()
+		{
+			// Elementos
+			var player = document.getElementById('player');	
+			var portaInformatica = document.getElementById('portaInformatica');
+			var portaEnfermagem = document.getElementById('portaEnfermagem');
+			var portaTurismo = document.getElementById('portaTurismo');
+			var portaEdificacoes = document.getElementById('portaEdificacoes');
+			var portaInscricao = document.getElementById('portaInscricao');
+			var portas = new Array(portaInformatica,portaEnfermagem,portaTurismo,portaEdificacoes,portaInscricao)
+			for(let count = 0;count < portas.length; count++)
+			{
+				if (
+					//Código opressor
+					parseFloat(player.style.left.substr(0,parseFloat(player.style.left.length) - 2)) +
+					(parseFloat(player.style.width.substr(0,parseFloat(player.style.width.length) - 2)) / 2) >
+			    	parseFloat(portas[count].style.left.substr(0,parseFloat(portas[count].style.left.length) - 2))  &&
+			    	parseFloat(player.style.left.substr(0,parseFloat(player.style.left.length) - 2)) + 
+			    	(parseFloat(player.style.width.substr(0,parseFloat(player.style.width.length) - 2)) / 2) <
+			    	(parseFloat(portas[count].style.left.substr(0,parseFloat(portas[count].style.left.length) - 2)) +	
+			    	parseFloat(portas[count].style.width.substr(0,parseFloat(portas[count].style.width.length) - 2))))
+			    {
+			    	var confirmar = confirm('Deseja ir para ' + portas[count].getAttribute('NAME') + '?');
+			    	if(confirmar == true)
+			    	{
+			    		if(count == 4)
+			    		{
+			    			window.open("https://www.vestibulinhoetec.com.br/candidato/dados-acesso.asp");
+			    		}
+			    		else
+			    		{
+			    			tmpJan('indexX.php', portas[count].getAttribute('data-room'));
+			    		}
+			    		
+			    	}
+			    }
+			}
+		}
+		
+		window.onkeydown = () => {		
+			var player = document.getElementById('player');
+			switch(event.keyCode)
+			{			
+				case 32:
+					alert("Player Left " + parseFloat(player.style.left.substr(0,parseFloat(player.style.left.length) - 2)));
+					alert("Player Width: " + player.style.width);	
+					alert("View Width Value: " + vwValue());				
+					break;
+				case 69:
+					interact();
+					break;	
+				case 39:
+					movimentandoDireita = true;
+					if(controleMovimentoDireita)
+					{
+						
+					}
+					else
+					{
+						moverDireita();
+						controleMovimentoDireita = true;
+						player.style.transform = 'scaleX(1)';
+						player.style.backgroundImage= 'url("img/heracles/walking.gif")';
+					}
+					break;
+				case 37:
+					movimentandoEsquerda = true;
+					if(controleMovimentoEsquerda)
+					{
+						
+					}
+					else
+					{
+						moverEsquerda();
+						controleMovimentoEsquerda = true;
+						player.style.transform = 'scaleX(-1)';
+						player.style.backgroundImage= 'url("img/heracles/walking.gif")';
+					}
+					break;	
+			}}
+			window.onkeyup = () => {					
+			switch(event.keyCode)
+			{	
+				case 39:
+						movimentandoDireita = false;
+						controleMovimentoDireita = false;
+						if(!movimentandoEsquerda)
+						{
+							player.style.backgroundImage= 'url("img/heracles/stopped.gif")';	
+						}
+					break;
+				case 37:
+						movimentandoEsquerda = false;
+						controleMovimentoEsquerda = false;
+						if(!movimentandoDireita)
+						{
+							player.style.backgroundImage= 'url("img/heracles/stopped.gif")';	
+						}
+					break;	
+			}}
+			function moverDireita()
+			{
+				var player = document.getElementById('player');
+				if(parseFloat(player.style.left.substr(0,parseFloat(player.style.left.length) - 2)) >= 99 - parseFloat(player.style.width.substr(0,parseFloat(player.style.width.length) - 2)))
+				{
+
+				}
+				else
+				{
+					player.style.left = (parseFloat(player.style.left.substr(0,parseFloat(player.style.left.length) - 2)) + 0.15)+'vw';
+					checkInteractability();
+					if(movimentandoDireita)
+					{
+						setTimeout(()=>{moverDireita()},10);
+					}
+				}			
+			}
+			function moverEsquerda()
+			{
+				var player = document.getElementById('player');
+				if(parseFloat(player.style.left.substr(0,parseFloat(player.style.left.length) - 2)) <= 0.05)
+				{
+
+				}
+				else
+				{
+					player.style.left = (parseFloat(player.style.left.substr(0,parseFloat(player.style.left.length) - 2)) - 0.15)+'vw';
+					checkInteractability();
+					if(movimentandoEsquerda)
+					{
+						setTimeout(()=>{moverEsquerda()},10);
+					}
+					
+				}	
+			}
+	</script>
+</head>
+<body>
+	<div id="container" data-screen='main' style='background-image: url("img/fundos/main.png");background-size: 100% 100%;'>
+		<div id="infoDiv">
+			Use as setas para se mover!
+			<br />
+			Aperte "E" para interagir com o ambiente!
+		</div>
+		<div id="interactabilityDiv">
+			
+		</div>
+	 	<div id='player' style="
+	 	background-image: url('img/heracles/stopped.gif');
+		background-size: 100% 100%;
+		background-position: 0px 0px;
+	 	left: 0.05vw;
+	 	height: 12vw;
+	 	width: 9vw;">
+ 		</div>
+
+ 		<div id="portaInformatica" name='Desenvolvimento de Sistemas' data-room='entrarInformatica' style="
+	 	background-image: url('img/portas/portaDS.png');
+		background-size: 100% 100%;
+ 		left: 20vw;
+		height: 17vw;
+		width: 8vw;">
+
+ 		</div>
+ 		<div id="portaEnfermagem" name='Enfermagem' style="
+	 	background-image: url('img/portas/portaENF.png');
+		background-size: 100% 100%;
+ 		left: 35vw;
+		height: 17vw;
+		width: 8vw;">
+
+ 		</div>
+ 		<div id="portaEdificacoes" name='Edificações' style="
+ 		background-image: url('img/portas/portaEDI.png');
+		background-size: 100% 100%;
+ 		left: 50vw;
+		height: 17vw;
+		width: 8vw;">
+
+ 		</div>
+ 		<div id="portaTurismo" name='Turismo' style="
+	 	background-image: url('img/portas/portaTUR.png');
+		background-size: 100% 100%;
+ 		left: 65vw;
+		height: 17vw;
+		width: 8vw;">
+
+ 		</div>
+ 		<div id="portaInscricao" name='Inscreva-se' style="
+ 		background-image: url('img/portas/portaINSC.png');
+		background-size: 100% 100%;
+ 		left: 90vw;
+		height: 17vw;
+		width: 8vw;">
+
+ 		</div>
+	</div>
+</body>
+</html>
