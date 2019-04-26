@@ -131,14 +131,6 @@
 			    	(parseFloat(objetos[count].style.left.substr(0,parseFloat(objetos[count].style.left.length) - 2)) +	
 			    	parseFloat(objetos[count].style.width.substr(0,parseFloat(objetos[count].style.width.length) - 2))))
 					{
-						if(objetos[count].style.backgroundImage.substr(-5) != 'gif")')
-						{
-							objetos[count].style.backgroundImage = objetos[count].style.backgroundImage.substr(0,objetos[count].style.backgroundImage.length - 5) + 'gif")';
-						}
-			   			else
-			   			{
-			   			
-			   			}
 			   			document.getElementById('interactabilityDiv').innerHTML = objetos[count].getAttribute('NAME');
 					}
 					else

@@ -53,7 +53,7 @@ body
 	top: calc(100% - 11vw);
 	z-index: 10;
 }
-#portaInformatica, #portaEnfermagem, #portaInscricao, #portaTurismo, #portaEdificacoes
+#portaInformatica, #portaEnfermagem, #portaInscricao, #portaTurismo, #portaEdificacoes,#computadorUm,#computadorDois,#computadorTres,#professora
 {
 	position: relative;
 }

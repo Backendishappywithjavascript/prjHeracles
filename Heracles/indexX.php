@@ -76,36 +76,36 @@ switch($_POST['caso'])
 	 	width: 9vw;">
  		</div>
 
- 		<div id="computadorUm" name='Desenvolvimento de Sistemas' style="
-	 	background-image: url('img/portas/portaDS.png');
+ 		<div id="computadorUm" name='Computador: Javascript' style="
+	 	background-image: url('img/objetos/compUm.png');
 		background-size: 100% 100%;
  		left: 20vw;
 		height: 17vw;
-		width: 8vw;">
+		width: 16vw;">
 
 	    </div>
-	    <div id="computadorDois" name='Desenvolvimento de Sistemas' style="
-	 	background-image: url('img/portas/portaDS.png');
+	    <div id="computadorDois" name='Computador: HTML' style="
+	 	background-image: url('img/objetos/compUm.png');
 		background-size: 100% 100%;
  		left: 40vw;
 		height: 17vw;
-		width: 8vw;">
+		width: 16vw;">
 
 	    </div>
-	    <div id="computadorTres" name='Desenvolvimento de Sistemas' style="
-	 	background-image: url('img/portas/portaDS.png');
+	    <div id="computadorTres" name='Computador: CSS' style="
+	 	background-image: url('img/objetos/compUm.png');
 		background-size: 100% 100%;
  		left: 60vw;
 		height: 17vw;
-		width: 8vw;">
+		width: 16vw;">
 
 	    </div>
 	    <div id="professora" name='Desenvolvimento de Sistemas' style="
-	 	background-image: url('img/portas/portaDS.png');
+	 	background-image: url('img/objetos/professora.png');
 		background-size: 100% 100%;
  		left: 80vw;
 		height: 17vw;
-		width: 8vw;">
+		width: 14vw;">
 
 	    </div>
         <?php
