@@ -5,43 +5,43 @@
 	<title> Jogo </title>
 	<script type="text/javascript">
 		function janelaTemporaria(pagina, caso, dd1, dd2, dd3, orig,ext,dd4) {
-		
+
 		var xmlhttp = createRequest();
 		var obj = document.getElementById("container");
 		switch (caso) {
 			case'exibirPrimeiraImagem':
-				obj = document.getElementById("primeiroJogador");	
+				obj = document.getElementById("primeiroJogador");
 				break;
-			}				
+			}
 
     			var dados = "caso=" + escape(caso)+'&dd1='+ escape(dd1)+'&dd2='+ escape(dd2)+'&dd3='+ escape(dd3)+"&dado1="+escape(dd1)+"&dado2="+escape(dd2)+"&dado3="+escape(dd3)
-				+'&orig='+ escape(orig)+'&dd4='+ escape(dd4)+'&retorno='+ escape(ext)+'&origem='+ escape(orig);	
+				+'&orig='+ escape(orig)+'&dd4='+ escape(dd4)+'&retorno='+ escape(ext)+'&origem='+ escape(orig);
 				if(orig =='novaOrdCarga') dados= dados+'&motorista='+ext;
-	
+
 				obj.innerHTML = "<p class=\"jan_lista bold\" style=\" padding:50px;\">Aguarde...</p>";
-	
+
 				xmlhttp.open("POST", pagina, true);
-				xmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");	
+				xmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
 				xmlhttp.onreadystatechange = function() {
 				if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
-			
-		
+
+
 				switch(orig){
 
 				case'atualizar':
 				location.reload();
 				break;
 
-			
+
 					default:
 					obj.innerHTML = xmlhttp.responseText;
 					break;
 					}
-					
+
 					}
-	
-	
-				}	
+
+
+				}
 			xmlhttp.send(dados);
 		}
 		function vwValue()
@@ -56,7 +56,7 @@
 		}
 		function checkInteractability()
 		{
-			var player = document.getElementById('player');	
+			var player = document.getElementById('player');
 			var portaInformatica = document.getElementById('portaInformatica');
 			var portaEnfermagem = document.getElementById('portaEnfermagem');
 			var portaInscricao = document.getElementById('portaInscricao');
@@ -70,9 +70,9 @@
 					parseFloat(player.style.left.substr(0,parseFloat(player.style.left.length) - 2)) +
 					(parseFloat(player.style.width.substr(0,parseFloat(player.style.width.length) - 2)) / 2) >
 			    	parseFloat(portas[count].style.left.substr(0,parseFloat(portas[count].style.left.length) - 2))  &&
-			    	parseFloat(player.style.left.substr(0,parseFloat(player.style.left.length) - 2)) + 
+			    	parseFloat(player.style.left.substr(0,parseFloat(player.style.left.length) - 2)) +
 			    	(parseFloat(player.style.width.substr(0,parseFloat(player.style.width.length) - 2)) / 2) <
-			    	(parseFloat(portas[count].style.left.substr(0,parseFloat(portas[count].style.left.length) - 2)) +	
+			    	(parseFloat(portas[count].style.left.substr(0,parseFloat(portas[count].style.left.length) - 2)) +
 			    	parseFloat(portas[count].style.width.substr(0,parseFloat(portas[count].style.width.length) - 2))))
 				{
 					if(portas[count].style.backgroundImage.substr(-5) != 'gif")')
@@ -81,7 +81,7 @@
 					}
 			   		else
 			   		{
-			   			
+
 			   		}
 				}
 				else
@@ -93,11 +93,11 @@
 				}
 			}
 		}
-		
+
 		function interact()
 		{
 			// Elementos
-			var player = document.getElementById('player');	
+			var player = document.getElementById('player');
 			var portaInformatica = document.getElementById('portaInformatica');
 			var portaEnfermagem = document.getElementById('portaEnfermagem');
 			var portaTurismo = document.getElementById('portaTurismo');
@@ -111,9 +111,9 @@
 					parseFloat(player.style.left.substr(0,parseFloat(player.style.left.length) - 2)) +
 					(parseFloat(player.style.width.substr(0,parseFloat(player.style.width.length) - 2)) / 2) >
 			    	parseFloat(portas[count].style.left.substr(0,parseFloat(portas[count].style.left.length) - 2))  &&
-			    	parseFloat(player.style.left.substr(0,parseFloat(player.style.left.length) - 2)) + 
+			    	parseFloat(player.style.left.substr(0,parseFloat(player.style.left.length) - 2)) +
 			    	(parseFloat(player.style.width.substr(0,parseFloat(player.style.width.length) - 2)) / 2) <
-			    	(parseFloat(portas[count].style.left.substr(0,parseFloat(portas[count].style.left.length) - 2)) +	
+			    	(parseFloat(portas[count].style.left.substr(0,parseFloat(portas[count].style.left.length) - 2)) +
 			    	parseFloat(portas[count].style.width.substr(0,parseFloat(portas[count].style.width.length) - 2))))
 			    {
 			    	var confirmar = confirm('Deseja ir para ' + portas[count].getAttribute('NAME') + '?');
@@ -125,24 +125,24 @@
 			    				window.open("https://www.vestibulinhoetec.com.br/candidato/dados-acesso.asp");
 			    				break;
 			    		}
-			    		 
+
 			    	}
 			    }
 			}
 		}
-		
+
 		window.onkeydown = () => {
-			var player = document.getElementById('player');						
+			var player = document.getElementById('player');
 			switch(event.keyCode)
-			{			
+			{
 				case 32:
 					alert("Player Left " + parseFloat(player.style.left.substr(0,parseFloat(player.style.left.length) - 2)));
-					alert("Player Width: " + player.style.width);	
-					alert("View Width Value: " + vwValue());				
+					alert("Player Width: " + player.style.width);
+					alert("View Width Value: " + vwValue());
 					break;
 				case 69:
 					interact();
-					break;	
+					break;
 				case 39:
 					if(parseFloat(player.style.left.substr(0,parseFloat(player.style.left.length) - 2)) >= 73.85)
 					{
@@ -151,8 +151,8 @@
 					else
 					{
 						player.style.left = (parseFloat(player.style.left.substr(0,parseFloat(player.style.left.length) - 2)) + 0.30)+'vw';
-					}			
-					checkInteractability();		
+					}
+					checkInteractability();
 					break;
 				case 37:
 					if(parseFloat(player.style.left.substr(0,parseFloat(player.style.left.length) - 2)) <= 0.05)
@@ -162,9 +162,9 @@
 					else
 					{
 						player.style.left = (parseFloat(player.style.left.substr(0,parseFloat(player.style.left.length) - 2)) - 0.30)+'vw';
-					}	
+					}
 					checkInteractability();
-					break;	
+					break;
 			}
 		}
 	</script>
@@ -255,14 +255,21 @@ body
 	height: 60vh;
 	border: 1px black solid;
 }
+@font-face {
+
+      font-family: "pixeliza20";
+      src: url("../fonts/Pixeliza20.ttf") format("truetype");
+
+      }
 #infoDiv
 {
 	position: absolute;
-	font-family: 'Cd';	
+	font-family: pixeliza20;
+	font-size: 5vh;
 }
 #player
-{	
-	position: relative;	
+{
+	position: relative;
 	top: calc(100% - 12vw);
 	z-index: 10;
 }
@@ -291,4 +298,3 @@ body
 	top: calc(100% - 97vw);
 }
 </style>
-
