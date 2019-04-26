@@ -151,7 +151,6 @@
 					interact();
 					break;	
 				case 39:
-					moverEsquerdaPermissao = false;
 					moverDireitaPermissao = true;
 					if(controleMovimentoDireita)
 					{
@@ -164,7 +163,6 @@
 					}
 					break;
 				case 37:
-					moverDireitaPermissao = false;
 					moverEsquerdaPermissao = true;
 					if(controleMovimentoEsquerda)
 					{
@@ -192,7 +190,7 @@
 			function moverDireita()
 			{
 				var player = document.getElementById('player');
-				if(parseFloat(player.style.left.substr(0,parseFloat(player.style.left.length) - 2)) >= 73.85)
+				if(parseFloat(player.style.left.substr(0,parseFloat(player.style.left.length) - 2)) >= 99 - parseFloat(player.style.width.substr(0,parseFloat(player.style.width.length) - 2)))
 				{
 
 				}
@@ -244,7 +242,7 @@
  		<div id="portaInformatica" name='Desenvolvimento de Sistemas' style="
 	 	background-image: url('img/portas/portaDS.png');
 		background-size: 100% 100%;
- 		left: 30vw;
+ 		left: 20vw;
 		height: 17vw;
 		width: 8vw;">
 
@@ -252,7 +250,7 @@
  		<div id="portaEnfermagem" name='Enfermagem' style="
 	 	background-image: url('img/portas/portaENF.png');
 		background-size: 100% 100%;
- 		left: 40vw;
+ 		left: 35vw;
 		height: 17vw;
 		width: 8vw;">
 
@@ -268,7 +266,7 @@
  		<div id="portaTurismo" name='Turismo' style="
 	 	background-image: url('img/portas/portaTUR.png');
 		background-size: 100% 100%;
- 		left: 60vw;
+ 		left: 65vw;
 		height: 17vw;
 		width: 8vw;">
 
@@ -276,7 +274,7 @@
  		<div id="portaInscricao" name='Inscreva-se' style="
  		background-image: url('img/portas/portaINSC.png');
 		background-size: 100% 100%;
- 		left: 70vw;
+ 		left: 90vw;
 		height: 17vw;
 		width: 8vw;">
 
@@ -308,19 +306,23 @@ body
 }
 #container
 {
-	width: 80vw;
-	height: 60vh;
-	border: 1px black solid;
+	width: 100%;
+	height: 97%;
+	border-bottom: 1px black solid;
 }
 #infoDiv
 {
+	border: 3px black dashed;
 	position: absolute;
+	padding: 5px;
+	top: 1vw;
+	left: 1vw;
 	font-family: 'Cd';	
 }
 #player
 {	
 	position: relative;	
-	top: calc(100% - 12vw);
+	top: calc(100% - 11.3vw);
 	z-index: 10;
 }
 #portaInformatica, #portaEnfermagem, #portaInscricao, #portaTurismo, #portaEdificacoes
