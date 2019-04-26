@@ -82,7 +82,9 @@
 			var portaInscricao = document.getElementById('portaInscricao');
 			var portaTurismo = document.getElementById('portaTurismo');
 			var portaEdificacoes = document.getElementById('portaEdificacoes');
-			var portas = new Array(portaInformatica,portaEnfermagem,portaEdificacoes,portaTurismo,portaInscricao);
+			var portaAdministracao = document.getElementById('portaAdministracao');
+			var portaManutencao = document.getElementById('portaManutencao');
+			var portas = new Array(portaInformatica,portaEnfermagem,portaEdificacoes,portaTurismo,portaAdministracao,portaManutencao,portaInscricao);
 			
 			//INF
 			var computadorUm = document.getElementById('computadorUm');
@@ -105,7 +107,7 @@
 			    		(parseFloat(portas[count].style.left.substr(0,parseFloat(portas[count].style.left.length) - 2)) +	
 			    		parseFloat(portas[count].style.width.substr(0,parseFloat(portas[count].style.width.length) - 2))))
 						{
-							if(portas[count].style.backgroundImage.substr(-5) != 'gif")')
+							if(portas[count].style.backgroundImage.substr(-5) != 'gif")' && count == 0)
 							{
 								portas[count].style.backgroundImage = portas[count].style.backgroundImage.substr(0,portas[count].style.backgroundImage.length - 5) + 'gif")';
 							}
@@ -161,8 +163,9 @@
 			var portaTurismo = document.getElementById('portaTurismo');
 			var portaEdificacoes = document.getElementById('portaEdificacoes');
 			var portaInscricao = document.getElementById('portaInscricao');
-			var portas = new Array(portaInformatica,portaEnfermagem,portaTurismo,portaEdificacoes,portaInscricao)
-			
+			var portaAdministracao = document.getElementById('portaAdministracao');
+			var portaManutencao = document.getElementById('portaManutencao');
+			var portas = new Array(portaInformatica,portaEnfermagem,portaEdificacoes,portaTurismo,portaAdministracao,portaManutencao,portaInscricao);	
 			//INF
 			var computadorUm = document.getElementById('computadorUm');
 			var computadorDois = document.getElementById('computadorDois');
@@ -173,7 +176,7 @@
 			var computadorUmPhoto = "img/telas/telaJavaScript.jpg";
 			var computadorDoisPhoto = "img/telas/telaHTMLCSS.jpg";
 			var computadorTresPhoto = "img/telas/telaCSharp.jpg";
-			var professoraPhoto = "está lendo";
+			var professoraPhoto = "img/telas/professora.jpg";
 			
 			var objetos = new Array(computadorUm,computadorDois,computadorTres,professora);
 			var objetosInfo = new Array(computadorUmPhoto,computadorDoisPhoto,computadorTresPhoto,professoraPhoto);
@@ -191,18 +194,13 @@
 			    		(parseFloat(portas[count].style.left.substr(0,parseFloat(portas[count].style.left.length) - 2)) +	
 			    		parseFloat(portas[count].style.width.substr(0,parseFloat(portas[count].style.width.length) - 2))))
 			    	{
-			    	var confirmar = confirm('Deseja ir para ' + portas[count].getAttribute('NAME') + '?');
-			    	if(confirmar == true)
+			    		if(count == 4)
 			    		{
-			    			if(count == 4)
-			    			{
-			    				window.open("https://www.vestibulinhoetec.com.br/candidato/dados-acesso.asp");
-			    			}
-			    			else
-			    			{
-			    				tmpJan('indexX.php', portas[count].getAttribute('data-room'));
-			    			}
-			    		
+			    			window.open("https://www.vestibulinhoetec.com.br/candidato/dados-acesso.asp");
+			    		}
+			    		else
+			    		{
+			    			tmpJan('indexX.php', portas[count].getAttribute('data-room'));
 			    		}
 			    	}
 				}
@@ -369,7 +367,7 @@
  		<div id="portaEnfermagem" name='Enfermagem' style="
 	 	background-image: url('img/portas/portaENF.png');
 		background-size: 100% 100%;
- 		left: 35vw;
+ 		left: 30vw;
 		height: 17vw;
 		width: 8vw;">
 
@@ -377,7 +375,7 @@
  		<div id="portaEdificacoes" name='Edificações' style="
  		background-image: url('img/portas/portaEDI.png');
 		background-size: 100% 100%;
- 		left: 50vw;
+ 		left: 40vw;
 		height: 17vw;
 		width: 8vw;">
 
@@ -385,7 +383,23 @@
  		<div id="portaTurismo" name='Turismo' style="
 	 	background-image: url('img/portas/portaTUR.png');
 		background-size: 100% 100%;
- 		left: 65vw;
+ 		left: 50vw;
+		height: 17vw;
+		width: 8vw;">
+
+ 		</div>
+ 		<div id="portaManutencao" name='Manutenção' style="
+ 		background-image: url('img/portas/portaMAN.png');
+		background-size: 100% 100%;
+ 		left: 60vw;
+		height: 17vw;
+		width: 8vw;">
+
+ 		</div>
+ 		<div id="portaAdministracao" name='Administração' style="
+	 	background-image: url('img/portas/portaADM.png');
+		background-size: 100% 100%;
+ 		left: 70vw;
 		height: 17vw;
 		width: 8vw;">
 

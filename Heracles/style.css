@@ -77,7 +77,7 @@ body
 	top: calc(100% - 11vw);
 	z-index: 10;
 }
-#portaInformatica, #portaEnfermagem, #portaInscricao, #portaTurismo, #portaEdificacoes,#computadorUm,#computadorDois,#computadorTres,#professora
+#portaInformatica, #portaEnfermagem, #portaInscricao, #portaTurismo, #portaEdificacoes, #portaAdministracao, #portaManutencao,#computadorUm,#computadorDois,#computadorTres,#professora
 {
 	position: relative;
 }
@@ -97,9 +97,17 @@ body
 {
 	top: calc(100% - 80vw - 0.5vw);
 }
+#portaManutencao
+{
+    top: calc(100% - 97vw - 0.5vw);
+}
+#portaAdministracao
+{
+    top: calc(100% - 114vw - 0.5vw);
+}
 #portaInscricao
 {
-	top: calc(100% - 97vw - 0.5vw);
+	top: calc(100% - 131vw - 0.5vw);
 }
 #computadorUm
 {
