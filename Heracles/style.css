@@ -1,5 +1,6 @@
 *
 {
+    font-family: 'fipps';
 	padding: 0;
 	margin: 0;
 }
@@ -30,8 +31,22 @@ body
 	top: 1vh;
 	left: 60vw;	
 	z-index: 9;
-	font-size: 2vw;
+	font-size: 1vw;
 	color: white;
+}
+#shwoInfo
+{
+    display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 50vw;
+	position: absolute;
+	padding: 5px;
+	top: 20vh;
+	left: 25vw;
+	z-index: 11;
+	font-size: 1vw;
+	color: rgb(0,255,0);
 }
 #interactabilityDiv
 {
@@ -44,7 +59,7 @@ body
 	top: 20vh;
 	left: 25vw;
 	z-index: 9;
-	font-size: 4vw;
+	font-size: 2vw;
 	color: rgb(0,255,0);
 }
 #player
@@ -93,5 +108,13 @@ body
 {
     top: calc(100% - 80vw - 0.5vw);
 }
-
+@font-face {
+    font-family: 'fipps';
+    src: url('fonts/fipps.eot');
+    src: url('fonts/fipps.eot') format('embedded-opentype'),
+         url('fonts/fipps.woff2') format('woff2'),
+         url('fonts/fipps.woff') format('woff'),
+         url('fonts/fipps.ttf') format('truetype'),
+         url('fonts/fipps.svg#fipps') format('svg');
+}
 /*background-size: 100% 50vw;background-repeat: no-repeat;background-position: 0px bottom; CODIGO PARA O BACKGROUND*/

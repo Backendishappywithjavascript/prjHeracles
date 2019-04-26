@@ -100,7 +100,7 @@ switch($_POST['caso'])
 		width: 16vw;">
 
 	    </div>
-	    <div id="professora" name='Desenvolvimento de Sistemas' style="
+	    <div id="professora" name='Explicação' style="
 	 	background-image: url('img/objetos/professora.png');
 		background-size: 100% 100%;
  		left: 80vw;
@@ -108,6 +108,13 @@ switch($_POST['caso'])
 		width: 14vw;">
 
 	    </div>
+        <?php
+        break;
+    case'exibirInfo':
+        ?>
+        <div>
+            <?php echo $_POST['dd1']?>
+        </div>
         <?php
         break;
 }

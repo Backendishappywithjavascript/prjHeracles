@@ -24,6 +24,9 @@
 			case'entrarPrincipal':
 				obj = document.body;	
 				break;	
+			case'exibirInfo':
+				obj = document.getElementById('showInfo');	
+				break;		
 			}				
 
     			var dados = "caso=" + escape(caso)+'&dd1='+ escape(dd1)+'&dd2='+ escape(dd2)+'&dd3='+ escape(dd3)+"&dado1="+escape(dd1)+"&dado2="+escape(dd2)+"&dado3="+escape(dd3)
@@ -88,60 +91,60 @@
 			switch(document.getElementById('container').getAttribute('data-screen'))
 			{
 				case'main':	
-				for(let count = 0;count < portas.length; count++)
-				{
-					if (//Código opressor
-					parseFloat(player.style.left.substr(0,parseFloat(player.style.left.length) - 2)) +
-					(parseFloat(player.style.width.substr(0,parseFloat(player.style.width.length) - 2)) / 2) >
-			    	parseFloat(portas[count].style.left.substr(0,parseFloat(portas[count].style.left.length) - 2))  &&
-			    	parseFloat(player.style.left.substr(0,parseFloat(player.style.left.length) - 2)) + 
-			    	(parseFloat(player.style.width.substr(0,parseFloat(player.style.width.length) - 2)) / 2) <
-			    	(parseFloat(portas[count].style.left.substr(0,parseFloat(portas[count].style.left.length) - 2)) +	
-			    	parseFloat(portas[count].style.width.substr(0,parseFloat(portas[count].style.width.length) - 2))))
+					for(let count = 0;count < portas.length; count++)
 					{
-						if(portas[count].style.backgroundImage.substr(-5) != 'gif")')
+						if (//Código opressor
+						parseFloat(player.style.left.substr(0,parseFloat(player.style.left.length) - 2)) +
+						(parseFloat(player.style.width.substr(0,parseFloat(player.style.width.length) - 2)) / 2) >
+			    		parseFloat(portas[count].style.left.substr(0,parseFloat(portas[count].style.left.length) - 2))  &&
+			    		parseFloat(player.style.left.substr(0,parseFloat(player.style.left.length) - 2)) + 
+			    		(parseFloat(player.style.width.substr(0,parseFloat(player.style.width.length) - 2)) / 2) <
+			    		(parseFloat(portas[count].style.left.substr(0,parseFloat(portas[count].style.left.length) - 2)) +	
+			    		parseFloat(portas[count].style.width.substr(0,parseFloat(portas[count].style.width.length) - 2))))
 						{
-							portas[count].style.backgroundImage = portas[count].style.backgroundImage.substr(0,portas[count].style.backgroundImage.length - 5) + 'gif")';
-						}
-			   			else
-			   			{
+							if(portas[count].style.backgroundImage.substr(-5) != 'gif")')
+							{
+								portas[count].style.backgroundImage = portas[count].style.backgroundImage.substr(0,portas[count].style.backgroundImage.length - 5) + 'gif")';
+							}
+			   				else
+			   				{
 			   			
-			   			}
-			   			document.getElementById('interactabilityDiv').innerHTML = portas[count].getAttribute('NAME');
-					}
-					else
-					{
-						if(portas[count].style.backgroundImage.substr(-5) == 'gif")')
+			   				}
+			   				document.getElementById('interactabilityDiv').innerHTML = portas[count].getAttribute('NAME');
+						}
+						else
 						{
-							portas[count].style.backgroundImage = portas[count].style.backgroundImage.substr(0,portas[count].style.backgroundImage.length - 5) + 'png")';
-							document.getElementById('interactabilityDiv').innerHTML = "";
+							if(portas[count].style.backgroundImage.substr(-5) == 'gif")')
+							{
+								portas[count].style.backgroundImage = portas[count].style.backgroundImage.substr(0,portas[count].style	.backgroundImage.length - 5) + 'png")';
+								document.getElementById('interactabilityDiv').innerHTML = "";
+							}
 						}
 					}
-				}
 				break;
 				case'inf':
-				for(let count = 0;count < objetos.length; count++)
-				{
-					if (//Código opressor
-					parseFloat(player.style.left.substr(0,parseFloat(player.style.left.length) - 2)) +
-					(parseFloat(player.style.width.substr(0,parseFloat(player.style.width.length) - 2)) / 2) >
-			    	parseFloat(objetos[count].style.left.substr(0,parseFloat(objetos[count].style.left.length) - 2))  &&
-			    	parseFloat(player.style.left.substr(0,parseFloat(player.style.left.length) - 2)) + 
-			    	(parseFloat(player.style.width.substr(0,parseFloat(player.style.width.length) - 2)) / 2) <
-			    	(parseFloat(objetos[count].style.left.substr(0,parseFloat(objetos[count].style.left.length) - 2)) +	
-			    	parseFloat(objetos[count].style.width.substr(0,parseFloat(objetos[count].style.width.length) - 2))))
+					for(let count = 0;count < objetos.length; count++)
 					{
-			   			document.getElementById('interactabilityDiv').innerHTML = objetos[count].getAttribute('NAME');
-					}
-					else
-					{
-						if(objetos[count].style.backgroundImage.substr(-5) == 'gif")')
+						if (//Código opressor
+						parseFloat(player.style.left.substr(0,parseFloat(player.style.left.length) - 2)) +
+						(parseFloat(player.style.width.substr(0,parseFloat(player.style.width.length) - 2)) / 2) >
+			    		parseFloat(objetos[count].style.left.substr(0,parseFloat(objetos[count].style.left.length) - 2))  &&
+			    		parseFloat(player.style.left.substr(0,parseFloat(player.style.left.length) - 2)) + 
+			    		(parseFloat(player.style.width.substr(0,parseFloat(player.style.width.length) - 2)) / 2) <
+			    		(parseFloat(objetos[count].style.left.substr(0,parseFloat(objetos[count].style.left.length) - 2)) +	
+			    		parseFloat(objetos[count].style.width.substr(0,parseFloat(objetos[count].style.width.length) - 2))))
 						{
-							objetos[count].style.backgroundImage = objetos[count].style.backgroundImage.substr(0,objetos[count].style.backgroundImage.length - 5) + 'png")';
-							document.getElementById('interactabilityDiv').innerHTML = "";
+			   				document.getElementById('interactabilityDiv').innerHTML = objetos[count].getAttribute('NAME');
+						}
+						else
+						{
+							if(objetos[count].style.backgroundImage.substr(-5) == 'gif")')
+							{
+								objetos[count].style.backgroundImage = objetos[count].style.backgroundImage.substr(0,objetos[count].style.backgroundImage.length - 5) + 'png")';
+								document.getElementById('interactabilityDiv').innerHTML = "";
+							}
 						}
 					}
-				}
 					break;
 			}
 		}
@@ -156,32 +159,76 @@
 			var portaEdificacoes = document.getElementById('portaEdificacoes');
 			var portaInscricao = document.getElementById('portaInscricao');
 			var portas = new Array(portaInformatica,portaEnfermagem,portaTurismo,portaEdificacoes,portaInscricao)
-			for(let count = 0;count < portas.length; count++)
+			
+			//INF
+			var computadorUm = document.getElementById('computadorUm');
+			var computadorDois = document.getElementById('computadorDois');
+			var computadorTres = document.getElementById('computadorTres');
+			var professora = document.getElementById('professora');
+			
+			//INF INFORMAÇÃO
+			var computadorUmInfo = "Pau no cu de quem está lendo";
+			var computadorDoisInfo = "Pau no cu";
+			var computadorTresInfo = "de quem";
+			var professoraInfo = "está lendo";
+			
+			var objetos = new Array(computadorUm,computadorDois,computadorTres,professora);
+			var objetosInfo = new Array(computadorUmInfo,computadorDoisInfo,computadorTresInfo,professoraInfo);
+			switch(document.getElementById('container').getAttribute('data-screen'))
 			{
-				if (
-					//Código opressor
-					parseFloat(player.style.left.substr(0,parseFloat(player.style.left.length) - 2)) +
-					(parseFloat(player.style.width.substr(0,parseFloat(player.style.width.length) - 2)) / 2) >
-			    	parseFloat(portas[count].style.left.substr(0,parseFloat(portas[count].style.left.length) - 2))  &&
-			    	parseFloat(player.style.left.substr(0,parseFloat(player.style.left.length) - 2)) + 
-			    	(parseFloat(player.style.width.substr(0,parseFloat(player.style.width.length) - 2)) / 2) <
-			    	(parseFloat(portas[count].style.left.substr(0,parseFloat(portas[count].style.left.length) - 2)) +	
-			    	parseFloat(portas[count].style.width.substr(0,parseFloat(portas[count].style.width.length) - 2))))
-			    {
+				case'main':
+				for(let count = 0;count < portas.length; count++)
+				{
+					if (//Código opressor
+						parseFloat(player.style.left.substr(0,parseFloat(player.style.left.length) - 2)) +
+						(parseFloat(player.style.width.substr(0,parseFloat(player.style.width.length) - 2)) / 2) >
+			    		parseFloat(portas[count].style.left.substr(0,parseFloat(portas[count].style.left.length) - 2))  &&
+			    		parseFloat(player.style.left.substr(0,parseFloat(player.style.left.length) - 2)) + 
+			    		(parseFloat(player.style.width.substr(0,parseFloat(player.style.width.length) - 2)) / 2) <
+			    		(parseFloat(portas[count].style.left.substr(0,parseFloat(portas[count].style.left.length) - 2)) +	
+			    		parseFloat(portas[count].style.width.substr(0,parseFloat(portas[count].style.width.length) - 2))))
+			    	{
 			    	var confirmar = confirm('Deseja ir para ' + portas[count].getAttribute('NAME') + '?');
 			    	if(confirmar == true)
-			    	{
-			    		if(count == 4)
 			    		{
-			    			window.open("https://www.vestibulinhoetec.com.br/candidato/dados-acesso.asp");
-			    		}
-			    		else
-			    		{
-			    			tmpJan('indexX.php', portas[count].getAttribute('data-room'));
-			    		}
+			    			if(count == 4)
+			    			{
+			    				window.open("https://www.vestibulinhoetec.com.br/candidato/dados-acesso.asp");
+			    			}
+			    			else
+			    			{
+			    				tmpJan('indexX.php', portas[count].getAttribute('data-room'));
+			    			}
 			    		
+			    		}
 			    	}
-			    }
+				}
+				case'inf':
+					for(let count = 0;count < objetos.length; count++)
+					{
+						if (//Código opressor
+						parseFloat(player.style.left.substr(0,parseFloat(player.style.left.length) - 2)) +
+						(parseFloat(player.style.width.substr(0,parseFloat(player.style.width.length) - 2)) / 2) >
+			    		parseFloat(objetos[count].style.left.substr(0,parseFloat(objetos[count].style.left.length) - 2))  &&
+			    		parseFloat(player.style.left.substr(0,parseFloat(player.style.left.length) - 2)) + 
+			    		(parseFloat(player.style.width.substr(0,parseFloat(player.style.width.length) - 2)) / 2) <
+			    		(parseFloat(objetos[count].style.left.substr(0,parseFloat(objetos[count].style.left.length) - 2)) +	
+			    		parseFloat(objetos[count].style.width.substr(0,parseFloat(objetos[count].style.width.length) - 2))))
+						{
+			   				alert(objetos[count].getAttribute('NAME'));
+			   				tmpJan('indexX.php', 'exibirInfo', objetosInfo[count]);
+						}
+						else
+						{
+							if(objetos[count].style.backgroundImage.substr(-5) == 'gif")')
+							{
+								objetos[count].style.backgroundImage = objetos[count].style.backgroundImage.substr(0,objetos[count].style.backgroundImage.length - 5) + 'png")';
+								document.getElementById('interactabilityDiv').innerHTML = "";
+							}
+						}
+					}
+					break;
+				break;
 			}
 		}
 		
@@ -291,6 +338,9 @@
 			Aperte "E" para interagir com o ambiente!
 		</div>
 		<div id="interactabilityDiv">
+			
+		</div>
+		<div id="showInfo">
 			
 		</div>
 	 	<div id='player' style="
