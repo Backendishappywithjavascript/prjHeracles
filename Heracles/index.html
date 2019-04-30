@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset='utf-8'/>
+	<link rel="stylesheet" href="style.css" type="text/css" />
+	<title> Jogo </title>
+	<script type="text/javascript" src="lib/ajax.js"></script>
+	<script type="text/javascript">
+	
+		//controle da movimentação do personagem
+		var movimentandoDireita = false; 
+		var movimentandoEsquerda = false; 
+		var controleMovimentoEsquerda = false;
+		var controleMovimentoDireita = false;
+		
+		//OBJETOS INTERATIVOS
+			//PRINCIPAL
+		var portaInformatica = 'portaInformatica';
+		var portaEnfermagem = 'portaEnfermagem';
+		var portaTurismo = 'portaTurismo';
+		var portaEdificacoes = 'portaEdificacoes';
+		var portaAdministracao = 'portaAdministracao';
+		var portaManutencao = 'portaManutencao';
+		var portaInscricao = 'portaInscricao';
+		var objetosPrincipal = new Array(portaInformatica,portaEnfermagem,portaEdificacoes,portaTurismo,portaAdministracao,portaManutencao,portaInscricao);	
+		
+			//INF
+		var computadorUm = 'computadorUm';
+		var computadorDois = 'computadorDois';
+		var computadorTres = 'computadorTres';
+		var professora = 'professora';
+		var objetosInformatica = new Array(computadorUm,computadorDois,computadorTres,professora);	
+		var objetosInformaticaInfo = new Array(computadorUmPhoto,computadorDoisPhoto,computadorTresPhoto,professoraPhoto); 
+		
+			//OBJETOS
+		var salaAtual = 0;	
+		var objetos = new Array(objetosPrincipal,objetosInformatica);
+			
+		
+		
+			//INF INFORMAÇÃO
+		var computadorUmPhoto = "img/telas/telaJavaScript.jpg";
+		var computadorDoisPhoto = "img/telas/telaHTMLCSS.jpg";
+		var computadorTresPhoto = "img/telas/telaCSharp.jpg";
+		var professoraPhoto = "img/telas/professora.jpg";
+		
+		
+		function vwValue()
+		{
+			return document.documentElement.clientWidth / 100;
+		}
+		function vwToPx(vw)
+		{
+			var px = vwValue();
+			px = vw.substr(0, vw.length - 2);
+			return px + 'px';
+		}
+		function checkInteractability()
+		{
+			var player = document.getElementById('player');	
+			
+			for(let count = 0;count < objetos[salaAtual].length; count++)
+			{
+				var objAtual = document.getElementById(objetos[salaAtual][count]);
+				if (//Código opressor
+					parseFloat(player.style.left.substr(0,parseFloat(player.style.left.length) - 2)) +
+					(parseFloat(player.style.width.substr(0,parseFloat(player.style.width.length) - 2)) / 2) >
+			    	parseFloat(objAtual.style.left.substr(0,parseFloat(objAtual.style.left.length) - 2))  &&
+			    	parseFloat(player.style.left.substr(0,parseFloat(player.style.left.length) - 2)) + 
+			    	(parseFloat(player.style.width.substr(0,parseFloat(player.style.width.length) - 2)) / 2) <
+			    	(parseFloat(objAtual.style.left.substr(0,parseFloat(objAtual.style.left.length) - 2)) +	
+			    	parseFloat(objAtual.style.width.substr(0,parseFloat(objAtual.style.width.length) - 2))))
+					{
+						if(objAtual.style.backgroundImage.substr(-5) != 'gif")' && count == 0)
+						{
+							objAtual.style.backgroundImage = objAtual.style.backgroundImage.substr(0,objAtual.style.backgroundImage.length - 5) + 'gif")';
+						}
+			   			else
+			   			{
+			   			
+			   			}
+			   			document.getElementById('interactabilityDiv').innerHTML = objAtual.getAttribute('NAME');
+						}
+				else
+				{
+					if(objAtual.style.backgroundImage.substr(-5) == 'gif")')
+					{
+						objAtual.style.backgroundImage = objAtual.style.backgroundImage.substr(0,objAtual.style	.backgroundImage.length - 5) + 'png")';
+						document.getElementById('interactabilityDiv').innerHTML = "";
+					}
+				}
+			}
+		}
+		
+		function interact()
+		{
+
+			var player = document.getElementById('player');	
+			
+			for(let count = 0;count < objetos[salaAtual].length; count++)
+			{
+				var objAtual = document.getElementById(objetos[salaAtual][count]);
+				if (//Código opressor
+				parseFloat(player.style.left.substr(0,parseFloat(player.style.left.length) - 2)) +
+				(parseFloat(player.style.width.substr(0,parseFloat(player.style.width.length) - 2)) / 2) >
+			    parseFloat(objAtual.style.left.substr(0,parseFloat(objAtual.style.left.length) - 2))  &&
+			    parseFloat(player.style.left.substr(0,parseFloat(player.style.left.length) - 2)) + 
+			    (parseFloat(player.style.width.substr(0,parseFloat(player.style.width.length) - 2)) / 2) <
+			    (parseFloat(objAtual.style.left.substr(0,parseFloat(objAtual.style.left.length) - 2)) +	
+			    parseFloat(objAtual.style.width.substr(0,parseFloat(objAtual.style.width.length) - 2))))
+				{
+					switch(objAtual.getAttribute('data-interaction'))
+			    	{
+			    		case 'porta':
+			    			mudarLugar(objAtual.getAttribute('data-sala'), 's');
+			    			break;
+			    		case 'porta-insc':
+			    			window.open("https://www.vestibulinhoetec.com.br/candidato/dados-acesso.asp");
+			    			break;	
+			    	}
+				}
+				else
+				{
+					
+				}
+			}
+		}
+		
+		window.onkeydown = () => {		
+			var player = document.getElementById('player');
+			switch(event.keyCode)
+			{			
+				case 32:
+					alert("Player Left " + parseFloat(player.style.left.substr(0,parseFloat(player.style.left.length) - 2)));
+					alert("Player Width: " + player.style.width);	
+					alert("View Width Value: " + vwValue());				
+					break;
+				case 69:
+					interact();
+					break;	
+				case 39:
+					movimentandoDireita = true;
+					if(controleMovimentoDireita)
+					{
+						
+					}
+					else
+					{
+						moverDireita();
+						controleMovimentoDireita = true;
+						player.style.transform = 'scaleX(1)';
+						player.style.backgroundImage= 'url("img/heracles/walking.gif")';
+					}
+					break;
+				case 37:
+					movimentandoEsquerda = true;
+					if(controleMovimentoEsquerda)
+					{
+						
+					}
+					else
+					{
+						moverEsquerda();
+						controleMovimentoEsquerda = true;
+						player.style.transform = 'scaleX(-1)';
+						player.style.backgroundImage= 'url("img/heracles/walking.gif")';
+					}
+					break;	
+			}}
+			window.onkeyup = () => {					
+			switch(event.keyCode)
+			{	
+				case 39:
+						movimentandoDireita = false;
+						controleMovimentoDireita = false;
+						if(!movimentandoEsquerda)
+						{
+							player.style.backgroundImage= 'url("img/heracles/stopped.gif")';	
+						}
+					break;
+				case 37:
+						movimentandoEsquerda = false;
+						controleMovimentoEsquerda = false;
+						if(!movimentandoDireita)
+						{
+							player.style.backgroundImage= 'url("img/heracles/stopped.gif")';	
+						}
+					break;	
+			}}
+			function moverDireita()
+			{
+				var player = document.getElementById('player');
+				if(parseFloat(player.style.left.substr(0,parseFloat(player.style.left.length) - 2)) >= 99 - parseFloat(player.style.width.substr(0,parseFloat(player.style.width.length) - 2)))
+				{
+
+				}
+				else
+				{
+					player.style.left = (parseFloat(player.style.left.substr(0,parseFloat(player.style.left.length) - 2)) + 0.15)+'vw';
+					checkInteractability();
+					if(movimentandoDireita)
+					{
+						setTimeout(()=>{moverDireita()},10);
+					}
+				}			
+			}
+			function moverEsquerda()
+			{
+				var player = document.getElementById('player');
+				if(parseFloat(player.style.left.substr(0,parseFloat(player.style.left.length) - 2)) <= 0.05)
+				{
+
+				}
+				else
+				{
+					player.style.left = (parseFloat(player.style.left.substr(0,parseFloat(player.style.left.length) - 2)) - 0.15)+'vw';
+					checkInteractability();
+					if(movimentandoEsquerda)
+					{
+						setTimeout(()=>{moverEsquerda()},10);
+					}
+					
+				}	
+			}
+			
+		
+	</script>
+</head>
+<body>
+	<div id='escurecer' style='visibility: hidden;'>
+			
+	</div>
+	<div id="container" data-screen='main' style='background-image: url("img/fundos/main.png");background-size: 100% 100%;'>
+		<div id="infoDiv">
+			Use as setas para se mover!
+			<br />
+			Aperte "E" para interagir com o ambiente!
+		</div>
+		<div id="interactabilityDiv">
+			
+		</div>
+		<div id="showInfo">
+			
+		</div>
+	 	<div id='player' style="
+	 	background-image: url('img/heracles/stopped.gif');
+		background-size: 100% 100%;
+		background-position: 0px 0px;
+	 	left: 0.05vw;
+	 	height: 12vw;
+	 	width: 9vw;">
+ 		</div>
+
+ 		<div id="portaInformatica" data-interaction='porta' name='Desenvolvimento de Sistemas' data-sala='1' style="
+	 	background-image: url('img/portas/portaDS.png');
+		background-size: 100% 100%;
+ 		left: 20vw;
+		height: 17vw;
+		width: 8vw;">
+
+ 		</div>
+ 		<div id="portaEnfermagem" data-interaction='porta' name='Enfermagem' data-sala='2' style="
+	 	background-image: url('img/portas/portaENF.png');
+		background-size: 100% 100%;
+ 		left: 30vw;
+		height: 17vw;
+		width: 8vw;">
+
+ 		</div>
+ 		<div id="portaEdificacoes" data-interaction='porta' name='Edificações' data-sala='3' style="
+ 		background-image: url('img/portas/portaEDI.png');
+		background-size: 100% 100%;
+ 		left: 40vw;
+		height: 17vw;
+		width: 8vw;">
+
+ 		</div>
+ 		<div id="portaTurismo" data-interaction='porta' name='Turismo' data-sala='4' style="
+	 	background-image: url('img/portas/portaTUR.png');
+		background-size: 100% 100%;
+ 		left: 50vw;
+		height: 17vw;
+		width: 8vw;">
+
+ 		</div>
+ 		<div id="portaManutencao" data-interaction='porta' name='Manutenção' data-sala='5' style="
+ 		background-image: url('img/portas/portaMAN.png');
+		background-size: 100% 100%;
+ 		left: 60vw;
+		height: 17vw;
+		width: 8vw;">
+
+ 		</div>
+ 		<div id="portaAdministracao" data-interaction='porta' name='Administração' data-sala='6' style="
+	 	background-image: url('img/portas/portaADM.png');
+		background-size: 100% 100%;
+ 		left: 70vw;
+		height: 17vw;
+		width: 8vw;">
+
+ 		</div>
+ 		<div id="portaInscricao" data-interaction='porta-insc' name='Inscreva-se' data-sala='7' style="
+ 		background-image: url('img/portas/portaINSC.png');
+		background-size: 100% 100%;
+ 		left: 90vw;
+		height: 17vw;
+		width: 8vw;">
+
+ 		</div>
+	</div>
+</body>
+<script type="text/javascript">
+	function mudarLugar(sala, dd1) 
+		{
+			movimentandoDireita = false; 
+			movimentandoEsquerda = false; 
+			controleMovimentoEsquerda = false;
+			controleMovimentoDireita = false;
+			salaAtual = sala;
+			
+			switch(sala)
+			{
+				case '1':
+				document.body.innerHTML = `
+				<div id='escurecer' style='visibility: hidden;'>
+			
+	    		</div>
+    			<div id="container" data-screen='inf' style='background-image: url("img/fundos/salaDS.png");background-size: 100% 100%;'>
+				<div id="interactabilityDiv">
+			
+				</div>
+				<div id="showInfo">
+			
+				</div>
+	 			<div id='player' style="
+	 			background-image: url('img/heracles/stopped.gif');
+				background-size: 100% 100%;
+				background-position: 0px 0px;
+	 			left: 0.05vw;
+	 			height: 12vw;
+	 			width: 9vw;">
+ 				</div>
+	
+ 				<div id="computadorUm" name='Computador: Javascript' style="
+	 			background-image: url('img/objetos/compUm.png');
+				background-size: 100% 100%;
+ 				left: 20vw;
+				height: 17vw;
+				width: 16vw;">
+
+	    		</div>
+	    		<div id="computadorDois" name='Computador: HTML' style="
+	 			background-image: url('img/objetos/compUm.png');
+				background-size: 100% 100%;
+ 				left: 40vw;
+				height: 17vw;
+				width: 16vw;">
+
+	    		</div>
+	    		<div id="computadorTres" name='Computador: CSS' style="
+	 			background-image: url('img/objetos/compUm.png');
+				background-size: 100% 100%;
+				transform: scaleX(-1);
+ 				left: 60vw;
+				height: 17vw;
+				width: 16vw;">
+
+				 </div>
+				<div id="professora" name='Explicação' style="
+	 			background-image: url('img/objetos/professora.png');
+				background-size: 100% 100%;
+ 				left: 80vw;
+				height: 17vw;
+				width: 14vw;">
+
+	    		</div>`;
+	    			break;
+			}
+		}
+</script>
+</html>
+
+

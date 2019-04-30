@@ -59,58 +59,7 @@ switch($_POST['caso'])
         break;
     case 'entrarInformatica':
         ?>
-        <div id='escurecer' style='visibility: hidden;'>
-			
-	    </div>
-        <div id="container" data-screen='inf' style='background-image: url("img/fundos/salaDS.png");background-size: 100% 100%;'>
-		<div id="interactabilityDiv">
-			
-		</div>
-		<div id="showInfo">
-			
-		</div>
-	 	<div id='player' style="
-	 	background-image: url('img/heracles/stopped.gif');
-		background-size: 100% 100%;
-		background-position: 0px 0px;
-	 	left: 0.05vw;
-	 	height: 12vw;
-	 	width: 9vw;">
- 		</div>
-
- 		<div id="computadorUm" name='Computador: Javascript' style="
-	 	background-image: url('img/objetos/compUm.png');
-		background-size: 100% 100%;
- 		left: 20vw;
-		height: 17vw;
-		width: 16vw;">
-
-	    </div>
-	    <div id="computadorDois" name='Computador: HTML' style="
-	 	background-image: url('img/objetos/compUm.png');
-		background-size: 100% 100%;
- 		left: 40vw;
-		height: 17vw;
-		width: 16vw;">
-
-	    </div>
-	    <div id="computadorTres" name='Computador: CSS' style="
-	 	background-image: url('img/objetos/compUm.png');
-		background-size: 100% 100%;
-		transform: scaleX(-1);
- 		left: 60vw;
-		height: 17vw;
-		width: 16vw;">
-
-	    </div>
-	    <div id="professora" name='Explicação' style="
-	 	background-image: url('img/objetos/professora.png');
-		background-size: 100% 100%;
- 		left: 80vw;
-		height: 17vw;
-		width: 14vw;">
-
-	    </div>
+        
         <?php
         break;
     case'exibirInfo':
