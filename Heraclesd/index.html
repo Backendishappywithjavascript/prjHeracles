@@ -4,7 +4,7 @@
 	<meta charset='utf-8'/>
 	<link rel="stylesheet" href="style.css" type="text/css" />
 	<title> Jogo </title>
-	<script type="text/javascript" src="lib/ajax.js"></script>
+	<script type="text/javascript" src="classes/main.js"></script>
 	<script type="text/javascript">
 	
 		//controle da movimentação do personagem
@@ -15,20 +15,21 @@
 		
 		//OBJETOS INTERATIVOS
 			//PRINCIPAL
-		var portaInformatica = 'portaInformatica';
-		var portaEnfermagem = 'portaEnfermagem';
-		var portaTurismo = 'portaTurismo';
-		var portaEdificacoes = 'portaEdificacoes';
-		var portaAdministracao = 'portaAdministracao';
-		var portaManutencao = 'portaManutencao';
-		var portaInscricao = 'portaInscricao';
+		var portaInformatica = new ObjetoInterativo('portaInformatica', 'porta', 'Sala de Desenvolvimento de Sistemas', 1);
+		
+		var portaEnfermagem = new ObjetoInterativo('portaEnfermagem', 'porta', 'Sala de Enfermagem', 2);
+		var portaTurismo = new ObjetoInterativo('portaTurismo', 'porta', 'Turismo', 3);
+		var portaEdificacoes = new ObjetoInterativo('portaEdificacoes', 'porta', 'Sala de Edificações', 4);
+		var portaAdministracao = new ObjetoInterativo('portaAdministracao', 'porta', 'Sala de Administração', 5);
+		var portaManutencao = new ObjetoInterativo('portaManutencao', 'porta', 'Sala de Manutenção', 6);
+		var portaInscricao = new ObjetoInterativo('portaInscricao', 'porta', 'Inscreva-se', 7);
 		var objetosPrincipal = new Array(portaInformatica,portaEnfermagem,portaEdificacoes,portaTurismo,portaAdministracao,portaManutencao,portaInscricao);	
 		
 			//INF
-		var computadorUm = 'computadorUm';
-		var computadorDois = 'computadorDois';
-		var computadorTres = 'computadorTres';
-		var professora = 'professora';
+		var computadorUm = new ObjetoInterativo('computadorUm', 'computador', 'Linguagens de Programação', 'Primeiro');
+		var computadorDois = new ObjetoInterativo('computadorDois', 'computador', 'Bancos de Dados', 'Segundo');
+		var computadorTres = new ObjetoInterativo('computadorTres', 'computador', 'Lógica', 'Terceiro');
+		var professora = new ObjetoInterativo('professora', 'professora', 'Exercício', null);
 		var objetosInformatica = new Array(computadorUm,computadorDois,computadorTres,professora);	
 		var objetosInformaticaInfo = new Array(computadorUmPhoto,computadorDoisPhoto,computadorTresPhoto,professoraPhoto); 
 		
@@ -61,7 +62,7 @@
 			
 			for(let count = 0;count < objetos[salaAtual].length; count++)
 			{
-				var objAtual = document.getElementById(objetos[salaAtual][count]);
+				var objAtual = document.getElementById(objetos[salaAtual][count].id);
 				if (//Código opressor
 					parseFloat(player.style.left.substr(0,parseFloat(player.style.left.length) - 2)) +
 					(parseFloat(player.style.width.substr(0,parseFloat(player.style.width.length) - 2)) / 2) >
@@ -71,7 +72,7 @@
 			    	(parseFloat(objAtual.style.left.substr(0,parseFloat(objAtual.style.left.length) - 2)) +	
 			    	parseFloat(objAtual.style.width.substr(0,parseFloat(objAtual.style.width.length) - 2))))
 					{
-						if(objAtual.style.backgroundImage.substr(-5) != 'gif")' && count == 0)
+						if(objetos[salaAtual][count].getTypeInteract() == "porta" && objAtual.style.backgroundImage.substr(-5) != 'gif")' && count == 0)
 						{
 							objAtual.style.backgroundImage = objAtual.style.backgroundImage.substr(0,objAtual.style.backgroundImage.length - 5) + 'gif")';
 						}
@@ -79,15 +80,16 @@
 			   			{
 			   			
 			   			}
-			   			document.getElementById('interactabilityDiv').innerHTML = objAtual.getAttribute('NAME');
-						}
+			   			document.getElementById('interactabilityDiv').innerHTML = objetos[salaAtual][count].getName();
+			   			break;
+					}
 				else
 				{
 					if(objAtual.style.backgroundImage.substr(-5) == 'gif")')
 					{
 						objAtual.style.backgroundImage = objAtual.style.backgroundImage.substr(0,objAtual.style	.backgroundImage.length - 5) + 'png")';
-						document.getElementById('interactabilityDiv').innerHTML = "";
 					}
+					document.getElementById('interactabilityDiv').innerHTML = "";
 				}
 			}
 		}
@@ -99,7 +101,7 @@
 			
 			for(let count = 0;count < objetos[salaAtual].length; count++)
 			{
-				var objAtual = document.getElementById(objetos[salaAtual][count]);
+				var objAtual = document.getElementById(objetos[salaAtual][count].id);
 				if (//Código opressor
 				parseFloat(player.style.left.substr(0,parseFloat(player.style.left.length) - 2)) +
 				(parseFloat(player.style.width.substr(0,parseFloat(player.style.width.length) - 2)) / 2) >
@@ -109,15 +111,24 @@
 			    (parseFloat(objAtual.style.left.substr(0,parseFloat(objAtual.style.left.length) - 2)) +	
 			    parseFloat(objAtual.style.width.substr(0,parseFloat(objAtual.style.width.length) - 2))))
 				{
-					switch(objAtual.getAttribute('data-interaction'))
+					movimentandoDireita = false; 
+					movimentandoEsquerda = false; 
+					controleMovimentoEsquerda = false;
+					controleMovimentoDireita = false;
+					player.style.backgroundImage="url(img/heracles/stopped.gif)";
+					switch(objetos[salaAtual][count].getTypeInteract())
 			    	{
 			    		case 'porta':
-			    			mudarLugar(objAtual.getAttribute('data-sala'), 's');
+			    			mudarLugar(objetos[salaAtual][count].getData());
 			    			break;
-			    		case 'porta-insc':
-			    			window.open("https://www.vestibulinhoetec.com.br/candidato/dados-acesso.asp");
+			    		case 'computador':
+			    			alert('Computador: ' + objetos[salaAtual][count].getData());
 			    			break;	
+			    		case 'professora':
+			    			alert('Olá, sou a professora!');
+			    			break;
 			    	}
+			    	break;
 				}
 				else
 				{
@@ -198,6 +209,10 @@
 				{
 					player.style.left = (parseFloat(player.style.left.substr(0,parseFloat(player.style.left.length) - 2)) + 0.15)+'vw';
 					checkInteractability();
+					if(player.style.transform == "scaleX(-1)")
+					{
+						player.style.transform = "scaleX(1)";
+					}
 					if(movimentandoDireita)
 					{
 						setTimeout(()=>{moverDireita()},10);
@@ -215,6 +230,10 @@
 				{
 					player.style.left = (parseFloat(player.style.left.substr(0,parseFloat(player.style.left.length) - 2)) - 0.15)+'vw';
 					checkInteractability();
+					if(player.style.transform == "scaleX(1)")
+					{
+						player.style.transform = "scaleX(-1)";
+					}
 					if(movimentandoEsquerda)
 					{
 						setTimeout(()=>{moverEsquerda()},10);
@@ -251,7 +270,7 @@
 	 	width: 9vw;">
  		</div>
 
- 		<div id="portaInformatica" data-interaction='porta' name='Desenvolvimento de Sistemas' data-sala='1' style="
+ 		<div id="portaInformatica" style="
 	 	background-image: url('img/portas/portaDS.png');
 		background-size: 100% 100%;
  		left: 20vw;
@@ -259,7 +278,7 @@
 		width: 8vw;">
 
  		</div>
- 		<div id="portaEnfermagem" data-interaction='porta' name='Enfermagem' data-sala='2' style="
+ 		<div id="portaEnfermagem" style="
 	 	background-image: url('img/portas/portaENF.png');
 		background-size: 100% 100%;
  		left: 30vw;
@@ -267,7 +286,7 @@
 		width: 8vw;">
 
  		</div>
- 		<div id="portaEdificacoes" data-interaction='porta' name='Edificações' data-sala='3' style="
+ 		<div id="portaEdificacoes" style="
  		background-image: url('img/portas/portaEDI.png');
 		background-size: 100% 100%;
  		left: 40vw;
@@ -275,7 +294,7 @@
 		width: 8vw;">
 
  		</div>
- 		<div id="portaTurismo" data-interaction='porta' name='Turismo' data-sala='4' style="
+ 		<div id="portaTurismo" style="
 	 	background-image: url('img/portas/portaTUR.png');
 		background-size: 100% 100%;
  		left: 50vw;
@@ -283,7 +302,7 @@
 		width: 8vw;">
 
  		</div>
- 		<div id="portaManutencao" data-interaction='porta' name='Manutenção' data-sala='5' style="
+ 		<div id="portaManutencao" style="
  		background-image: url('img/portas/portaMAN.png');
 		background-size: 100% 100%;
  		left: 60vw;
@@ -291,7 +310,7 @@
 		width: 8vw;">
 
  		</div>
- 		<div id="portaAdministracao" data-interaction='porta' name='Administração' data-sala='6' style="
+ 		<div id="portaAdministracao" style="
 	 	background-image: url('img/portas/portaADM.png');
 		background-size: 100% 100%;
  		left: 70vw;
@@ -299,7 +318,7 @@
 		width: 8vw;">
 
  		</div>
- 		<div id="portaInscricao" data-interaction='porta-insc' name='Inscreva-se' data-sala='7' style="
+ 		<div id="portaInscricao" style="
  		background-image: url('img/portas/portaINSC.png');
 		background-size: 100% 100%;
  		left: 90vw;
@@ -310,17 +329,11 @@
 	</div>
 </body>
 <script type="text/javascript">
-	function mudarLugar(sala, dd1) 
+	function mudarLugar(sala) 
 		{
-			movimentandoDireita = false; 
-			movimentandoEsquerda = false; 
-			controleMovimentoEsquerda = false;
-			controleMovimentoDireita = false;
-			salaAtual = sala;
-			
 			switch(sala)
 			{
-				case '1':
+				case 1:
 				document.body.innerHTML = `
 				<div id='escurecer' style='visibility: hidden;'>
 			
@@ -375,7 +388,18 @@
 
 	    		</div>`;
 	    			break;
+	    		case 7:
+	    			window.open("https://www.vestibulinhoetec.com.br/candidato/dados-acesso.asp");
+	    			break;
+	    		default:
+	    			sala = false; 
+	    			alert("Ação ainda não implementada!");
+	    			break;
 			}
+			if(sala)
+			{
+				salaAtual = sala;
+			}else{}
 		}
 </script>
 </html>

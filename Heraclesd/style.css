@@ -62,10 +62,10 @@ body
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	width: 50vw;
+	width: 90vw;
 	position: absolute;
 	top: 20vh;
-	left: 25vw;
+	left: 5vw;
 	z-index: 9;
 	font-size: 2vw;
 	color: rgb(16,21,255);
