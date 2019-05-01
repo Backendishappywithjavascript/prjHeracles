@@ -12,11 +12,11 @@
 		var movimentandoEsquerda = false; 
 		var controleMovimentoEsquerda = false;
 		var controleMovimentoDireita = false;
+		var comandos = true;
 		
 		//OBJETOS INTERATIVOS
 			//PRINCIPAL
 		var portaInformatica = new ObjetoInterativo('portaInformatica', 'porta', 'Sala de Desenvolvimento de Sistemas', 1);
-		
 		var portaEnfermagem = new ObjetoInterativo('portaEnfermagem', 'porta', 'Sala de Enfermagem', 2);
 		var portaTurismo = new ObjetoInterativo('portaTurismo', 'porta', 'Turismo', 3);
 		var portaEdificacoes = new ObjetoInterativo('portaEdificacoes', 'porta', 'Sala de Edificações', 4);
@@ -26,24 +26,61 @@
 		var objetosPrincipal = new Array(portaInformatica,portaEnfermagem,portaEdificacoes,portaTurismo,portaAdministracao,portaManutencao,portaInscricao);	
 		
 			//INF
-		var computadorUm = new ObjetoInterativo('computadorUm', 'computador', 'Linguagens de Programação', 'Primeiro');
-		var computadorDois = new ObjetoInterativo('computadorDois', 'computador', 'Bancos de Dados', 'Segundo');
-		var computadorTres = new ObjetoInterativo('computadorTres', 'computador', 'Lógica', 'Terceiro');
+			/*COMPUTADOR UM*/
+		var computadorUmDialogoParteUm = new DialogoParte(`É uma linguagem Top`, null);	
+		var computadorUmDialogoParteDois = new DialogoParte(`É um linguagem Incrível`, null);	
+		var computadorUmDialogoParteTres = new DialogoParte(`É um linguagem Magnífico
+		Uau!`, null);	
+		var computadorUmDialogos = new Array(computadorUmDialogoParteUm, computadorUmDialogoParteDois, computadorUmDialogoParteTres); 
+		var computadorUmDialogo = new DialogoInterativo('interactabilityDiv', 'img/telas/telaComputador.jpg', computadorUmDialogos);
+		
+		
+			/*COMPUTADOR DOIS*/
+		var computadorDoisDialogoParteUm = new DialogoParte(`É um Banco de Dados Top`, null);	
+		var computadorDoisDialogoParteDois = new DialogoParte(`É um Banco de Dados Incrível`, null);	
+		var computadorDoisDialogoParteTres = new DialogoParte(`É um Banco de Dados Magnífico
+		Uau!`, null);	
+		var computadorDoisDialogos = new Array(computadorDoisDialogoParteUm, computadorDoisDialogoParteDois, computadorDoisDialogoParteTres); 
+		var computadorDoisDialogo = new DialogoInterativo('interactabilityDiv', 'img/telas/telaComputador.jpg', computadorDoisDialogos);
+		
+		
+			/*COMPUTADOR TRÊS*/
+		var computadorTresDialogoParteUm = new DialogoParte(`É uma Rede Top`, null);	
+		var computadorTresDialogoParteDois = new DialogoParte(`É uma Rede Incrível`, null);	
+		var computadorTresDialogoParteTres = new DialogoParte(`É uma Rede Magnífico
+		Uau!`, null);	
+		var computadorTresDialogos = new Array(computadorTresDialogoParteUm, computadorTresDialogoParteDois, computadorTresDialogoParteTres); 
+		var computadorTresDialogo = new DialogoInterativo('interactabilityDiv', 'img/telas/telaComputador.jpg', computadorTresDialogos);
+		/*---------------------------------------------------*/
+		
+		
+			/*PROFESSOR*/
+		var professoraDialogoParteUm = new DialogoParte(`É uma Rede Top`, null);	
+		var professoraDialogoParteDois = new DialogoParte(`É uma Rede Magnífico
+		Uau!`, null);	
+		var professoraDialogos = new Array(professoraDialogoParteUm, professoraDialogoParteDois); 
+		var professoraDialogo = new DialogoInterativo('interactabilityDiv', 'img/telas/telaComputador.jpg', professoraDialogos);
+		/*---------------------------------------------------*/
+		
+			
+		var computadorUm = new ObjetoInterativo('computadorUm', 'computador', 'Linguagens de Programação', computadorUmDialogo);
+		var computadorDois = new ObjetoInterativo('computadorDois', 'computador', 'Bancos de Dados', computadorDoisDialogo);
+		var computadorTres = new ObjetoInterativo('computadorTres', 'computador', 'Lógica', computadorTresDialogo);
 		var professora = new ObjetoInterativo('professora', 'professora', 'Exercício', null);
-		var objetosInformatica = new Array(computadorUm,computadorDois,computadorTres,professora);	
-		var objetosInformaticaInfo = new Array(computadorUmPhoto,computadorDoisPhoto,computadorTresPhoto,professoraPhoto); 
+		
 		
 			//OBJETOS
+		var objetosInformatica = new Array(computadorUm,computadorDois,computadorTres,professora);	
 		var salaAtual = 0;	
 		var objetos = new Array(objetosPrincipal,objetosInformatica);
 			
 		
 		
 			//INF INFORMAÇÃO
-		var computadorUmPhoto = "img/telas/telaJavaScript.jpg";
+		/*var computadorUmPhoto = "img/telas/telaJavaScript.jpg";
 		var computadorDoisPhoto = "img/telas/telaHTMLCSS.jpg";
 		var computadorTresPhoto = "img/telas/telaCSharp.jpg";
-		var professoraPhoto = "img/telas/professora.jpg";
+		var professoraPhoto = "img/telas/professora.jpg";*/
 		
 		
 		function vwValue()
@@ -60,9 +97,9 @@
 		{
 			var player = document.getElementById('player');	
 			
-			for(let count = 0;count < objetos[salaAtual].length; count++)
+			for(let contar = 0;contar < objetos[salaAtual].length; contar++)
 			{
-				var objAtual = document.getElementById(objetos[salaAtual][count].id);
+				var objAtual = document.getElementById(objetos[salaAtual][contar].getId());
 				if (//Código opressor
 					parseFloat(player.style.left.substr(0,parseFloat(player.style.left.length) - 2)) +
 					(parseFloat(player.style.width.substr(0,parseFloat(player.style.width.length) - 2)) / 2) >
@@ -72,7 +109,7 @@
 			    	(parseFloat(objAtual.style.left.substr(0,parseFloat(objAtual.style.left.length) - 2)) +	
 			    	parseFloat(objAtual.style.width.substr(0,parseFloat(objAtual.style.width.length) - 2))))
 					{
-						if(objetos[salaAtual][count].getTypeInteract() == "porta" && objAtual.style.backgroundImage.substr(-5) != 'gif")' && count == 0)
+						if(objetos[salaAtual][contar].getTypeInteract() == "porta" && objAtual.style.backgroundImage.substr(-5) != 'gif")' && contar == 0)
 						{
 							objAtual.style.backgroundImage = objAtual.style.backgroundImage.substr(0,objAtual.style.backgroundImage.length - 5) + 'gif")';
 						}
@@ -80,7 +117,7 @@
 			   			{
 			   			
 			   			}
-			   			document.getElementById('interactabilityDiv').innerHTML = objetos[salaAtual][count].getName();
+			   			document.getElementById('interactabilityDiv').innerHTML = objetos[salaAtual][contar].getName();
 			   			break;
 					}
 				else
@@ -99,9 +136,9 @@
 
 			var player = document.getElementById('player');	
 			
-			for(let count = 0;count < objetos[salaAtual].length; count++)
+			for(let contar = 0;contar < objetos[salaAtual].length; contar++)
 			{
-				var objAtual = document.getElementById(objetos[salaAtual][count].id);
+				var objAtual = document.getElementById(objetos[salaAtual][contar].getId());
 				if (//Código opressor
 				parseFloat(player.style.left.substr(0,parseFloat(player.style.left.length) - 2)) +
 				(parseFloat(player.style.width.substr(0,parseFloat(player.style.width.length) - 2)) / 2) >
@@ -115,14 +152,20 @@
 					movimentandoEsquerda = false; 
 					controleMovimentoEsquerda = false;
 					controleMovimentoDireita = false;
-					player.style.backgroundImage="url(img/heracles/stopped.gif)";
-					switch(objetos[salaAtual][count].getTypeInteract())
+					player.style.backgroundImage= "url(img/heracles/stopped.gif)";
+					switch(objetos[salaAtual][contar].getTypeInteract())
 			    	{
 			    		case 'porta':
-			    			mudarLugar(objetos[salaAtual][count].getData());
+			    			mudarLugar(objetos[salaAtual][contar].getData());
 			    			break;
 			    		case 'computador':
-			    			alert('Computador: ' + objetos[salaAtual][count].getData());
+			    			var tela = document.getElementById(objetos[salaAtual][contar].getData().getId());
+			    			tela.innerHTML = `
+			    			<div id='interactDiv' style='position:absolute;background-size: 100% 100%;background-repeat: no-repeat;z-index: 12;left: 25vw;top: 5vh;width: 40vw;height: 50vh;background-image: url(`+ objetos[salaAtual][contar].getData().getBackground() + `)' '>
+			    				<div style='margin-left: 10%;width:80%;margin-top: 7.5vh;height: 70%;wrap'>
+			    					<textarea style='resize: none;background: black; color: rgb(0,255,0);height: 100%;width: 100%; overflow: hidden;'></textarea>
+			    				</div>
+			    			</div>`
 			    			break;	
 			    		case 'professora':
 			    			alert('Olá, sou a professora!');
@@ -139,45 +182,53 @@
 		
 		window.onkeydown = () => {		
 			var player = document.getElementById('player');
-			switch(event.keyCode)
-			{			
-				case 32:
-					alert("Player Left " + parseFloat(player.style.left.substr(0,parseFloat(player.style.left.length) - 2)));
-					alert("Player Width: " + player.style.width);	
-					alert("View Width Value: " + vwValue());				
-					break;
-				case 69:
-					interact();
-					break;	
-				case 39:
-					movimentandoDireita = true;
-					if(controleMovimentoDireita)
-					{
+			if(comandos)
+			{
+				switch(event.keyCode)
+				{			
+					case 32:
+						alert("Player Left " + parseFloat(player.style.left.substr(0,parseFloat(player.style.left.length) - 2)));
+						alert("Player Width: " + player.style.width);	
+						alert("View Width Value: " + vwValue());				
+						break;
+					case 69:
+						interact();
+						break;	
+					case 39:
+						movimentandoDireita = true;
+						if(controleMovimentoDireita)
+						{
 						
-					}
-					else
-					{
-						moverDireita();
-						controleMovimentoDireita = true;
-						player.style.transform = 'scaleX(1)';
-						player.style.backgroundImage= 'url("img/heracles/walking.gif")';
-					}
-					break;
-				case 37:
-					movimentandoEsquerda = true;
-					if(controleMovimentoEsquerda)
-					{
+						}
+						else
+						{
+							moverDireita();
+							controleMovimentoDireita = true;
+							player.style.transform = 'scaleX(1)';
+							player.style.backgroundImage= 'url("img/heracles/walking.gif")';
+						}
+						break;
+					case 37:
+						movimentandoEsquerda = true;
+						if(controleMovimentoEsquerda)
+						{
 						
-					}
-					else
-					{
-						moverEsquerda();
-						controleMovimentoEsquerda = true;
-						player.style.transform = 'scaleX(-1)';
-						player.style.backgroundImage= 'url("img/heracles/walking.gif")';
-					}
-					break;	
-			}}
+						}
+						else
+						{
+							moverEsquerda();
+							controleMovimentoEsquerda = true;
+							player.style.transform = 'scaleX(-1)';
+							player.style.backgroundImage= 'url("img/heracles/walking.gif")';
+						}
+						break;	
+				}
+			}
+			else
+			{
+				
+			}
+			}
 			window.onkeyup = () => {					
 			switch(event.keyCode)
 			{	
@@ -246,98 +297,97 @@
 	</script>
 </head>
 <body>
-	<div id='escurecer' style='visibility: hidden;'>
-			
-	</div>
-	<div id="container" data-screen='main' style='background-image: url("img/fundos/main.png");background-size: 100% 100%;'>
-		<div id="infoDiv">
-			Use as setas para se mover!
-			<br />
-			Aperte "E" para interagir com o ambiente!
-		</div>
-		<div id="interactabilityDiv">
-			
-		</div>
-		<div id="showInfo">
-			
-		</div>
-	 	<div id='player' style="
-	 	background-image: url('img/heracles/stopped.gif');
-		background-size: 100% 100%;
-		background-position: 0px 0px;
-	 	left: 0.05vw;
-	 	height: 12vw;
-	 	width: 9vw;">
- 		</div>
-
- 		<div id="portaInformatica" style="
-	 	background-image: url('img/portas/portaDS.png');
-		background-size: 100% 100%;
- 		left: 20vw;
-		height: 17vw;
-		width: 8vw;">
-
- 		</div>
- 		<div id="portaEnfermagem" style="
-	 	background-image: url('img/portas/portaENF.png');
-		background-size: 100% 100%;
- 		left: 30vw;
-		height: 17vw;
-		width: 8vw;">
-
- 		</div>
- 		<div id="portaEdificacoes" style="
- 		background-image: url('img/portas/portaEDI.png');
-		background-size: 100% 100%;
- 		left: 40vw;
-		height: 17vw;
-		width: 8vw;">
-
- 		</div>
- 		<div id="portaTurismo" style="
-	 	background-image: url('img/portas/portaTUR.png');
-		background-size: 100% 100%;
- 		left: 50vw;
-		height: 17vw;
-		width: 8vw;">
-
- 		</div>
- 		<div id="portaManutencao" style="
- 		background-image: url('img/portas/portaMAN.png');
-		background-size: 100% 100%;
- 		left: 60vw;
-		height: 17vw;
-		width: 8vw;">
-
- 		</div>
- 		<div id="portaAdministracao" style="
-	 	background-image: url('img/portas/portaADM.png');
-		background-size: 100% 100%;
- 		left: 70vw;
-		height: 17vw;
-		width: 8vw;">
-
- 		</div>
- 		<div id="portaInscricao" style="
- 		background-image: url('img/portas/portaINSC.png');
-		background-size: 100% 100%;
- 		left: 90vw;
-		height: 17vw;
-		width: 8vw;">
-
- 		</div>
-	</div>
+	
 </body>
 <script type="text/javascript">
 	function mudarLugar(sala) 
 		{
 			switch(sala)
 			{
+				case 0:
+				document.body.innerHTML = `
+				<div id="container" data-screen='main' style='background-image: url("img/fundos/main.png");background-size: 100% 100%;'>
+					<div id="infoDiv">
+					Use as setas para se mover!
+					<br />
+					Aperte "E" para interagir com o ambiente!
+					</div>
+					<div id="interactabilityDiv">
+				
+					</div>
+					<div id="showInfo">
+			
+					</div>
+	 				<div id='player' style="
+					background-image: url('img/heracles/stopped.gif');
+					background-size: 100% 100%;
+					background-position: 0px 0px;
+	 				left: 0.05vw;
+	 				height: 12vw;
+	 				width: 9vw;">
+ 					</div>
+
+ 					<div id="portaInformatica" style="
+	 				background-image: url('img/portas/portaDS.png');
+					background-size: 100% 100%;
+ 					left: 20vw;
+					height: 17vw;
+					width: 8vw;">
+
+ 					</div>
+ 					<div id="portaEnfermagem" style="
+					background-image: url('img/portas/portaENF.png');
+					background-size: 100% 100%;
+ 					left: 30vw;
+					height: 17vw;
+					width: 8vw;">
+
+					</div>
+					<div id="portaEdificacoes" style="
+ 					background-image: url('img/portas/portaEDI.png');
+					background-size: 100% 100%;
+					left: 40vw;
+					height: 17vw;
+					width: 8vw;">
+
+ 					</div>
+ 					<div id="portaTurismo" style="
+					background-image: url('img/portas/portaTUR.png');
+					background-size: 100% 100%;
+ 					left: 50vw;
+					height: 17vw;
+					width: 8vw;">
+	
+ 					</div>
+ 					<div id="portaManutencao" style="
+ 					background-image: url('img/portas/portaMAN.png');
+					background-size: 100% 100%;
+ 					left: 60vw;
+					height: 17vw;
+					width: 8vw;">
+
+ 					</div>
+ 					<div id="portaAdministracao" style="
+					background-image: url('img/portas/portaADM.png');
+					background-size: 100% 100%;
+ 					left: 70vw;
+					height: 17vw;
+					width: 8vw;">
+
+ 					</div>
+ 					<div id="portaInscricao" style="
+ 					background-image: url('img/portas/portaINSC.png');
+					background-size: 100% 100%;
+ 					left: 90vw;
+					height: 17vw;
+					width: 8vw;">
+
+ 					</div>
+				</div>
+				`;	
+					break;
 				case 1:
 				document.body.innerHTML = `
-				<div id='escurecer' style='visibility: hidden;'>
-			
-	    		</div>
     			<div id="container" data-screen='inf' style='background-image: url("img/fundos/salaDS.png");background-size: 100% 100%;'>
 				<div id="interactabilityDiv">
 			
@@ -402,6 +452,9 @@
 			}else{}
 		}
 </script>
+<script type="text/javascript">
+		mudarLugar(0);
+	</script>
 </html>
 
 

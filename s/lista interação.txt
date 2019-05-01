@@ -1,0 +1,35 @@
+Desenvolvimento de Sistemas
+- Linguagens de Programas;
+- Bancos de Dados;
+- Redes;
+- Faça um simples alert();
+
+Manutenção
+- Fundamentos Eletrônicos;
+- Manutenção de Periféricos;
+- Prototipação;
+- Questão ou Pratica;
+
+Turismo
+- Cultura;
+- Línguas;
+- Recreação;
+- Questão ou Pratica;
+
+Edificações
+- Planejamento;
+- Execução;
+- Projeto;
+- Questão ou Pratica;
+
+Administração
+- 
+-
+-
+- Questão ou Pratica;
+
+Enfermagem
+-
+-
+-
+-
