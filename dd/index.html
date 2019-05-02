@@ -13,6 +13,10 @@
 		var controleMovimentoEsquerda = false;
 		var controleMovimentoDireita = false;
 		var comandos = true;
+		var interagindo = false;
+		
+		//ESCRITOR DAS DIVS
+		var escritor = false;
 		
 		//OBJETOS INTERATIVOS
 			//PRINCIPAL
@@ -27,9 +31,10 @@
 		
 			//INF
 			/*COMPUTADOR UM*/
-		var computadorUmDialogoParteUm = new DialogoParte(`É uma linguagem Top`, null);	
+		var computadorUmDialogoParteUm = new DialogoParte(`Linguagens de Programação.
+		Uma linguagem de programação é basicamento uma tradução da linguagem humana (palavras) para a linguagem da máquina que são os bits (zeros e uns) tornando assim possível a compreensão do humano e a utilização de tais linguagens para desenvolver sistemas, sejam eles sites, programas ou aplicativos.`, null);	
 		var computadorUmDialogoParteDois = new DialogoParte(`É um linguagem Incrível`, null);	
-		var computadorUmDialogoParteTres = new DialogoParte(`É um linguagem Magnífico
+		var computadorUmDialogoParteTres = new DialogoParte(`É um linguagem Magnífico 
 		Uau!`, null);	
 		var computadorUmDialogos = new Array(computadorUmDialogoParteUm, computadorUmDialogoParteDois, computadorUmDialogoParteTres); 
 		var computadorUmDialogo = new DialogoInterativo('interactabilityDiv', 'img/telas/telaComputador.jpg', computadorUmDialogos);
@@ -97,37 +102,40 @@
 		{
 			var player = document.getElementById('player');	
 			
-			for(let contar = 0;contar < objetos[salaAtual].length; contar++)
+			if(comandos == true)
 			{
-				var objAtual = document.getElementById(objetos[salaAtual][contar].getId());
-				if (//Código opressor
-					parseFloat(player.style.left.substr(0,parseFloat(player.style.left.length) - 2)) +
-					(parseFloat(player.style.width.substr(0,parseFloat(player.style.width.length) - 2)) / 2) >
-			    	parseFloat(objAtual.style.left.substr(0,parseFloat(objAtual.style.left.length) - 2))  &&
-			    	parseFloat(player.style.left.substr(0,parseFloat(player.style.left.length) - 2)) + 
-			    	(parseFloat(player.style.width.substr(0,parseFloat(player.style.width.length) - 2)) / 2) <
-			    	(parseFloat(objAtual.style.left.substr(0,parseFloat(objAtual.style.left.length) - 2)) +	
-			    	parseFloat(objAtual.style.width.substr(0,parseFloat(objAtual.style.width.length) - 2))))
-					{
-						if(objetos[salaAtual][contar].getTypeInteract() == "porta" && objAtual.style.backgroundImage.substr(-5) != 'gif")' && contar == 0)
-						{
-							objAtual.style.backgroundImage = objAtual.style.backgroundImage.substr(0,objAtual.style.backgroundImage.length - 5) + 'gif")';
-						}
-			   			else
-			   			{
-			   			
-			   			}
-			   			document.getElementById('interactabilityDiv').innerHTML = objetos[salaAtual][contar].getName();
-			   			break;
-					}
-				else
+				for(let contar = 0;contar < objetos[salaAtual].length; contar++)
 				{
-					if(objAtual.style.backgroundImage.substr(-5) == 'gif")')
+					var objAtual = document.getElementById(objetos[salaAtual][contar].getId());
+					if (//Código opressor
+						parseFloat(player.style.left.substr(0,parseFloat(player.style.left.length) - 2)) +
+						(parseFloat(player.style.width.substr(0,parseFloat(player.style.width.length) - 2)) / 2) >
+			    		parseFloat(objAtual.style.left.substr(0,parseFloat(objAtual.style.left.length) - 2))  &&
+			    		parseFloat(player.style.left.substr(0,parseFloat(player.style.left.length) - 2)) + 
+			    		(parseFloat(player.style.width.substr(0,parseFloat(player.style.width.length) - 2)) / 2) <
+			    		(parseFloat(objAtual.style.left.substr(0,parseFloat(objAtual.style.left.length) - 2)) +	
+			    		parseFloat(objAtual.style.width.substr(0,parseFloat(objAtual.style.width.length) - 2))))
+						{
+							if(objetos[salaAtual][contar].getTypeInteract() == "porta" && objAtual.style.backgroundImage.substr(-5) != 'gif")' && contar == 0)
+							{
+								objAtual.style.backgroundImage = objAtual.style.backgroundImage.substr(0,objAtual.style.backgroundImage.length - 5) + 'gif")';
+							}
+			   				else
+			   				{
+			   			
+			   				}
+			   				document.getElementById('interactabilityDiv').innerHTML = objetos[salaAtual][contar].getName();
+			   				break;
+						}
+					else
 					{
-						objAtual.style.backgroundImage = objAtual.style.backgroundImage.substr(0,objAtual.style	.backgroundImage.length - 5) + 'png")';
+						if(objAtual.style.backgroundImage.substr(-5) == 'gif")')
+						{
+							objAtual.style.backgroundImage = objAtual.style.backgroundImage.substr(0,objAtual.style	.backgroundImage.length - 5) + 'png")';
+						}
+						document.getElementById('interactabilityDiv').innerHTML = "";
 					}
-					document.getElementById('interactabilityDiv').innerHTML = "";
-				}
+				}	
 			}
 		}
 		
@@ -153,20 +161,31 @@
 					controleMovimentoEsquerda = false;
 					controleMovimentoDireita = false;
 					player.style.backgroundImage= "url(img/heracles/stopped.gif)";
+					interagindo = objetos[salaAtual][contar].getId();
 					switch(objetos[salaAtual][contar].getTypeInteract())
 			    	{
 			    		case 'porta':
 			    			mudarLugar(objetos[salaAtual][contar].getData());
 			    			break;
+			    			
 			    		case 'computador':
+			    			
+			    			comandos = false;
 			    			var tela = document.getElementById(objetos[salaAtual][contar].getData().getId());
 			    			tela.innerHTML = `
 			    			<div id='interactDiv' style='position:absolute;background-size: 100% 100%;background-repeat: no-repeat;z-index: 12;left: 25vw;top: 5vh;width: 40vw;height: 50vh;background-image: url(`+ objetos[salaAtual][contar].getData().getBackground() + `)' '>
+			    				
 			    				<div style='margin-left: 10%;width:80%;margin-top: 7.5vh;height: 70%;wrap'>
-			    					<textarea style='resize: none;background: black; color: rgb(0,255,0);height: 100%;width: 100%; overflow: hidden;'></textarea>
+			    					<textarea readonly="true" id='computadorTexto' style='resize: none;background: black; color: rgb(0,255,0);height: 100%;width: 100%; overflow: auto;'></textarea>
 			    				</div>
-			    			</div>`
+			    				<span id='spanFechar' onclick='comandos = true;limparElemento("` + objetos[salaAtual][contar].getData().getId()  + `")'>X</span>
+			    			</div>`;
+			    			
+			    			var computerDialogActualPart = objetos[salaAtual][contar].getData().getActualPart();
+			    			
+			    			escrever(objetos[salaAtual][contar].getData().getParts()[computerDialogActualPart].getText(),'computadorTexto');
 			    			break;	
+			    			
 			    		case 'professora':
 			    			alert('Olá, sou a professora!');
 			    			break;
@@ -226,7 +245,14 @@
 			}
 			else
 			{
-				
+				switch(event.keyCode)
+				{	
+					case 69:
+						interactDialog();
+						break;	
+					default:
+						break;
+				}
 			}
 			}
 			window.onkeyup = () => {					
@@ -451,6 +477,44 @@
 				salaAtual = sala;
 			}else{}
 		}
+		function limparElemento(elemento)
+		{
+			
+			document.getElementById(elemento).innerHTML = "";
+		}
+		function escrever(texto, elemento)
+        {
+        	document.getElementById(elemento).innerHTML = "";
+        	
+        	if(escritor)
+        	{
+        		clearInterval(escritor);
+        	}
+            var contador = 0;
+            escritor = setInterval(() => {                    
+            	if(contador > texto.length)
+            	{
+                	clearInterval(escritor);
+            	}                
+            	document.getElementById(elemento).innerHTML += texto.substr(contador,1);      
+            	contador++;                                                      
+            }, 40);         
+        }
+        function interactDialog()
+        {
+        	var contando = 0;
+        	while(interagindo != objetos[salaAtual][contando].getId() || contando >= 1000)
+        	{
+        		contador++;
+        	}
+        	switch(objetos[salaAtual][contando].getTypeInteract())
+        	{
+        		case 'computador':
+        			objetos[salaAtual][contando].getData().nextPart();
+        			escrever(objetos[salaAtual][contando].getData().getParts()[objetos[salaAtual][contando].getData().getActualPart()].getText(),'computadorTexto');
+        			break;
+        	}
+        }
 </script>
 <script type="text/javascript">
 		mudarLugar(0);
