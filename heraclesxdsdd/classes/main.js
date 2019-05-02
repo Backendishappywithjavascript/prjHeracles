@@ -23,12 +23,13 @@ class ObjetoInterativo{
     }
 }
 class DialogoInterativo{
-    constructor(id, background, parts, actualPart){
+    constructor(id, background, parts){
         this.background = background;
         this.id = id;
         this.parts = parts;
         this.numParts = parts.length;
         this.actualPart = 0;
+        this.lastPart = parts.length - 1;
     }
     getBackground()
     {
@@ -46,6 +47,10 @@ class DialogoInterativo{
     {
         return this.actualPart;
     }
+    getLastPart()
+    {
+        return this.lastPart;
+    }
     previousPart()
     {
         if((this.actualPart - 1) < 0)
@@ -59,13 +64,15 @@ class DialogoInterativo{
     }
     nextPart()
     {
-        if((this.actualPart + 1) < this.numParts)
+        this.actualPart += 1;
+        if(this.lastPart < this.actualPart)
         {
-            this.actualPart += 1;
+            this.actualPart = 0;
+            return true;
         }
         else
         {
-            this.actualPart = 0;
+            return false;
         }
     }
 }

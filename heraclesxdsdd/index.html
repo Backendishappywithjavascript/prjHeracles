@@ -31,20 +31,44 @@
 		
 			//INF
 			/*COMPUTADOR UM*/
-		var computadorUmDialogoParteUm = new DialogoParte(`Linguagens de Programação.
-		Uma linguagem de programação é basicamento uma tradução da linguagem humana (palavras) para a linguagem da máquina que são os bits (zeros e uns) tornando assim possível a compreensão do humano e a utilização de tais linguagens para desenvolver sistemas, sejam eles sites, programas ou aplicativos.`, null);	
-		var computadorUmDialogoParteDois = new DialogoParte(`É um linguagem Incrível`, null);	
-		var computadorUmDialogoParteTres = new DialogoParte(`É um linguagem Magnífico 
-		Uau!`, null);	
-		var computadorUmDialogos = new Array(computadorUmDialogoParteUm, computadorUmDialogoParteDois, computadorUmDialogoParteTres); 
+		var computadorUmDialogoParteUm = new DialogoParte(`LINGUAGENS DE PROGRAMAÇÃO.
+		Uma linguagem de programação é basicamento uma tradução da linguagem humana (palavras) para a linguagem da máquina que são os bits (zeros e uns) tornando assim possível a compreensão do humano e a utilização de tais linguagens para desenvolver sistemas, sejam eles sites, programas ou aplicativos.
+			PRESSIONE "E"PARA AVANÇAR...`, null);	
+		var computadorUmDialogoParteDois = new DialogoParte(`UTILIZAÇÃO DAS LINGUAGENS. 
+		Como existem diversas linguagens de programação, geralmente o programador escolhe a sua com base no gosto pessoal, na finalidade do sistema que ele desenvolverá e na eficiência da mesma.
+		Algumas linguagens, por exemplo, propiciam um ambiente para o desenvolvimento e manipulação da interface gráfica, que é desejado quando o sistema será utilizado por usuários leigos no assunto, mas nem tanto quando se almeja eficiência e baixo uso de componentes da máquina.
+			PRESSIONE "E" PARA AVANÇAR...`, null);	
+		var computadorUmDialogoParteTres = new DialogoParte(`EXEMPLOS DE LINGUAGENS.
+		Algumas linguagens que podem ser citadas são: Python, C# e Javascript.
+			PRESSIONE "E" PARA AVANÇAR...`, null);
+		var computadorUmDialogoParteQuatro = new DialogoParte(`PYTHON;
+		Linguagem muito bem vista quando o assunto é eficiência, pois o código e mais limpo, menor e mais intuitivo, porém carece da facilidade de se criar uma interface gráfica.
+		É muito utilizada no âmbito de inteligencia artificial, analise de dados, e simulações de engenharia.
+			PRESSIONE "E" PARA AVANÇAR...`, null);
+		var computadorUmDialogoParteCinco = new DialogoParte(`C#.
+		C# é uma linguagem forte e muito utilizada no mercado de trabalho, possui facilidade na criação e manuseio de interfaces gráficas, possui uma comunidade forte e é muito utilizada na criação de sistemas desktop, e principalmente jogos.
+			PRESSIONE "E" PARA AVANÇAR...`, null);
+		var computadorUmDialogoParteSeis = new DialogoParte(`JavaScript.
+		JavaScript é uma linguagem leve, que é utilizada, principalmente para realizar validações (como validar o CPF por exemplo), animações, e gerenciar a interação do usuário com a página da internet.
+		Mas, não se é obrigátorio, este jogo por exemplo foi feito em JavaScript, não C#.
+			PRESSIONE "E" PARA SAIR...`, null)
+		var computadorUmDialogos = new Array(computadorUmDialogoParteUm, computadorUmDialogoParteDois, computadorUmDialogoParteTres, computadorUmDialogoParteQuatro, computadorUmDialogoParteCinco, computadorUmDialogoParteSeis); 
 		var computadorUmDialogo = new DialogoInterativo('interactabilityDiv', 'img/telas/telaComputador.jpg', computadorUmDialogos);
 		
 		
 			/*COMPUTADOR DOIS*/
-		var computadorDoisDialogoParteUm = new DialogoParte(`É um Banco de Dados Top`, null);	
-		var computadorDoisDialogoParteDois = new DialogoParte(`É um Banco de Dados Incrível`, null);	
-		var computadorDoisDialogoParteTres = new DialogoParte(`É um Banco de Dados Magnífico
-		Uau!`, null);	
+		var computadorDoisDialogoParteUm = new DialogoParte(`BANCO DE DADOS.
+		Um banco de dados é utilizado para armazenar informação, isto é, dados, para um ou mais sistemas mesmo quando os mesmos não estiverem em tempo de execução.
+			PRESSIONE "E" PARA AVANÇAR...`, null);	
+		var computadorDoisDialogoParteDois = new DialogoParte(`MORFOLOGIA.
+		O banco de dados é, geralmente, organizada através de tabelas onde cada coluna representa um atributo cada linha representa um registro, como será demonstrado no exemplo a seguir.
+			PRESSIONE "E" PARA AVANÇAR...`, null);	
+		var computadorDoisDialogoParteTres = new DialogoParte(`TABELA DE CLIENTES 
+	|Código |	Nome | Idade | Sexo |
+		1	Ana 	       15	   S	
+		2	Davi        30	   M	
+		3	José       45        M
+			PRESSIONE "E" PARA SAIR...`, null);	
 		var computadorDoisDialogos = new Array(computadorDoisDialogoParteUm, computadorDoisDialogoParteDois, computadorDoisDialogoParteTres); 
 		var computadorDoisDialogo = new DialogoInterativo('interactabilityDiv', 'img/telas/telaComputador.jpg', computadorDoisDialogos);
 		
@@ -176,7 +200,7 @@
 			    			<div id='interactDiv' style='position:absolute;background-size: 100% 100%;background-repeat: no-repeat;z-index: 12;left: 25vw;top: 5vh;width: 40vw;height: 50vh;background-image: url(`+ objetos[salaAtual][contar].getData().getBackground() + `)' '>
 			    				
 			    				<div style='margin-left: 10%;width:80%;margin-top: 7.5vh;height: 70%;wrap'>
-			    					<textarea readonly="true" id='computadorTexto' style='resize: none;background: black; color: rgb(0,255,0);height: 100%;width: 100%; overflow: auto;'></textarea>
+			    					<textarea readonly="true" id='computadorTexto' style='resize: none;'></textarea>
 			    				</div>
 			    				<span id='spanFechar' onclick='comandos = true;limparElemento("` + objetos[salaAtual][contar].getData().getId()  + `")'>X</span>
 			    			</div>`;
@@ -497,21 +521,27 @@
                 	clearInterval(escritor);
             	}                
             	document.getElementById(elemento).innerHTML += texto.substr(contador,1);      
+            	document.getElementById(elemento).scrollTop = document.getElementById(elemento).scrollHeight;
             	contador++;                                                      
-            }, 40);         
+            }, 25);         
         }
         function interactDialog()
         {
         	var contando = 0;
         	while(interagindo != objetos[salaAtual][contando].getId() || contando >= 1000)
         	{
-        		contador++;
+        		contando++;
         	}
         	switch(objetos[salaAtual][contando].getTypeInteract())
         	{
         		case 'computador':
-        			objetos[salaAtual][contando].getData().nextPart();
+        			if(objetos[salaAtual][contando].getData().nextPart())
+        			{
+        				comandos = true;
+        				document.getElementById(objetos[salaAtual][contando].getData().getId()).innerHTML = objetos[salaAtual][contando].getName();
+        			}
         			escrever(objetos[salaAtual][contando].getData().getParts()[objetos[salaAtual][contando].getData().getActualPart()].getText(),'computadorTexto');
+        			
         			break;
         	}
         }
