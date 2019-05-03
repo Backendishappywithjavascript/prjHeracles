@@ -41,7 +41,7 @@
 		var computadorUmDialogoParteTres = new DialogoParte(`EXEMPLOS DE LINGUAGENS.
 		Algumas linguagens que podem ser citadas são: Python, C# e Javascript.
 		PRESSIONE "E" PARA AVANÇAR...`, null);
-		var computadorUmDialogoParteQuatro = new DialogoParte(`PYTHON;
+		var computadorUmDialogoParteQuatro = new DialogoParte(`Python.
 		Linguagem muito bem vista quando o assunto é eficiência, pois o código e mais limpo, menor e mais intuitivo, porém carece da facilidade de se criar uma interface gráfica.
 		É muito utilizada no âmbito de inteligencia artificial, analise de dados, e simulações de engenharia.
 			PRESSIONE "E" PARA AVANÇAR...`, null);
@@ -49,7 +49,7 @@
 		C# é uma linguagem forte e muito utilizada no mercado de trabalho, possui facilidade na criação e manuseio de interfaces gráficas, possui uma comunidade forte e é muito utilizada na criação de sistemas desktop, e principalmente jogos.
 		PRESSIONE "E" PARA AVANÇAR...`, null);
 		var computadorUmDialogoParteSeis = new DialogoParte(`JavaScript.
-		JavaScript é uma linguagem leve, que é utilizada, principalmente para realizar validações (como validar o CPF por exemplo), animações, e gerenciar a interação do usuário com a página da internet.
+		É uma linguagem leve, que é utilizada, principalmente para realizar validações (como validar o CPF por exemplo), animações, e gerenciar a interação do usuário com a página da internet.
 		Mas, não se é obrigátorio, este jogo por exemplo foi feito em JavaScript, não C#.
 		PRESSIONE "E" PARA SAIR...`, null)
 		var computadorUmDialogos = new Array(computadorUmDialogoParteUm, computadorUmDialogoParteDois, computadorUmDialogoParteTres, computadorUmDialogoParteQuatro, computadorUmDialogoParteCinco, computadorUmDialogoParteSeis); 
@@ -74,10 +74,16 @@
 		
 		
 			/*COMPUTADOR TRÊS*/
-		var computadorTresDialogoParteUm = new DialogoParte(`É uma Rede Top`, null);	
-		var computadorTresDialogoParteDois = new DialogoParte(`É uma Rede Incrível`, null);	
-		var computadorTresDialogoParteTres = new DialogoParte(`É uma Rede Magnífico
-		Uau!`, null);	
+		var computadorTresDialogoParteUm = new DialogoParte(`REDES.
+		Uma rede é um agrupamento de dispositivos (Computadores, Celulares, Etc) que compartilham informações entre si.
+		A internet, por exemplo, é uma grande rede que conecta aperelhos ao redor do mundo todo.`, null);	
+		var computadorTresDialogoParteDois = new DialogoParte(`CRIAÇÃO.
+		A invenção da rede se iniciou como um projeto militar, que visava interligar diversas bases de grande poder bélico para criar um sistema de defesa que pudesse lançar um contra-ataque, caso a outra base fosse bombardeada ou não pudesse contra-atacar.`, null);	
+		var computadorTresDialogoParteTres = new DialogoParte(`FINALIDADE.
+		A possibilidade da transmissão de dados entre dispositivos possui, atualmente, diversas possibilidades, tais como:
+			- A não necessidade da trasmissão física (Pendrives, CDs, etc)
+			- A possibilidade da transmissão a longa distância (até mesmo intercontinental)
+			- A capacidade do acesso a aplicações sem precisar te-la em seu dispositivo (Sites)`, null);	
 		var computadorTresDialogos = new Array(computadorTresDialogoParteUm, computadorTresDialogoParteDois, computadorTresDialogoParteTres); 
 		var computadorTresDialogo = new DialogoInterativo('interactabilityDiv', 'img/telas/telaComputador.jpg', computadorTresDialogos);
 		/*---------------------------------------------------*/
