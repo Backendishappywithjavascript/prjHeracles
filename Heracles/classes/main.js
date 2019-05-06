@@ -90,3 +90,11 @@ class DialogoParte{
         return this.extra
     }
 }
+class Question{
+    constructor(questions, correct)
+    {
+        this.questions = questions;
+        this.correct = correct;
+        this.hit = false;
+    }
+}

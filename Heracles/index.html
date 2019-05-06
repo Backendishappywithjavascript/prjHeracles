@@ -32,76 +32,95 @@
 			//INF
 			/*COMPUTADOR UM*/
 		var computadorUmDialogoParteUm = new DialogoParte(`LINGUAGENS DE PROGRAMAÇÃO.
-		Uma linguagem de programação é basicamento uma tradução da linguagem humana (palavras) para a linguagem da máquina que são os bits (zeros e uns) tornando assim possível a compreensão do humano e a utilização de tais linguagens para desenvolver sistemas, sejam eles sites, programas ou aplicativos.
-		PRESSIONE "E" PARA AVANÇAR...`, null);	
+	Uma linguagem de programação é basicamento uma tradução da linguagem humana (palavras) para a linguagem da máquina que são os bits (zeros e uns) tornando assim possível a compreensão do humano e a utilização de tais linguagens para desenvolver sistemas, sejam eles sites, programas ou aplicativos.
+PRESSIONE "E" PARA AVANÇAR...`, null);	
 		var computadorUmDialogoParteDois = new DialogoParte(`UTILIZAÇÃO DAS LINGUAGENS. 
-		Como existem diversas linguagens de programação, geralmente o programador escolhe a sua com base no gosto pessoal, na finalidade do sistema que ele desenvolverá e na eficiência da mesma.
+	Como existem diversas linguagens de programação, geralmente o programador escolhe a sua com base no gosto pessoal, na finalidade do sistema que ele desenvolverá e na eficiência da mesma.
 		Algumas linguagens, por exemplo, propiciam um ambiente para o desenvolvimento e manipulação da interface gráfica, que é desejado quando o sistema será utilizado por usuários leigos no assunto, mas nem tanto quando se almeja eficiência e baixo uso de componentes da máquina.
-		PRESSIONE "E" PARA AVANÇAR...`, null);	
-		var computadorUmDialogoParteTres = new DialogoParte(`EXEMPLOS DE LINGUAGENS.
-		Algumas linguagens que podem ser citadas são: Python, C# e Javascript.
-		PRESSIONE "E" PARA AVANÇAR...`, null);
-		var computadorUmDialogoParteQuatro = new DialogoParte(`Python.
-		Linguagem muito bem vista quando o assunto é eficiência, pois o código e mais limpo, menor e mais intuitivo, porém carece da facilidade de se criar uma interface gráfica.
-		É muito utilizada no âmbito de inteligencia artificial, analise de dados, e simulações de engenharia.
-			PRESSIONE "E" PARA AVANÇAR...`, null);
-		var computadorUmDialogoParteCinco = new DialogoParte(`C#.
-		C# é uma linguagem forte e muito utilizada no mercado de trabalho, possui facilidade na criação e manuseio de interfaces gráficas, possui uma comunidade forte e é muito utilizada na criação de sistemas desktop, e principalmente jogos.
-		PRESSIONE "E" PARA AVANÇAR...`, null);
-		var computadorUmDialogoParteSeis = new DialogoParte(`JavaScript.
-		É uma linguagem leve, que é utilizada, principalmente para realizar validações (como validar o CPF por exemplo), animações, e gerenciar a interação do usuário com a página da internet.
-		Mas, não se é obrigátorio, este jogo por exemplo foi feito em JavaScript, não C#.
-		PRESSIONE "E" PARA SAIR...`, null)
-		var computadorUmDialogos = new Array(computadorUmDialogoParteUm, computadorUmDialogoParteDois, computadorUmDialogoParteTres, computadorUmDialogoParteQuatro, computadorUmDialogoParteCinco, computadorUmDialogoParteSeis); 
+PRESSIONE "E" PARA AVANÇAR...`, null);	
+		var computadorUmDialogoParteTres = new DialogoParte(`IDEs.
+	Integrated Development Enviroments, ou Ambientes Integrados de Desenvolvimento, são editores de texto que auxiliam na programação, completando palavras e demonstrando sintaxes, também tornam o código mais legível, tornando-o colorido para que se possa diferenciar os comandos.
+PRESSIONE "E" PARA SAIR...`, null)
+		var computadorUmDialogos = new Array(computadorUmDialogoParteUm, computadorUmDialogoParteDois, computadorUmDialogoParteTres); 
 		var computadorUmDialogo = new DialogoInterativo('interactabilityDiv', 'img/telas/telaComputador.jpg', computadorUmDialogos);
 		
 		
 			/*COMPUTADOR DOIS*/
 		var computadorDoisDialogoParteUm = new DialogoParte(`BANCO DE DADOS.
-		Um banco de dados é utilizado para armazenar informação, isto é, dados, para um ou mais sistemas mesmo quando os mesmos não estiverem em tempo de execução.
-		PRESSIONE "E" PARA AVANÇAR...`, null);	
+	Um banco de dados é utilizado para armazenar informação, isto é, dados, para um ou mais sistemas mesmo quando os mesmos não estiverem em tempo de execução.
+PRESSIONE "E" PARA AVANÇAR...`, null);	
 		var computadorDoisDialogoParteDois = new DialogoParte(`MORFOLOGIA.
-		O banco de dados é, geralmente, organizada através de tabelas onde cada coluna representa um atributo e cada linha representa um registro (conhecido como tupla), como é visível no exemplo a seguir.
-		PRESSIONE "E" PARA AVANÇAR...`, null);	
+	O banco de dados é, geralmente, organizada através de tabelas onde cada coluna representa um atributo e cada linha representa um registro (conhecido como tupla), como é visível no exemplo a seguir.
+PRESSIONE "E" PARA AVANÇAR...`, null);	
 		var computadorDoisDialogoParteTres = new DialogoParte(`TABELA DE CLIENTES 
-	|Código |	Nome | Idade | Sexo |
-		1	Ana 	       15	   S	
-		2	Davi        30	   M	
-		3	José       45        M
-		PRESSIONE "E" PARA SAIR...`, null);	
+	|Código|Nome|Idade|Sexo|                 1	Ana    15    S
+2	Davi   30    M        3	José   45    M
+Como pode-se ver essa tabela simples armazena dados a respeito de clientes.
+PRESSIONE "E" PARA SAIR...`, null);	
 		var computadorDoisDialogos = new Array(computadorDoisDialogoParteUm, computadorDoisDialogoParteDois, computadorDoisDialogoParteTres); 
 		var computadorDoisDialogo = new DialogoInterativo('interactabilityDiv', 'img/telas/telaComputador.jpg', computadorDoisDialogos);
 		
 		
 			/*COMPUTADOR TRÊS*/
 		var computadorTresDialogoParteUm = new DialogoParte(`REDES.
-		Uma rede é um agrupamento de dispositivos (Computadores, Celulares, Etc) que compartilham informações entre si.
-		A internet, por exemplo, é uma grande rede que conecta aperelhos ao redor do mundo todo.`, null);	
+	Uma rede é um agrupamento de dispositivos (Computadores, Celulares, Etc) que compartilham informações entre si.
+	A internet, por exemplo, é uma grande rede que conecta aperelhos ao redor do mundo todo.`, null);	
 		var computadorTresDialogoParteDois = new DialogoParte(`CRIAÇÃO.
-		A invenção da rede se iniciou como um projeto militar, que visava interligar diversas bases de grande poder bélico para criar um sistema de defesa que pudesse lançar um contra-ataque, caso a outra base fosse bombardeada ou não pudesse contra-atacar.`, null);	
+	A invenção da rede se iniciou como um projeto militar, que visava interligar diversas bases de grande poder bélico para criar um sistema de defesa que pudesse lançar um contra-ataque, caso a outra base fosse bombardeada ou não pudesse contra-atacar.`, null);	
 		var computadorTresDialogoParteTres = new DialogoParte(`FINALIDADE.
-		A possibilidade da transmissão de dados entre dispositivos possui, atualmente, diversas possibilidades, tais como:
-			- A não necessidade da trasmissão física (Pendrives, CDs, etc)
-			- A possibilidade da transmissão a longa distância (até mesmo intercontinental)
-			- A capacidade do acesso a aplicações sem precisar te-la em seu dispositivo (Sites)`, null);	
+	A possibilidade da transmissão de dados entre dispositivos possui, atualmente, diversas possibilidades, tais como:
+- A não necessidade da trasmissão física (Pendrives, CDs, etc)
+- A possibilidade da transmissão a longa distância (até mesmo intercontinental)
+- A capacidade do acesso a aplicações sem precisar te-la em seu dispositivo (Sites)`, null);	
 		var computadorTresDialogos = new Array(computadorTresDialogoParteUm, computadorTresDialogoParteDois, computadorTresDialogoParteTres); 
 		var computadorTresDialogo = new DialogoInterativo('interactabilityDiv', 'img/telas/telaComputador.jpg', computadorTresDialogos);
 		/*---------------------------------------------------*/
 		
 		
 			/*PROFESSOR*/
-		var professoraDialogoParteUm = new DialogoParte(`É uma Rede Top`, null);	
-		var professoraDialogoParteDois = new DialogoParte(`É uma Rede Magnífico
-		Uau!`, null);	
-		var professoraDialogos = new Array(professoraDialogoParteUm, professoraDialogoParteDois); 
+		var professoraDialogoParteUm = new DialogoParte(`Olá, agora que você adquiriu um pouco de conhecimento a respeito deste curso, responda algumas questões.`, null);	
+		
+			//QUESTÕES
+			//PROGRAMAÇÃO
+		var perguntaUmAlternativaUm = 'Arquitetar a estrutura do hardware computacional.';	
+		var perguntaUmAlternativaDois = 'Consertar computadores.';	
+		var perguntaUmAlternativaTres = 'Possibilitar a entrada de dados.';	
+		var perguntaUmAlternativaQuatro = 'Traduzir a linguagem humana para bits (Zeros e Ums).';	
+		var perguntaUmAlternativas = new Array(perguntaUmAlternativaUm, perguntaUmAlternativaDois, perguntaUmAlternativaTres, perguntaUmAlternativaQuatro);
+		
+		var perguntaUm = new Question(perguntaUmAlternativas, 3);
+		
+			//BANCO DE DADOS
+		var perguntaDoisAlternativaUm = 'Dobramento moderno.';	
+		var perguntaDoisAlternativaDois = 'Estrutura condicional.';	
+		var perguntaDoisAlternativaTres = 'Estrutura de repetição.';	
+		var perguntaDoisAlternativaQuatro = 'Rede.';	
+		var perguntaDoisAlternativas = new Array(perguntaDoisAlternativaUm, perguntaDoisAlternativaDois, perguntaDoisAlternativaTres, perguntaDoisAlternativaQuatro);
+		
+		var perguntaDois = new Question(perguntaDoisAlternativas, 3);
+		
+			//REDES
+		var perguntaTresAlternativaUm = 'Na forma de uma matriz unidimensional.';	
+		var perguntaTresAlternativaDois = 'Na forma de diretórios dispostos em servidores.';	
+		var perguntaTresAlternativaTres = 'Na forma tabelas, onde cada linha representa um conjunto de dados.';	
+		var perguntaTresAlternativaQuatro = 'Na forma esférica, criando assim uma objeto tridimensional, o que facilita nos calculos de intersecção.';	
+		var perguntaTresAlternativas = new Array(perguntaTresAlternativaUm, perguntaTresAlternativaDois, perguntaTresAlternativaTres, perguntaTresAlternativaQuatro);
+		
+		var perguntaTres = new Question(perguntaTresAlternativas, 2);
+			//PROFESSORA
+		
+		var professoraDialogoParteDois = new DialogoParte(`Qual é a função das linguagens de programação?`, perguntaUm);	
+		var professoraDialogoParteTres = new DialogoParte(`A internet é um exemplo de?`, perguntaDois);	
+		var professoraDialogoParteQuatro = new DialogoParte(`Os dados são armazenados de que forma nos bancos de dados?`, perguntaTres);	
+		var professoraDialogos = new Array(professoraDialogoParteDois, professoraDialogoParteTres, professoraDialogoParteQuatro); 
 		var professoraDialogo = new DialogoInterativo('interactabilityDiv', 'img/telas/telaComputador.jpg', professoraDialogos);
 		/*---------------------------------------------------*/
 		
 			
-		var computadorUm = new ObjetoInterativo('computadorUm', 'computador', 'Linguagens de Programação', computadorUmDialogo);
+		var computadorUm = new ObjetoInterativo('computadorUm', 'computador', 'Programação', computadorUmDialogo);
 		var computadorDois = new ObjetoInterativo('computadorDois', 'computador', 'Bancos de Dados', computadorDoisDialogo);
 		var computadorTres = new ObjetoInterativo('computadorTres', 'computador', 'Redes', computadorTresDialogo);
-		var professora = new ObjetoInterativo('professora', 'professora', 'Exercício', null);
+		var professora = new ObjetoInterativo('professora', 'professora', 'Exercícios', professoraDialogo);
 		
 		
 			//OBJETOS
@@ -200,16 +219,17 @@
 			    			
 			    		case 'computador':
 			    			
-			    			comandos = false;
 			    			var tela = document.getElementById(objetos[salaAtual][contar].getData().getId());
+			    			comandos = false;
 			    			tela.innerHTML = `
 			    			<div id='interactDiv' style='position:absolute;background-size: 100% 100%;background-repeat: no-repeat;z-index: 12;left: 25vw;top: 5vh;width: 40vw;height: 50vh;background-image: url(`+ objetos[salaAtual][contar].getData().getBackground() + `)' '>
 			    				
 			    				<div style='margin-left: 10%;width:80%;margin-top: 7.5vh;height: 70%;wrap'>
 			    					<textarea readonly="true" id='computadorTexto' style='resize: none;'></textarea>
 			    				</div>
-			    				<span id='spanFechar' onclick='comandos = true;limparElemento("` + objetos[salaAtual][contar].getData().getId()  + `")'>X</span>
-			    			</div>`;
+			    				
+			    			</div>
+			    			<span id='spanFechar' style='top: 1vh;' onclick='comandos = true;limparElemento("` + objetos[salaAtual][contar].getData().getId()  + `")'>X</span>`;
 			    			
 			    			var computerDialogActualPart = objetos[salaAtual][contar].getData().getActualPart();
 			    			
@@ -217,7 +237,32 @@
 			    			break;	
 			    			
 			    		case 'professora':
-			    			alert('Olá, sou a professora!');
+			    			
+			    			var tela = document.getElementById(objetos[salaAtual][contar].getData().getId());
+			    			comandos = false;
+			    			tela.innerHTML = `
+			    			<div id='interactDiv' style='text-align: center;position:absolute;background-size: 100% 100%;background-repeat: no-repeat;z-index: 12;top: 1vh;left: 25vw;width: 40vw;height: 25vh;background: lightyellow;' '>
+			    				
+			    			<div style='margin-left: 10%;width:80%;margin-top: 7.5vh;height: 70%;wrap'>	
+			    				</div>
+			    				
+			    			</div>
+			    			<div id='questionDiv' style='font-size: 1vw;position:absolute;background-size: 100% 100%;background-repeat: no-repeat;z-index: 12;left: 25vw;top: 26vh;width: 40vw;height: 30vh;background: white;' '>
+			    			
+			    			</div>
+			    			<span id='spanFechar' style='top: -1vh;' onclick='comandos = true;limparElemento("` + objetos[salaAtual][contar].getData().getId()  + `")'>X</span>
+			    			`;
+			    			
+			    			var teacherDialogActualPart = objetos[salaAtual][contar].getData().getActualPart();
+			    			escrever(objetos[salaAtual][contar].getData().getParts()[teacherDialogActualPart].getText(),'interactDiv');
+			    			
+			    			var alternatives = "";
+			    			
+			    			for(let c = 0; c < objetos[salaAtual][contar].getData().getParts()[teacherDialogActualPart].getExtra().questions.length; c++)
+			    			{
+			    				alternatives += '<input type="radio" style="height: 2vh;width: 2vw;" name="question" onclick="if('+ c + ' == '+ objetos[salaAtual][contar].getData().getParts()[teacherDialogActualPart].getExtra().correct +') {objetos['+salaAtual+']['+contar+'].getData().getParts()['+teacherDialogActualPart+'].getExtra().hit = true} else {objetos['+salaAtual+']['+contar+'].getData().getParts()['+teacherDialogActualPart+'].getExtra().hit = false}; alert(objetos['+salaAtual+']['+contar+'].getData().getParts()['+teacherDialogActualPart+'].getExtra().hit)"/>' + objetos[salaAtual][contar].getData().getParts()[teacherDialogActualPart].getExtra().questions[c] + '<br />';
+			    			}
+			    			document.getElementById('questionDiv').innerHTML = alternatives + '				PRESSIONE "E" PARA AVANÇAR...';
 			    			break;
 			    	}
 			    	break;
@@ -549,6 +594,23 @@
         			escrever(objetos[salaAtual][contando].getData().getParts()[objetos[salaAtual][contando].getData().getActualPart()].getText(),'computadorTexto');
         			
         			break;
+        		case 'professora':
+        			if(objetos[salaAtual][contando].getData().nextPart())
+        			{
+        				comandos = true;
+        				document.getElementById(objetos[salaAtual][contando].getData().getId()).innerHTML = objetos[salaAtual][contando].getName();
+        			}
+        			var teacherDialogActualPart = objetos[salaAtual][contando].getData().getActualPart();
+			    	escrever(objetos[salaAtual][contando].getData().getParts()[objetos[salaAtual][contando].getData().getActualPart()].getText(),'interactDiv');
+			    			
+			    	var alternatives = "";
+			    			
+			    	for(let c = 0; c < objetos[salaAtual][contando].getData().getParts()[objetos[salaAtual][contando].getData().getActualPart()].getExtra().questions.length; c++)
+			    	{
+			    		alternatives += '<input type="radio" style="height: 2vh;width: 2vw;" name="question" onclick="if('+ c + ' == '+ objetos[salaAtual][contando].getData().getParts()[teacherDialogActualPart].getExtra().correct +') {objetos['+salaAtual+']['+contando+'].getData().getParts()['+teacherDialogActualPart+'].getExtra().hit = true} else {objetos['+salaAtual+']['+contando+'].getData().getParts()['+teacherDialogActualPart+'].getExtra().hit = false}; alert(objetos['+salaAtual+']['+contando+'].getData().getParts()['+teacherDialogActualPart+'].getExtra().hit)"/>' + objetos[salaAtual][contando].getData().getParts()[teacherDialogActualPart].getExtra().questions[c] + '<br />';
+			    	}
+			    	document.getElementById('questionDiv').innerHTML = alternatives + '				PRESSIONE "E" PARA AVANÇAR...';
+        			break;	
         	}
         }
 </script>
