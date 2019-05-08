@@ -19,7 +19,8 @@
 		var escritor = false;
 		
 		//OBJETOS INTERATIVOS
-			//PRINCIPAL
+		
+			//SALA 0 - PRINCIPAL --------------------------------------------//
 		var portaInformatica = new ObjetoInterativo('portaInformatica', 'porta', 'Sala de Desenvolvimento de Sistemas', 1);
 		var portaEnfermagem = new ObjetoInterativo('portaEnfermagem', 'porta', 'Sala de Enfermagem', 2);
 		var portaTurismo = new ObjetoInterativo('portaTurismo', 'porta', 'Turismo', 3);
@@ -29,7 +30,8 @@
 		var portaInscricao = new ObjetoInterativo('portaInscricao', 'porta', 'Inscreva-se', 7);
 		var objetosPrincipal = new Array(portaInformatica,portaEnfermagem,portaEdificacoes,portaTurismo,portaAdministracao,portaManutencao,portaInscricao);	
 		
-			//INF
+			//SALA 1 - DESENVOLVIMENTO DE SISTEMAS --------------------------------------------//
+			
 			/*COMPUTADOR UM*/
 		var computadorUmDialogoParteUm = new DialogoParte(`LINGUAGENS DE PROGRAMAÇÃO.
 	Uma linguagem de programação é basicamento uma tradução da linguagem humana (palavras) para a linguagem da máquina que são os bits (zeros e uns) tornando assim possível a compreensão do humano e a utilização de tais linguagens para desenvolver sistemas, sejam eles sites, programas ou aplicativos.
@@ -82,59 +84,242 @@ PRESSIONE "E" PARA SAIR...`, null);
 		
 			//QUESTÕES
 			//PROGRAMAÇÃO
-		var perguntaUmAlternativaUm = 'Arquitetar a estrutura do hardware computacional.';	
-		var perguntaUmAlternativaDois = 'Consertar computadores.';	
-		var perguntaUmAlternativaTres = 'Possibilitar a entrada de dados.';	
-		var perguntaUmAlternativaQuatro = 'Traduzir a linguagem humana para bits (Zeros e Ums).';	
-		var perguntaUmAlternativas = new Array(perguntaUmAlternativaUm, perguntaUmAlternativaDois, perguntaUmAlternativaTres, perguntaUmAlternativaQuatro);
+		var perguntaInfUmAlternativaUm = 'Arquitetar a estrutura do hardware computacional.';	
+		var perguntaInfUmAlternativaDois = 'Consertar computadores.';	
+		var perguntaInfUmAlternativaTres = 'Possibilitar a entrada de dados.';	
+		var perguntaInfUmAlternativaQuatro = 'Traduzir a linguagem humana para bits (Zeros e Ums).';	
+		var perguntaInfUmAlternativas = new Array(perguntaInfUmAlternativaUm, perguntaInfUmAlternativaDois, perguntaInfUmAlternativaTres, perguntaInfUmAlternativaQuatro);
 		
-		var perguntaUm = new Question(perguntaUmAlternativas, 3);
+		var perguntaInfUm = new Question(perguntaInfUmAlternativas, 3);
 		
 			//BANCO DE DADOS
-		var perguntaDoisAlternativaUm = 'Dobramento moderno.';	
-		var perguntaDoisAlternativaDois = 'Estrutura condicional.';	
-		var perguntaDoisAlternativaTres = 'Estrutura de repetição.';	
-		var perguntaDoisAlternativaQuatro = 'Rede.';	
-		var perguntaDoisAlternativas = new Array(perguntaDoisAlternativaUm, perguntaDoisAlternativaDois, perguntaDoisAlternativaTres, perguntaDoisAlternativaQuatro);
+		var perguntaInfDoisAlternativaUm = 'Dobramento moderno.';	
+		var perguntaInfDoisAlternativaDois = 'Estrutura condicional.';	
+		var perguntaInfDoisAlternativaTres = 'Estrutura de repetição.';	
+		var perguntaInfDoisAlternativaQuatro = 'Rede.';	
+		var perguntaInfDoisAlternativas = new Array(perguntaInfDoisAlternativaUm, perguntaInfDoisAlternativaDois, perguntaInfDoisAlternativaTres, perguntaInfDoisAlternativaQuatro);
 		
-		var perguntaDois = new Question(perguntaDoisAlternativas, 3);
+		var perguntaInfDois = new Question(perguntaInfDoisAlternativas, 3);
 		
 			//REDES
-		var perguntaTresAlternativaUm = 'Na forma de uma matriz unidimensional.';	
-		var perguntaTresAlternativaDois = 'Na forma de diretórios dispostos em servidores.';	
-		var perguntaTresAlternativaTres = 'Na forma tabelas, onde cada linha representa um conjunto de dados.';	
-		var perguntaTresAlternativaQuatro = 'Na forma esférica, criando assim uma objeto tridimensional, o que facilita nos calculos de intersecção.';	
-		var perguntaTresAlternativas = new Array(perguntaTresAlternativaUm, perguntaTresAlternativaDois, perguntaTresAlternativaTres, perguntaTresAlternativaQuatro);
+		var perguntaInfTresAlternativaUm = 'Na forma de uma matriz unidimensional.';	
+		var perguntaInfTresAlternativaDois = 'Na forma de diretórios dispostos em servidores.';	
+		var perguntaInfTresAlternativaTres = 'Na forma tabelas, onde cada linha representa um conjunto de dados.';	
+		var perguntaInfTresAlternativaQuatro = 'Na forma esférica, criando assim uma objeto tridimensional, o que facilita nos calculos de intersecção.';	
+		var perguntaInfTresAlternativas = new Array(perguntaInfTresAlternativaUm, perguntaInfTresAlternativaDois, perguntaInfTresAlternativaTres, perguntaInfTresAlternativaQuatro);
 		
-		var perguntaTres = new Question(perguntaTresAlternativas, 2);
+		var perguntaInfTres = new Question(perguntaInfTresAlternativas, 2);
 			//PROFESSORA
 		
-		var professoraDialogoParteDois = new DialogoParte(`Qual é a função das linguagens de programação?`, perguntaUm);	
-		var professoraDialogoParteTres = new DialogoParte(`A internet é um exemplo de?`, perguntaDois);	
-		var professoraDialogoParteQuatro = new DialogoParte(`Os dados são armazenados de que forma nos bancos de dados?`, perguntaTres);	
-		var professoraDialogos = new Array(professoraDialogoParteDois, professoraDialogoParteTres, professoraDialogoParteQuatro); 
-		var professoraDialogo = new DialogoInterativo('interactabilityDiv', 'img/telas/telaComputador.jpg', professoraDialogos);
-		/*---------------------------------------------------*/
+		var professoraInfDialogoParteUm = new DialogoParte(`Agora, com os conhecimentos adquiridos, responda as questões a seguir.`, null);
+		var professoraInfDialogoParteDois = new DialogoParte(`Qual é a função das linguagens de programação?`, perguntaInfUm);	
+		var professoraInfDialogoParteTres = new DialogoParte(`A internet é um exemplo de?`, perguntaInfDois);	
+		var professoraInfDialogoParteQuatro = new DialogoParte(`Os dados são armazenados de que forma nos bancos de dados?`, perguntaInfTres);
+		var professoraInfDialogoPartefinal = new DialogoParte(`Fim do teste!`, null);
+		var professoraInfDialogos = new Array(professoraInfDialogoParteUm, professoraInfDialogoParteDois, professoraInfDialogoParteTres, professoraInfDialogoParteQuatro, professoraInfDialogoPartefinal); 
+		var professoraInfDialogo = new DialogoInterativo('interactabilityDiv', 'img/telas/telaComputador.jpg', professoraInfDialogos);
 		
-			
+		/*------------------------DECLARAÇÃO FINAL---------------------------*/
+		var portaSaida = new ObjetoInterativo('portaSaida', 'porta', 'Saída', 0);
 		var computadorUm = new ObjetoInterativo('computadorUm', 'computador', 'Programação', computadorUmDialogo);
 		var computadorDois = new ObjetoInterativo('computadorDois', 'computador', 'Bancos de Dados', computadorDoisDialogo);
 		var computadorTres = new ObjetoInterativo('computadorTres', 'computador', 'Redes', computadorTresDialogo);
-		var professora = new ObjetoInterativo('professora', 'professora', 'Exercícios', professoraDialogo);
+		var professoraInf = new ObjetoInterativo('professora', 'professora', 'Exercícios', professoraInfDialogo);
+		
+		var objetosInformatica = new Array(portaSaida,computadorUm,computadorDois,computadorTres,professoraInf);
 		
 		
-			//OBJETOS
-		var objetosInformatica = new Array(computadorUm,computadorDois,computadorTres,professora);	
-		var salaAtual = 0;	
-		var objetos = new Array(objetosPrincipal,objetosInformatica);
+		//SALA 5 - AdmUTENÇÃO E SUPORTE  --------------------------------------------//
+		var computadorAdmDialogoParteUm = new DialogoParte(`RECURSOS HUMANOS.
+	Aplicação de um conjunto de conhecimentos e técnicas administrativas especializadas no gerenciamento das relações de pessoas com as organizações.
+PRESSIONE "E" PARA AVANÇAR...`, null);	
+		var computadorAdmDialogoParteDois = new DialogoParte(`PERFEITAMENTE EQUILIBRADO.
+	Deve-se prover satisfação tanto para a organização, tais como as empresas, como para com as pessoas, tais como os funcionários.
+PRESSIONE "E" PARA SAIR...`, null)
+		var computadorAdmDialogos = new Array(computadorAdmDialogoParteUm, computadorAdmDialogoParteDois); 
+		var computadorAdmDialogo = new DialogoInterativo('interactabilityDiv', 'img/telas/telaComputador.jpg', computadorAdmDialogos);
+		
+		
+			/*COMPUTADOR DOIS*/
+		var roboDialogoParteUm = new DialogoParte(`Olá.
+	Eu sou, um Robô e fui criado pelo conhecimento advindo da prototipação que é fornecido no curso. 
+PRESSIONE "E" PARA AVANÇAR...`, null);	
+		var roboDialogoParteDois = new DialogoParte(`Como fui criado?
+	Através do Admuseio do Arduino, uma placa com microcontroladores - quase um mini computador - que é barata e eficiênte no auxílio da prototipação, isto é, programação voltada a Admipulação de um protótipo.
+PRESSIONE "E" PARA AVANÇAR...`, null);	
+		var roboDialogoParteTres = new DialogoParte(`Opa, quase esqueci!
+	Além disso o Arduino é um hardware livre, ou seja, com ele você pode criar e alterar qualquer projeto da Admeira que quiser.
+	Bem Admeiro né? eu sei. então venha pro curso e crie uma namorada pra mim!
+PRESSIONE "E" PARA SAIR...`, null);	
+		var roboDialogos = new Array(roboDialogoParteUm, roboDialogoParteDois, roboDialogoParteTres); 
+		var roboDialogo = new DialogoInterativo('interactabilityDiv', 'img/telas/telaComputador.jpg', roboDialogos);
+		
+		
+			/*computadorDanificado TRÊS*/
+		var circuitoDialogoParteUm = new DialogoParte(`FUNDAMENTOS DA ELETRÔNICA.
+	Apresenta o conceito basico dos funcionamentos de diodos e capacitores, além de funções como técnicas de soldagem e relatório profissional.`, null);	
+		var circuitoDialogoParteDois = new DialogoParte(`Diodos? Que?
+	Um diodo é um componente eletrônico que permite a passagem da corrente elétrica somente em um sentido, ou seja, o diodo é como uma válvula que só deixa a agua fluir em um sentido, além disso ele tambem pode converter uma tensão elétrica alternada em contínua.`, null);	
+		var circuitoDialogoParteTres = new DialogoParte(`Capacitores? Ham?
+	Um capacitor é um despositivo capaz de acumular cargar elétricas em seus terminais quando a diferença da potência é estabelecida em seus terminais.`, null);	
+		var circuitoDialogos = new Array(circuitoDialogoParteUm, circuitoDialogoParteDois, circuitoDialogoParteTres); 
+		var circuitoDialogo = new DialogoInterativo('interactabilityDiv', 'img/telas/telaComputador.jpg', circuitoDialogos);
+		
+		
 			
+			/*PROFESSOR*/
+		var professoraAdmDialogoParteUm = new DialogoParte(`Olá, agora que você adquiriu um pouco de conhecimento a respeito deste curso, responda algumas questões.`, null);	
+		
+			//QUESTÕES
+			//PROGRAMAÇÃO
+		var perguntaAdmUmAlternativaUm = 'REINICIAR O COMPUTADOR.';	
+		var perguntaAdmUmAlternativaDois = 'FORMATAR O COMPUTADOR.';	
+		var perguntaAdmUmAlternativaTres = 'ABRIR O WINDOWS DEFENDER E REALIZAR UMA VARREDURA.';	
+		var perguntaAdmUmAlternativaQuatro = 'ABRIR O GERENCIADOR DE TAREFAS E LISTAR OS PROCESSOS EM ORDEM DE USO DA CPU.';	
+		var perguntaAdmUmAlternativas = new Array(perguntaAdmUmAlternativaUm, perguntaAdmUmAlternativaDois, perguntaAdmUmAlternativaTres, perguntaAdmUmAlternativaQuatro);
+		
+		var perguntaAdmUm = new Question(perguntaAdmUmAlternativas, 3);
+		
+			//BANCO DE DADOS
+		var perguntaAdmDoisAlternativaUm = 'Você deve implementar um sensor de temperatura.';	
+		var perguntaAdmDoisAlternativaDois = 'Você deve implementar um sensor de movimento.';	
+		var perguntaAdmDoisAlternativaTres = 'Você deve implementar um detector de umidade.';	
+		var perguntaAdmDoisAlternativaQuatro = 'Você deve implementar um Receptor infravermelho para captar a energia advinda da luz solar';	
+		var perguntaAdmDoisAlternativas = new Array(perguntaAdmDoisAlternativaUm, perguntaAdmDoisAlternativaDois, perguntaAdmDoisAlternativaTres, perguntaAdmDoisAlternativaQuatro);
+		
+		var perguntaAdmDois = new Question(perguntaAdmDoisAlternativas, 0);
+		
+			//REDES
+		var perguntaAdmTresAlternativaUm = 'Capacitar um sistema através do gerenciamento da potência gráfica de uma GPU.';	
+		var perguntaAdmTresAlternativaDois = 'Armazenar energia elétrica.';	
+		var perguntaAdmTresAlternativaTres = 'Estabelecer uma conexão vetorial em relação aos circuitos da placa mãe.';	
+		var perguntaAdmTresAlternativaQuatro = 'Realizar a Admutenção do uso da CPU em larga escala.';	
+		var perguntaAdmTresAlternativas = new Array(perguntaAdmTresAlternativaUm, perguntaAdmTresAlternativaDois, perguntaAdmTresAlternativaTres, perguntaAdmTresAlternativaQuatro);
+		
+		var perguntaAdmTres = new Question(perguntaAdmTresAlternativas, 1);
+			//PROFESSORA
+		
+		var professoraAdmDialogoParteUm = new DialogoParte(`Agora, com os conhecimentos adquiridos, responda as questões a seguir.`, null);
+		var professoraAdmDialogoParteDois = new DialogoParte(`Se seu computador está lento, qual é o procedimento adequado?`, perguntaAdmUm);	
+		var professoraAdmDialogoParteTres = new DialogoParte(`Para automatizar a inicialização de um ventilador em função de uma temperatura X`, perguntaAdmDois);	
+		var professoraAdmDialogoParteQuatro = new DialogoParte(`Qual a função de um Capacitor?`, perguntaAdmTres);
+		var professoraAdmDialogoPartefinal = new DialogoParte(`Fim do teste!`, null);
+		var professoraAdmDialogos = new Array(professoraAdmDialogoParteUm, professoraAdmDialogoParteDois, professoraAdmDialogoParteTres, professoraAdmDialogoParteQuatro, professoraAdmDialogoPartefinal); 
+		var professoraAdmDialogo = new DialogoInterativo('interactabilityDiv', 'img/telas/telaComputador.jpg', professoraAdmDialogos);
 		
 		
-			//INF INFORMAÇÃO
-		/*var computadorUmPhoto = "img/telas/telaJavaScript.jpg";
-		var computadorDoisPhoto = "img/telas/telaHTMLCSS.jpg";
-		var computadorTresPhoto = "img/telas/telaCSharp.jpg";
-		var professoraPhoto = "img/telas/professora.jpg";*/
+		
+		/*------------------------DECLARAÇÃO FINAL---------------------------*/
+		var computadorAdm = new ObjetoInterativo('computadorAdm', 'computador', 'Recursos Humanos', computadorAdmDialogo);
+		var robo = new ObjetoInterativo('computadorDois', 'robo', 'Prototipação', roboDialogo);
+		var circuito = new ObjetoInterativo('computadorTres', 'computador', 'Fundamentos Eletrônicos', circuitoDialogo);
+		var professoraAdm = new ObjetoInterativo('professoraAdm', 'professora', 'Exercícios', professoraAdmDialogo);
+		
+		var objetosAdministracao = new Array(portaSaida,computadorAdm,robo,circuito,professoraAdm);
+		
+		/*---------------------------------------------------*/
+		
+		
+		
+		
+		//SALA 5 - MANUTENÇÃO E SUPORTE  --------------------------------------------//
+		var computadorUnicoDialogoParteUm = new DialogoParte(`MANUTENÇÃO DE PERIFÉRICOS.
+	Ao contrário do que se pensa, não é sobre o conserto de teclados e mouses, por que? os periféricos possuem baixo custo, logo, não é vantajoso realizar a manutenção dos mesmo.
+PRESSIONE "E" PARA AVANÇAR...`, null);	
+		var computadorUnicoDialogoParteDois = new DialogoParte(`EXCESSÃO.
+	Alguns periféricos, poucos, são realmente possiveis realizar manutenção sem disperdiçar energias, tais como impressoras.
+PRESSIONE "E" PARA SAIR...`, null)
+		var computadorUnicoDialogos = new Array(computadorUnicoDialogoParteUm, computadorUnicoDialogoParteDois); 
+		var computadorUnicoDialogo = new DialogoInterativo('interactabilityDiv', 'img/telas/telaComputador.jpg', computadorUnicoDialogos);
+		
+		
+			/*COMPUTADOR DOIS*/
+		var roboDialogoParteUm = new DialogoParte(`Olá.
+	Eu sou, um Robô e fui criado pelo conhecimento advindo da prototipação que é fornecido no curso. 
+PRESSIONE "E" PARA AVANÇAR...`, null);	
+		var roboDialogoParteDois = new DialogoParte(`Como fui criado?
+	Através do manuseio do Arduino, uma placa com microcontroladores - quase um mini computador - que é barata e eficiênte no auxílio da prototipação, isto é, programação voltada a manipulação de um protótipo.
+PRESSIONE "E" PARA AVANÇAR...`, null);	
+		var roboDialogoParteTres = new DialogoParte(`Opa, quase esqueci!
+	Além disso o Arduino é um hardware livre, ou seja, com ele você pode criar e alterar qualquer projeto da maneira que quiser.
+	Bem maneiro né? eu sei. então venha pro curso e crie uma namorada pra mim!
+PRESSIONE "E" PARA SAIR...`, null);	
+		var roboDialogos = new Array(roboDialogoParteUm, roboDialogoParteDois, roboDialogoParteTres); 
+		var roboDialogo = new DialogoInterativo('interactabilityDiv', 'img/telas/telaComputador.jpg', roboDialogos);
+		
+		
+			/*computadorDanificado TRÊS*/
+		var circuitoDialogoParteUm = new DialogoParte(`FUNDAMENTOS DA ELETRÔNICA.
+	Apresenta o conceito basico dos funcionamentos de diodos e capacitores, além de funções como técnicas de soldagem e relatório profissional.`, null);	
+		var circuitoDialogoParteDois = new DialogoParte(`Diodos? Que?
+	Um diodo é um componente eletrônico que permite a passagem da corrente elétrica somente em um sentido, ou seja, o diodo é como uma válvula que só deixa a agua fluir em um sentido, além disso ele tambem pode converter uma tensão elétrica alternada em contínua.`, null);	
+		var circuitoDialogoParteTres = new DialogoParte(`Capacitores? Ham?
+	Um capacitor é um despositivo capaz de acumular cargar elétricas em seus terminais quando a diferença da potência é estabelecida em seus terminais.`, null);	
+		var circuitoDialogos = new Array(circuitoDialogoParteUm, circuitoDialogoParteDois, circuitoDialogoParteTres); 
+		var circuitoDialogo = new DialogoInterativo('interactabilityDiv', 'img/telas/telaComputador.jpg', circuitoDialogos);
+		
+		
+			
+			/*PROFESSOR*/
+		var professoraManDialogoParteUm = new DialogoParte(`Olá, agora que você adquiriu um pouco de conhecimento a respeito deste curso, responda algumas questões.`, null);	
+		
+			//QUESTÕES
+			//PROGRAMAÇÃO
+		var perguntaManUmAlternativaUm = 'REINICIAR O COMPUTADOR.';	
+		var perguntaManUmAlternativaDois = 'FORMATAR O COMPUTADOR.';	
+		var perguntaManUmAlternativaTres = 'ABRIR O WINDOWS DEFENDER E REALIZAR UMA VARREDURA.';	
+		var perguntaManUmAlternativaQuatro = 'ABRIR O GERENCIADOR DE TAREFAS E LISTAR OS PROCESSOS EM ORDEM DE USO DA CPU.';	
+		var perguntaManUmAlternativas = new Array(perguntaManUmAlternativaUm, perguntaManUmAlternativaDois, perguntaManUmAlternativaTres, perguntaManUmAlternativaQuatro);
+		
+		var perguntaManUm = new Question(perguntaManUmAlternativas, 3);
+		
+			//BANCO DE DADOS
+		var perguntaManDoisAlternativaUm = 'Você deve implementar um sensor de temperatura.';	
+		var perguntaManDoisAlternativaDois = 'Você deve implementar um sensor de movimento.';	
+		var perguntaManDoisAlternativaTres = 'Você deve implementar um detector de umidade.';	
+		var perguntaManDoisAlternativaQuatro = 'Você deve implementar um Receptor infravermelho para captar a energia advinda da luz solar';	
+		var perguntaManDoisAlternativas = new Array(perguntaManDoisAlternativaUm, perguntaManDoisAlternativaDois, perguntaManDoisAlternativaTres, perguntaManDoisAlternativaQuatro);
+		
+		var perguntaManDois = new Question(perguntaManDoisAlternativas, 0);
+		
+			//REDES
+		var perguntaManTresAlternativaUm = 'Capacitar um sistema através do gerenciamento da potência gráfica de uma GPU.';	
+		var perguntaManTresAlternativaDois = 'Armazenar energia elétrica.';	
+		var perguntaManTresAlternativaTres = 'Estabelecer uma conexão vetorial em relação aos circuitos da placa mãe.';	
+		var perguntaManTresAlternativaQuatro = 'Realizar a manutenção do uso da CPU em larga escala.';	
+		var perguntaManTresAlternativas = new Array(perguntaManTresAlternativaUm, perguntaManTresAlternativaDois, perguntaManTresAlternativaTres, perguntaManTresAlternativaQuatro);
+		
+		var perguntaManTres = new Question(perguntaManTresAlternativas, 1);
+			//PROFESSORA
+		
+		var professoraManDialogoParteUm = new DialogoParte(`Agora, com os conhecimentos adquiridos, responda as questões a seguir.`, null);
+		var professoraManDialogoParteDois = new DialogoParte(`Se seu computador está lento, qual é o procedimento adequado?`, perguntaManUm);	
+		var professoraManDialogoParteTres = new DialogoParte(`Para automatizar a inicialização de um ventilador em função de uma temperatura X`, perguntaManDois);	
+		var professoraManDialogoParteQuatro = new DialogoParte(`Qual a função de um Capacitor?`, perguntaManTres);
+		var professoraManDialogoPartefinal = new DialogoParte(`Fim do teste!`, null);
+		var professoraManDialogos = new Array(professoraManDialogoParteUm, professoraManDialogoParteDois, professoraManDialogoParteTres, professoraManDialogoParteQuatro, professoraManDialogoPartefinal); 
+		var professoraManDialogo = new DialogoInterativo('interactabilityDiv', 'img/telas/telaComputador.jpg', professoraManDialogos);
+		
+		
+		
+		/*------------------------DECLARAÇÃO FINAL---------------------------*/
+		var computadorUnico = new ObjetoInterativo('computadorUnico', 'computador', 'Manutenção de Periféricos', computadorUnicoDialogo);
+		var robo = new ObjetoInterativo('robo', 'robo', 'Prototipação', roboDialogo);
+		var circuito = new ObjetoInterativo('circuito', 'computador', 'Fundamentos Eletrônicos', circuitoDialogo);
+		var professoraMan = new ObjetoInterativo('professora', 'professora', 'Exercícios', professoraManDialogo);
+		
+		var objetosManutencao = new Array(portaSaida,computadorUnico,robo,circuito,professoraMan);
+		
+		/*---------------------------------------------------*/
+		
+		//OBJETOS	
+		var objetosEnfermagem = new Array(portaSaida,computadorUm,computadorDois,computadorTres,professoraInf);
+		var objetosEdificacoes = new Array(portaSaida,computadorUm,computadorDois,computadorTres,professoraInf);
+		var objetosTurismo = new Array(portaSaida,computadorUm,computadorDois,computadorTres,professoraInf);
+		
+		var salaAtual = 0;	
+		var objetos = new Array(objetosPrincipal,objetosInformatica,objetosEnfermagem,objetosEdificacoes,objetosTurismo,objetosAdministracao,objetosManutencao);
+		
 		
 		
 		function vwValue()
@@ -216,9 +401,26 @@ PRESSIONE "E" PARA SAIR...`, null);
 			    		case 'porta':
 			    			mudarLugar(objetos[salaAtual][contar].getData());
 			    			break;
+			    		case 'robo':
 			    			
+			    			var tela = document.getElementById(objetos[salaAtual][contar].getData().getId());
+			    			comandos = false;
+			    			tela.innerHTML = `
+			    			<div id='interactDiv' style='position:absolute;background-size: 100% 100%;background-repeat: no-repeat;z-index: 12;left: 25vw;top: 5vh;width: 40vw;height: 50vh;background-image: url(`+ objetos[salaAtual][contar].getData().getBackground() + `)' '>
+			    				
+			    				<div style='margin-left: 10%;width:80%;margin-top: 7.5vh;height: 70%;wrap'>
+			    					<textarea readonly="true" id='roboTexto' style='resize: none;'></textarea>
+			    				</div>
+			    				
+			    			</div>
+			    			<span id='spanFechar' style='top: 1vh;' onclick='comandos = true;limparElemento("` + objetos[salaAtual][contar].getData().getId()  + `")'>X</span>`;
+			    			
+			    			var computerDialogActualPart = objetos[salaAtual][contar].getData().getActualPart();
+			    			
+			    			escrever(objetos[salaAtual][contar].getData().getParts()[computerDialogActualPart].getText(),'roboTexto',60);
+			    			break;	
+			    				
 			    		case 'computador':
-			    			
 			    			var tela = document.getElementById(objetos[salaAtual][contar].getData().getId());
 			    			comandos = false;
 			    			tela.innerHTML = `
@@ -233,7 +435,7 @@ PRESSIONE "E" PARA SAIR...`, null);
 			    			
 			    			var computerDialogActualPart = objetos[salaAtual][contar].getData().getActualPart();
 			    			
-			    			escrever(objetos[salaAtual][contar].getData().getParts()[computerDialogActualPart].getText(),'computadorTexto');
+			    			escrever(objetos[salaAtual][contar].getData().getParts()[computerDialogActualPart].getText(),'computadorTexto',40);
 			    			break;	
 			    			
 			    		case 'professora':
@@ -241,28 +443,32 @@ PRESSIONE "E" PARA SAIR...`, null);
 			    			var tela = document.getElementById(objetos[salaAtual][contar].getData().getId());
 			    			comandos = false;
 			    			tela.innerHTML = `
-			    			<div id='interactDiv' style='text-align: center;position:absolute;background-size: 100% 100%;background-repeat: no-repeat;z-index: 12;top: 1vh;left: 25vw;width: 40vw;height: 25vh;background: lightyellow;' '>
+			    			<div id='interactDiv' style='text-align: center;position:absolute;background-size: 100% 100%;background-repeat: no-repeat;z-index: 12;top: 1vh;left: 25vw;width: 40vw;height: 55vh;background: lightyellow;' '>
+			    				<div id='questionDisplay' style='width:100%;margin-top: 2.5vh;'>	
 			    				
-			    			<div style='margin-left: 10%;width:80%;margin-top: 7.5vh;height: 70%;wrap'>	
 			    				</div>
-			    				
-			    			</div>
-			    			<div id='questionDiv' style='font-size: 1vw;position:absolute;background-size: 100% 100%;background-repeat: no-repeat;z-index: 12;left: 25vw;top: 26vh;width: 40vw;height: 30vh;background: white;' '>
+			    				<div id='questionDiv' style='font-size: 1vw;'>
 			    			
+			    				</div>
 			    			</div>
+			    			
 			    			<span id='spanFechar' style='top: -1vh;' onclick='comandos = true;limparElemento("` + objetos[salaAtual][contar].getData().getId()  + `")'>X</span>
 			    			`;
 			    			
 			    			var teacherDialogActualPart = objetos[salaAtual][contar].getData().getActualPart();
-			    			escrever(objetos[salaAtual][contar].getData().getParts()[teacherDialogActualPart].getText(),'interactDiv');
+			    			escrever(objetos[salaAtual][contar].getData().getParts()[teacherDialogActualPart].getText(),'questionDisplay',40);
+    			
+	    					if(objetos[salaAtual][contar].getData().getParts()[teacherDialogActualPart].getExtra())
+	    					{
+	    						var alternatives = "<br />";
 			    			
-			    			var alternatives = "";
+			    				for(let c = 0; c < objetos[salaAtual][contar].getData().getParts()[teacherDialogActualPart].getExtra().questions.length; c++)
+			    				{
+			    					alternatives += '<div class="afirmative" name="afirmatives" onclick="thisSelect(this);interactDialog()" >' + objetos[salaAtual][contar].getData().getParts()[teacherDialogActualPart].getExtra().questions[c] + '</div>';
+			    				}
+			    				document.getElementById('questionDiv').innerHTML = alternatives + '				PRESSIONE "E" PARA AVANÇAR...';
+	    					}
 			    			
-			    			for(let c = 0; c < objetos[salaAtual][contar].getData().getParts()[teacherDialogActualPart].getExtra().questions.length; c++)
-			    			{
-			    				alternatives += '<input type="radio" style="height: 2vh;width: 2vw;" name="question" onclick="if('+ c + ' == '+ objetos[salaAtual][contar].getData().getParts()[teacherDialogActualPart].getExtra().correct +') {objetos['+salaAtual+']['+contar+'].getData().getParts()['+teacherDialogActualPart+'].getExtra().hit = true} else {objetos['+salaAtual+']['+contar+'].getData().getParts()['+teacherDialogActualPart+'].getExtra().hit = false}; alert(objetos['+salaAtual+']['+contar+'].getData().getParts()['+teacherDialogActualPart+'].getExtra().hit)"/>' + objetos[salaAtual][contar].getData().getParts()[teacherDialogActualPart].getExtra().questions[c] + '<br />';
-			    			}
-			    			document.getElementById('questionDiv').innerHTML = alternatives + '				PRESSIONE "E" PARA AVANÇAR...';
 			    			break;
 			    	}
 			    	break;
@@ -324,6 +530,10 @@ PRESSIONE "E" PARA SAIR...`, null);
 				{	
 					case 69:
 						interactDialog();
+						break;	
+					case 38:
+						break;
+					case 40:
 						break;	
 					default:
 						break;
@@ -486,6 +696,7 @@ PRESSIONE "E" PARA SAIR...`, null);
  					</div>
 				</div>
 				`;	
+				salaAtual = sala;
 					break;
 				case 1:
 				document.body.innerHTML = `
@@ -504,6 +715,15 @@ PRESSIONE "E" PARA SAIR...`, null);
 	 			height: 12vw;
 	 			width: 9vw;">
  				</div>
+ 				
+ 				<div id="portaSaida" name='Sair' style="
+	 			background-image: url('img/portas/portaDS.png');
+				background-size: 100% 100%;
+ 				left: 0vw;
+				height: 17vw;
+				width: 8vw;">
+
+	    		</div>
 	
  				<div id="computadorUm" name='Computador: Javascript' style="
 	 			background-image: url('img/objetos/compUm.png');
@@ -531,14 +751,205 @@ PRESSIONE "E" PARA SAIR...`, null);
 
 				 </div>
 				<div id="professora" name='Explicação' style="
-	 			background-image: url('img/objetos/professora.png');
+	 			background-image: url('img/objetos/profDS.png');
 				background-size: 100% 100%;
  				left: 80vw;
 				height: 17vw;
-				width: 14vw;">
+				width: 8vw;
+				transform: scaleX(-1);">
 
 	    		</div>`;
+	    		salaAtual = sala;
 	    			break;
+	    		case 2:
+				document.body.innerHTML = `
+    			<div id="container" data-screen='enf' style='background-image: url("img/fundos/salaENF.png");background-size: 100% 100%;'>
+				<div id="interactabilityDiv">
+			
+				</div>
+				<div id="showInfo">
+			
+				</div>
+	 			<div id='player' style="
+	 			background-image: url('img/heracles/stopped.gif');
+				background-size: 100% 100%;
+				background-position: 0px 0px;
+	 			left: 0.05vw;
+	 			height: 12vw;
+	 			width: 9vw;">
+ 				</div>
+ 				
+ 				<div id="portaSaida" name='Sair' style="
+	 			background-image: url('img/portas/portaENF.png');
+				background-size: 100% 100%;
+ 				left: 0vw;
+				height: 17vw;
+				width: 8vw;">
+
+	    		</div>
+	
+ 				<div id="computadorUm" name='Computador: Javascript' style="
+	 			background-image: url('img/objetos/compUm.png');
+				background-size: 100% 100%;
+ 				left: 20vw;
+				height: 17vw;
+				width: 16vw;">
+
+	    		</div>
+	    		<div id="computadorDois" name='Computador: HTML' style="
+	 			background-image: url('img/objetos/compUm.png');
+				background-size: 100% 100%;
+ 				left: 40vw;
+				height: 17vw;
+				width: 16vw;">
+
+	    		</div>
+	    		<div id="computadorTres" name='Computador: CSS' style="
+	 			background-image: url('img/objetos/compUm.png');
+				background-size: 100% 100%;
+				transform: scaleX(-1);
+ 				left: 60vw;
+				height: 17vw;
+				width: 16vw;">
+
+				 </div>
+				<div id="professora" name='Explicação' style="
+	 			background-image: url('img/objetos/profENF.png');
+				background-size: 100% 100%;
+ 				left: 80vw;
+				height: 17vw;
+				width: 8vw;
+				transform: scaleX(-1);">
+
+	    		</div>`;
+	    		salaAtual = sala;
+	    			break;
+	    		case 5:
+				document.body.innerHTML = `
+    			<div id="container" data-screen='adm' style='background-image: url("img/fundos/salaADM.png");background-size: 100% 100%;'>
+				<div id="interactabilityDiv">
+			
+				</div>
+				<div id="showInfo">
+			
+				</div>
+	 			<div id='player' style="
+	 			background-image: url('img/heracles/stopped.gif');
+				background-size: 100% 100%;
+				background-position: 0px 0px;
+	 			left: 0.05vw;
+	 			height: 12vw;
+	 			width: 9vw;">
+ 				</div>
+ 				
+ 				<div id="portaSaida" name='Sair' style="
+	 			background-image: url('img/portas/portaENF.png');
+				background-size: 100% 100%;
+ 				left: 0vw;
+				height: 17vw;
+				width: 8vw;">
+
+	    		</div>
+	
+ 				<div id="computadorAdm" name='Computador: Javascript' style="
+	 			background-image: url('img/objetos/compUm.png');
+				background-size: 100% 100%;
+ 				left: 20vw;
+				height: 17vw;
+				width: 16vw;">
+
+	    		</div>
+	    		<div id="computadorDois" name='Computador: HTML' style="
+	 			background-image: url('img/objetos/compUm.png');
+				background-size: 100% 100%;
+ 				left: 40vw;
+				height: 17vw;
+				width: 16vw;">
+
+	    		</div>
+	    		<div id="computadorTres" name='Computador: CSS' style="
+	 			background-image: url('img/objetos/compUm.png');
+				background-size: 100% 100%;
+				transform: scaleX(-1);
+ 				left: 60vw;
+				height: 17vw;
+				width: 16vw;">
+
+				 </div>
+				<div id="professoraAdm" name='Explicação' style="
+	 			background-image: url('img/objetos/profENF.png');
+				background-size: 100% 100%;
+ 				left: 80vw;
+				height: 17vw;
+				width: 8vw;
+				transform: scaleX(-1);">
+
+	    		</div>`;
+	    		salaAtual = sala;
+	    			break;	
+	    		case 6:
+				document.body.innerHTML = `
+    			<div id="container" data-screen='man' style='background-image: url("img/fundos/salaMAN.png");background-size: 100% 100%;'>
+				<div id="interactabilityDiv">
+			
+				</div>
+				<div id="showInfo">
+			
+				</div>
+	 			<div id='player' style="
+	 			background-image: url('img/heracles/stopped.gif');
+				background-size: 100% 100%;
+				background-position: 0px 0px;
+	 			left: 0.05vw;
+	 			height: 12vw;
+	 			width: 9vw;">
+ 				</div>
+ 				
+ 				<div id="portaSaida" name='Sair' style="
+	 			background-image: url('img/portas/portaMAN.png');
+				background-size: 100% 100%;
+ 				left: 0vw;
+				height: 17vw;
+				width: 8vw;">
+
+	    		</div>
+	
+ 				<div id="computadorUnico" name='Computador: Javascript' style="
+	 			background-image: url('img/objetos/compUm.png');
+				background-size: 100% 100%;
+ 				left: 20vw;
+				height: 17vw;
+				width: 16vw;">
+
+	    		</div>
+	    		<div id="robo" name='Computador: HTML' style="
+	 			background-image: url('img/objetos/robo.png');
+				background-size: 100% 100%;
+ 				left: 40vw;
+				height: 15vw;
+				width: 16vw;">
+
+	    		</div>
+	    		<div id="circuito" name='Computador: CSS' style="
+	 			background-image: url('img/objetos/circuitos.png');
+				background-size: 100% 100%;
+				transform: scaleX(-1);
+ 				left: 60vw;
+				height: 17vw;
+				width: 16vw;">
+
+				 </div>
+				<div id="professora" name='Explicação' style="
+	 			background-image: url('img/objetos/profMAN.png');
+				background-size: 100% 100%;
+ 				left: 80vw;
+				height: 17vw;
+				width: 8vw;
+				transform: scaleX(-1);">
+
+	    		</div>`;
+	    		salaAtual = sala;
+	    			break;	
 	    		case 7:
 	    			window.open("https://www.vestibulinhoetec.com.br/candidato/dados-acesso.asp");
 	    			break;
@@ -547,34 +958,32 @@ PRESSIONE "E" PARA SAIR...`, null);
 	    			alert("Ação ainda não implementada!");
 	    			break;
 			}
-			if(sala)
-			{
-				salaAtual = sala;
-			}else{}
+			
 		}
 		function limparElemento(elemento)
 		{
 			
 			document.getElementById(elemento).innerHTML = "";
 		}
-		function escrever(texto, elemento)
+		function escrever(texto, elemento, tempo)
         {
         	document.getElementById(elemento).innerHTML = "";
         	
         	if(escritor)
         	{
         		clearInterval(escritor);
+        		escritor = null;
         	}
             var contador = 0;
             escritor = setInterval(() => {                    
-            	if(contador > texto.length)
+            	if(contador > texto.length || document.getElementById(elemento) == null || document.getElementById(elemento) == undefined)
             	{
                 	clearInterval(escritor);
             	}                
             	document.getElementById(elemento).innerHTML += texto.substr(contador,1);      
             	document.getElementById(elemento).scrollTop = document.getElementById(elemento).scrollHeight;
             	contador++;                                                      
-            }, 40);         
+            }, tempo);         
         }
         function interactDialog()
         {
@@ -591,27 +1000,111 @@ PRESSIONE "E" PARA SAIR...`, null);
         				comandos = true;
         				document.getElementById(objetos[salaAtual][contando].getData().getId()).innerHTML = objetos[salaAtual][contando].getName();
         			}
-        			escrever(objetos[salaAtual][contando].getData().getParts()[objetos[salaAtual][contando].getData().getActualPart()].getText(),'computadorTexto');
+        			escrever(objetos[salaAtual][contando].getData().getParts()[objetos[salaAtual][contando].getData().getActualPart()].getText(),'computadorTexto',40);	
         			
         			break;
+        		case 'robo':
+        			if(objetos[salaAtual][contando].getData().nextPart())
+        			{
+        				comandos = true;
+        				document.getElementById(objetos[salaAtual][contando].getData().getId()).innerHTML = objetos[salaAtual][contando].getName();
+        			}
+        			escrever(objetos[salaAtual][contando].getData().getParts()[objetos[salaAtual][contando].getData().getActualPart()].getText(),'roboTexto',60);	
+        			
+        			break;	
         		case 'professora':
         			if(objetos[salaAtual][contando].getData().nextPart())
         			{
         				comandos = true;
         				document.getElementById(objetos[salaAtual][contando].getData().getId()).innerHTML = objetos[salaAtual][contando].getName();
         			}
-        			var teacherDialogActualPart = objetos[salaAtual][contando].getData().getActualPart();
-			    	escrever(objetos[salaAtual][contando].getData().getParts()[objetos[salaAtual][contando].getData().getActualPart()].getText(),'interactDiv');
+        			if(objetos[salaAtual][contando].getData().getLastPart() == objetos[salaAtual][contando].getData().getActualPart())
+        			{
+        				var acertos = 0;
+        				var primeiraQuest = 0;
+        				var textoFinal = objetos[salaAtual][contando].getData().getParts()[objetos[salaAtual][contando].getData().getActualPart()].getText();
+
+        				for(let count = 1; count < 4; count++)
+        				{
+        					if(objetos[salaAtual][contando].getData().getParts()[count].getExtra().hit)
+        					{
+        						acertos++;
+        						objetos[salaAtual][contando].getData().getParts()[count].getExtra().hit = false;
+        					}
+        					else
+        					{
+        						
+        					}
+        				}
+        				switch (acertos) 
+        				{
+        					case 1:
+        						textoFinal += "Você acertou uma questão... se esforce nos estudos!";
+        						break;
+        					case 2:
+        						textoFinal += "Você acertou duas questões... nada mal!";
+        						break;
+        					case 3:
+        						textoFinal += "VOCÊ ACERTOU TODAS AS QUESTÕES!!!";
+        						break;	
+        					
+        					default:
+        						textoFinal += "Você errou todas... se esforce muito nos estudos!";
+        						break;
+        				}
+        				document.getElementById('questionDiv').innerHTML = '';
+        				escrever(textoFinal,'questionDisplay',40);
+        				break;
+        			}
+        			else
+        			{
+        				var teacherDialogActualPart = objetos[salaAtual][contando].getData().getActualPart();
+			    		escrever(objetos[salaAtual][contando].getData().getParts()[objetos[salaAtual][contando].getData().getActualPart()].getText(),'questionDisplay',40);
+			    	
+			    		if(objetos[salaAtual][contando].getData().getParts()[objetos[salaAtual][contando].getData().getActualPart()].getExtra() != null)
+			    		{
+			    			var alternatives = "";
 			    			
-			    	var alternatives = "";
-			    			
-			    	for(let c = 0; c < objetos[salaAtual][contando].getData().getParts()[objetos[salaAtual][contando].getData().getActualPart()].getExtra().questions.length; c++)
-			    	{
-			    		alternatives += '<input type="radio" style="height: 2vh;width: 2vw;" name="question" onclick="if('+ c + ' == '+ objetos[salaAtual][contando].getData().getParts()[teacherDialogActualPart].getExtra().correct +') {objetos['+salaAtual+']['+contando+'].getData().getParts()['+teacherDialogActualPart+'].getExtra().hit = true} else {objetos['+salaAtual+']['+contando+'].getData().getParts()['+teacherDialogActualPart+'].getExtra().hit = false}; alert(objetos['+salaAtual+']['+contando+'].getData().getParts()['+teacherDialogActualPart+'].getExtra().hit)"/>' + objetos[salaAtual][contando].getData().getParts()[teacherDialogActualPart].getExtra().questions[c] + '<br />';
-			    	}
-			    	document.getElementById('questionDiv').innerHTML = alternatives + '				PRESSIONE "E" PARA AVANÇAR...';
+			    			for(let c = 0; c < objetos[salaAtual][contando].getData().getParts()[teacherDialogActualPart].getExtra().questions.length; c++)
+			    			{
+			    				alternatives += '<div class="afirmative" onclick="thisSelect(this);nextQuestion('+ c + ', '+ objetos[salaAtual][contando].getData().getParts()[teacherDialogActualPart].getExtra().correct +', '+salaAtual+', '+contando+', '+teacherDialogActualPart+');" >' + objetos[salaAtual][contando].getData().getParts()[teacherDialogActualPart].getExtra().questions[c] + '</div>';
+			    			}
+			    			document.getElementById('questionDiv').innerHTML = alternatives + '				CLIQUE NA ALTERNATIVA PARA AVANÇAR...';
+			    		}
+			    		else
+			    		{
+			    			document.getElementById('questionDiv').innerHTML = '				PRESSIONE "E" PARA AVANÇAR...';
+			    		}
+        			}
+        			
         			break;	
         	}
+        }
+        function thisSelect(element)
+        {
+        	elementGroup = document.getElementsByName(element.getAttribute('name'));
+        	for(let count = 0; count < elementGroup.length; count++)
+        	{
+        		if(elementGroup[count].classList.contains('selected'))
+        		{
+        			elementGroup[count].classList.remove('selected')
+        		}
+        	}
+        	element.classList.add("selected");
+        }
+        
+        function nextQuestion(answer, correct, salaNaHora, conta, dialogoParte)
+        {
+        	if(answer == correct) 
+        	{
+        		objetos[salaNaHora][conta].getData().getParts()[dialogoParte].getExtra().hit = true;
+        	}
+        	else 
+        	{
+        		objetos[salaNaHora][conta].getData().getParts()[dialogoParte].getExtra().hit = false;
+        	}
+        	alert(objetos[salaNaHora][conta].getData().getParts()[dialogoParte].getExtra().hit);
+        	interactDialog();
         }
 </script>
 <script type="text/javascript">

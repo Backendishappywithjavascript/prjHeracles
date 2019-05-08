@@ -77,7 +77,7 @@ body
 	top: calc(100% - 11vw);
 	z-index: 10;
 }
-#portaInformatica, #portaEnfermagem, #portaInscricao, #portaTurismo, #portaEdificacoes, #portaAdministracao, #portaManutencao,#computadorUm,#computadorDois,#computadorTres,#professora
+#portaSaida, #portaInformatica, #portaEnfermagem, #portaInscricao, #portaTurismo, #portaEdificacoes, #portaAdministracao, #portaManutencao,#computadorUm,#computadorDois,#computadorTres,#computadorUnico,#robo,#circuito,#professora
 {
 	position: relative;
 }
@@ -109,17 +109,21 @@ body
 {
 	top: calc(100% - 131vw - 0.5vw);
 }
-#computadorUm
+#portaSaida
 {
-    top: calc(100% - 29vw - 0.5vw);
+	top: calc(100% - 29vw - 0.5vw);
 }
-#computadorDois
+#computadorUm, #computadorUnico, #computadorAdm
 {
     top: calc(100% - 46vw - 0.5vw);
 }
-#computadorTres
+#computadorDois, #robo
 {
     top: calc(100% - 63vw - 0.5vw);
+}
+#computadorTres, #circuito
+{
+    top: calc(100% - 80vw - 0.5vw);
 }
 #computadorTexto
 {
@@ -130,7 +134,22 @@ body
 	width: 100%;
 	overflow: auto;
 }
-
+#roboTexto
+{
+	font-size: 1.3vw;
+	background-color: white;
+	background-image: url('img/telas/telaRobo.gif');
+	background-size: 100% 100%; 
+	color: red;
+	text-shadow: 0.1vw 0.1vw darkred;
+	height: 100%;
+	width: 100%;
+	overflow: auto;
+}
+#professora
+{
+    top: calc(100% - 97vw - 0.5vw);
+}
 
 #computadorTexto::-webkit-scrollbar {
   width: 0.4vw;
@@ -148,10 +167,6 @@ body
   background: white;
 }
 
-#professora
-{
-    top: calc(100% - 80vw - 0.5vw);
-}
 #spanFechar
 {
 	position: absolute;
@@ -160,6 +175,29 @@ body
 	color: red;
 	text-shadow: 3px 3px rgb(125,0,0);
 	z-index: 15;
+}
+.afirmative
+{
+	background:lightgreen;
+	width: 80%;
+	margin-top: 0.5%;
+	margin-left: 10%;
+	border-radius: 10px;
+	font-size: 1vw;
+	transition: 0.5s 0s ease;
+}
+div:hover.afirmative
+{
+	cursor: pointer;
+	background: rgb(91, 239, 148);
+	border: 1px solid black;
+	margin-left: calc(10% - 1px);
+}
+.afirmative.selected
+{
+	background: rgb(91, 239, 148);
+	border: 1px solid black;
+	margin-left: calc(10% - 1px);
 }
 @font-face {
     font-family: 'joystixmonospace';
