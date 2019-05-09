@@ -23,8 +23,8 @@
 			//SALA 0 - PRINCIPAL --------------------------------------------//
 		var portaInformatica = new ObjetoInterativo('portaInformatica', 'porta', 'Sala de Desenvolvimento de Sistemas', 1);
 		var portaEnfermagem = new ObjetoInterativo('portaEnfermagem', 'porta', 'Sala de Enfermagem', 2);
-		var portaTurismo = new ObjetoInterativo('portaTurismo', 'porta', 'Turismo', 3);
-		var portaEdificacoes = new ObjetoInterativo('portaEdificacoes', 'porta', 'Sala de Edificações', 4);
+		var portaEdificacoes = new ObjetoInterativo('portaEdificacoes', 'porta', 'Sala de Edificações', 3);
+		var portaTurismo = new ObjetoInterativo('portaTurismo', 'porta', 'Turismo', 4);
 		var portaAdministracao = new ObjetoInterativo('portaAdministracao', 'porta', 'Sala de Administração', 5);
 		var portaManutencao = new ObjetoInterativo('portaManutencao', 'porta', 'Sala de Manutenção', 6);
 		var portaInscricao = new ObjetoInterativo('portaInscricao', 'porta', 'Inscreva-se', 7);
@@ -52,7 +52,7 @@ PRESSIONE "E" PARA SAIR...`, null)
 	Um banco de dados é utilizado para armazenar informação, isto é, dados, para um ou mais sistemas mesmo quando os mesmos não estiverem em tempo de execução.
 PRESSIONE "E" PARA AVANÇAR...`, null);	
 		var computadorDoisDialogoParteDois = new DialogoParte(`MORFOLOGIA.
-	O banco de dados é, geralmente, organizada através de tabelas onde cada coluna representa um atributo e cada linha representa um registro (conhecido como tupla), como é visível no exemplo a seguir.
+	O banco de dados é, geralmente, organizada através de tabelas onde cada coluna representa um atributo e cada linha representa um registro, como é visível no exemplo a seguir.
 PRESSIONE "E" PARA AVANÇAR...`, null);	
 		var computadorDoisDialogoParteTres = new DialogoParte(`TABELA DE CLIENTES 
 	|Código|Nome|Idade|Sexo|                 1	Ana    15    S
@@ -129,7 +129,96 @@ PRESSIONE "E" PARA SAIR...`, null);
 		var objetosInformatica = new Array(portaSaida,computadorUm,computadorDois,computadorTres,professoraInf);
 		
 		
-		//SALA 5 - AdmUTENÇÃO E SUPORTE  --------------------------------------------//
+		//SALA 3 - EDIFICAÇÕES  --------------------------------------------//
+			/*PLACA*/
+		var placaDialogoParteUm = new DialogoParte(`PLANEJAMENTO.
+	Atua na construção civil como uma importante ferramenta no gerenciamento de empresas para coordenar, orientar e controlar as atividades decorrentes de uma obra.
+PRESSIONE "E" PARA AVANÇAR...`, null);	
+		var placaDialogoParteDois = new DialogoParte(`BRASIL, OH CÉUS.
+	O cenário atual da construção no Brasil mostra que a maioria das empresas ou não fazem o planejamento de suas obras ou o fazem de maneira inadequada.
+PRESSIONE "E" PARA SAIR...`, null)
+		var placaDialogos = new Array(placaDialogoParteUm, placaDialogoParteDois); 
+		var placaDialogo = new DialogoInterativo('interactabilityDiv', 'img/telas/telaPlaca.png', placaDialogos);
+		
+		
+			/*SACO DE CIMENTO*/
+		var cimentoParteUm = new DialogoParte(`PROJETO.
+	O projeto é o planejamento gráfico visual feito com base no levantamento de diversas informações coletadas.
+PRESSIONE "E" PARA AVANÇAR...`, null)	
+		var cimentoParteDois = new DialogoParte(`INFORMAÇÕES.
+	Essas informações têm por objetivo refletir as necessidades e condicionantes atuantes em uma determinada obra.
+PRESSIONE "E" PARA AVANÇAR...`, null)
+		var cimentoParteTres = new DialogoParte(`PROFISSIONAL.
+	O profissional da área elabora os projetos com sabedoria e entendimento dos requisitos pedidos e das normas necessárias.
+PRESSIONE "E" PARA SAIR...`, null)
+		var cimentoDialogos = new Array(cimentoParteUm, cimentoParteDois, cimentoParteTres); 
+		var cimentoDialogo = new DialogoInterativo('interactabilityDiv', 'img/telas/telaCimento.png', cimentoDialogos);
+		
+		
+			/*mesa*/
+		var mesaDialogoParteUm = new DialogoParte(`TÉCNICO.
+O técnico em edificações deve lidar com diversas questões simultâneas em todas as etapas de uma obra, desta forma é fundamental saber delegar e compreender a fundo todos os aspectos relativos á execução de obras, lidan     do com as etapas e os processos construtivos.
+PRESSIONE "E" PARA SAIR...`, null);	
+		var mesaDialogos = new Array(mesaDialogoParteUm); 
+		var mesaDialogo = new DialogoInterativo('interactabilityDiv', 'img/telas/telaMesa.png', mesaDialogos);
+		
+		
+			
+			/*PROFESSOR*/
+		var professoraEdfDialogoParteUm = new DialogoParte(`Olá, agora que você adquiriu na arte da construção civil, responda algumas questões.`, null);	
+		
+			//QUESTÕES
+			//RH
+		var perguntaEdfUmAlternativaUm = 'CERTO.';	
+		var perguntaEdfUmAlternativaDois = 'ERRADO.';	
+		var perguntaEdfUmAlternativas = new Array(perguntaEdfUmAlternativaUm, perguntaEdfUmAlternativaDois);
+		
+		var perguntaEdfUm = new Question(perguntaEdfUmAlternativas, 1);
+		
+			//MARKETING
+		var perguntaEdfDoisAlternativaUm = 'é uma ferramenta para gerenciar as atividades de uma obra.';	
+		var perguntaEdfDoisAlternativaDois = 'Não se faz necessário na maioria das obras.';	
+		var perguntaEdfDoisAlternativaTres = 'O Brasil sempre realiza planejamentos impecáveis em suas obras.';	
+		var perguntaEdfDoisAlternativaQuatro = 'é utilizado, apenas, na construção de atrações turísticas, tais como parquinhos.';	
+		var perguntaEdfDoisAlternativas = new Array(perguntaEdfDoisAlternativaUm, perguntaEdfDoisAlternativaDois, perguntaEdfDoisAlternativaTres, perguntaEdfDoisAlternativaQuatro);
+		
+		var perguntaEdfDois = new Question(perguntaEdfDoisAlternativas, 0);
+		
+			//FINANÇAS
+		var perguntaEdfTresAlternativaUm = 'Em qual desenho fica mais bonito!!!';	
+		var perguntaEdfTresAlternativaDois = 'Na vontade do arquiteto, tal como o design e a quantidade de pilastras.';	
+		var perguntaEdfTresAlternativaTres = 'No raciocínio lógico, buscando sempre a obra ideal que se encontra no mundo das idéias, proposto por platão.';	
+		var perguntaEdfTresAlternativaQuatro = 'Nas informações coletadas sobre a determinada obra, tais como o relevo do local, temperatura ambiente, etc.';	
+		var perguntaEdfTresAlternativas = new Array(perguntaEdfTresAlternativaUm, perguntaEdfTresAlternativaDois, perguntaEdfTresAlternativaTres, perguntaEdfTresAlternativaQuatro);
+		
+		var perguntaEdfTres = new Question(perguntaEdfTresAlternativas, 3);
+			//PROFESSORA
+		
+		var professoraEdfDialogoParteUm = new DialogoParte(`Agora, com os conhecimentos adquiridos, responda as questões a seguir.`, null);
+		var professoraEdfDialogoParteDois = new DialogoParte(`O técnico em edificações só se faz necessário na etapa de execução da obra.`, perguntaEdfUm);	
+		var professoraEdfDialogoParteTres = new DialogoParte(`Sobre o planejamento, é correto afirmar:`, perguntaEdfDois);	
+		var professoraEdfDialogoParteQuatro = new DialogoParte(`O projeto é um planejamento visual com base...`, perguntaEdfTres);
+		var professoraEdfDialogoPartefinal = new DialogoParte(`Fim do teste!`, null);
+		var professoraEdfDialogos = new Array(professoraEdfDialogoParteUm, professoraEdfDialogoParteDois, professoraEdfDialogoParteTres, professoraEdfDialogoParteQuatro, professoraEdfDialogoPartefinal); 
+		var professoraEdfDialogo = new DialogoInterativo('interactabilityDiv', 'img/telas/telaComputador.jpg', professoraEdfDialogos);
+		
+		
+		
+		/*------------------------DECLARAÇÃO FINAL---------------------------*/
+		var placa = new ObjetoInterativo('placa', 'placa', 'Planejamento', placaDialogo);
+		var cimento = new ObjetoInterativo('cimento', 'cimento', 'Projeto', cimentoDialogo);
+		var mesa = new ObjetoInterativo('mesa', 'mesa', 'Técnico', mesaDialogo);
+		var professoraEdf = new ObjetoInterativo('professora', 'professora', 'Exercícios', professoraEdfDialogo);
+		
+		var objetosEdificacoes = new Array(portaSaida,placa,cimento,mesa,professoraEdf);
+		
+		/*---------------------------------------------------*/
+		
+		
+		
+		
+		
+		//SALA 5 - ADM  --------------------------------------------//
 		var computadorAdmDialogoParteUm = new DialogoParte(`RECURSOS HUMANOS.
 	Aplicação de um conjunto de conhecimentos e técnicas administrativas especializadas no gerenciamento das relações de pessoas com as organizações.
 PRESSIONE "E" PARA AVANÇAR...`, null);	
@@ -140,69 +229,63 @@ PRESSIONE "E" PARA SAIR...`, null)
 		var computadorAdmDialogo = new DialogoInterativo('interactabilityDiv', 'img/telas/telaComputador.jpg', computadorAdmDialogos);
 		
 		
-			/*COMPUTADOR DOIS*/
-		var roboDialogoParteUm = new DialogoParte(`Olá.
-	Eu sou, um Robô e fui criado pelo conhecimento advindo da prototipação que é fornecido no curso. 
+			/*TV*/
+		var tvDialogoParteUm = new DialogoParte(`FINANÇAS.
+	Corresponde ao conjunto de recursos disponíveis circulantes em espécie que serão usados em transações e negócios com transferência e circulação de dinheiro. 
 PRESSIONE "E" PARA AVANÇAR...`, null);	
-		var roboDialogoParteDois = new DialogoParte(`Como fui criado?
-	Através do Admuseio do Arduino, uma placa com microcontroladores - quase um mini computador - que é barata e eficiênte no auxílio da prototipação, isto é, programação voltada a Admipulação de um protótipo.
-PRESSIONE "E" PARA AVANÇAR...`, null);	
-		var roboDialogoParteTres = new DialogoParte(`Opa, quase esqueci!
-	Além disso o Arduino é um hardware livre, ou seja, com ele você pode criar e alterar qualquer projeto da Admeira que quiser.
-	Bem Admeiro né? eu sei. então venha pro curso e crie uma namorada pra mim!
+		var tvDialogoParteDois = new DialogoParte(`EMPRESA.
+	Há, ainda, a necessidade de se analisar esses recursos a fim de se ter a real situação econômica dos fundos da empresa. com relação aos seus bens e direitos garantidos.
 PRESSIONE "E" PARA SAIR...`, null);	
-		var roboDialogos = new Array(roboDialogoParteUm, roboDialogoParteDois, roboDialogoParteTres); 
-		var roboDialogo = new DialogoInterativo('interactabilityDiv', 'img/telas/telaComputador.jpg', roboDialogos);
+		var tvDialogos = new Array(tvDialogoParteUm, tvDialogoParteDois); 
+		var tvDialogo = new DialogoInterativo('interactabilityDiv', 'img/telas/tv.png', tvDialogos);
 		
 		
-			/*computadorDanificado TRÊS*/
-		var circuitoDialogoParteUm = new DialogoParte(`FUNDAMENTOS DA ELETRÔNICA.
-	Apresenta o conceito basico dos funcionamentos de diodos e capacitores, além de funções como técnicas de soldagem e relatório profissional.`, null);	
-		var circuitoDialogoParteDois = new DialogoParte(`Diodos? Que?
-	Um diodo é um componente eletrônico que permite a passagem da corrente elétrica somente em um sentido, ou seja, o diodo é como uma válvula que só deixa a agua fluir em um sentido, além disso ele tambem pode converter uma tensão elétrica alternada em contínua.`, null);	
-		var circuitoDialogoParteTres = new DialogoParte(`Capacitores? Ham?
-	Um capacitor é um despositivo capaz de acumular cargar elétricas em seus terminais quando a diferença da potência é estabelecida em seus terminais.`, null);	
-		var circuitoDialogos = new Array(circuitoDialogoParteUm, circuitoDialogoParteDois, circuitoDialogoParteTres); 
-		var circuitoDialogo = new DialogoInterativo('interactabilityDiv', 'img/telas/telaComputador.jpg', circuitoDialogos);
+			/*COMPUTADOR DOIS*/
+		var computadorAdmDoisDialogoParteUm = new DialogoParte(`MARKETING.
+	Os profissionais responsáveis por essa área devem entender o consumidor, o que ele quer e o que ele precisa.
+PRESSIONE "E" PARA AVANÇAR...	`, null);	
+		var computadorAdmDoisDialogoParteDois = new DialogoParte(`PRODUTO.
+	Além disto, eles devem entender como o produto se adequa ao cliente, depois entender qual é o perfil de seu publico e como chegar até ele.
+PRESSIONE "E" PARA SAIR...	`, null);	
+		var computadorAdmDoisDialogos = new Array(computadorAdmDoisDialogoParteUm, computadorAdmDoisDialogoParteDois); 
+		var computadorAdmDoisDialogo = new DialogoInterativo('interactabilityDiv', 'img/telas/telaComputador.jpg', computadorAdmDoisDialogos);
 		
 		
 			
 			/*PROFESSOR*/
-		var professoraAdmDialogoParteUm = new DialogoParte(`Olá, agora que você adquiriu um pouco de conhecimento a respeito deste curso, responda algumas questões.`, null);	
+		var professoraAdmDialogoParteUm = new DialogoParte(`Olá, agora que você adquiriu um pouco de conhecimento a sobre o curso de administração, responda algumas questões.`, null);	
 		
 			//QUESTÕES
-			//PROGRAMAÇÃO
-		var perguntaAdmUmAlternativaUm = 'REINICIAR O COMPUTADOR.';	
-		var perguntaAdmUmAlternativaDois = 'FORMATAR O COMPUTADOR.';	
-		var perguntaAdmUmAlternativaTres = 'ABRIR O WINDOWS DEFENDER E REALIZAR UMA VARREDURA.';	
-		var perguntaAdmUmAlternativaQuatro = 'ABRIR O GERENCIADOR DE TAREFAS E LISTAR OS PROCESSOS EM ORDEM DE USO DA CPU.';	
-		var perguntaAdmUmAlternativas = new Array(perguntaAdmUmAlternativaUm, perguntaAdmUmAlternativaDois, perguntaAdmUmAlternativaTres, perguntaAdmUmAlternativaQuatro);
+			//RH
+		var perguntaAdmUmAlternativaUm = 'CERTO.';	
+		var perguntaAdmUmAlternativaDois = 'ERRADO.';	
+		var perguntaAdmUmAlternativas = new Array(perguntaAdmUmAlternativaUm, perguntaAdmUmAlternativaDois);
 		
-		var perguntaAdmUm = new Question(perguntaAdmUmAlternativas, 3);
+		var perguntaAdmUm = new Question(perguntaAdmUmAlternativas, 0);
 		
-			//BANCO DE DADOS
-		var perguntaAdmDoisAlternativaUm = 'Você deve implementar um sensor de temperatura.';	
-		var perguntaAdmDoisAlternativaDois = 'Você deve implementar um sensor de movimento.';	
-		var perguntaAdmDoisAlternativaTres = 'Você deve implementar um detector de umidade.';	
-		var perguntaAdmDoisAlternativaQuatro = 'Você deve implementar um Receptor infravermelho para captar a energia advinda da luz solar';	
+			//MARKETING
+		var perguntaAdmDoisAlternativaUm = 'compreender e estudar apenas a organização.';	
+		var perguntaAdmDoisAlternativaDois = 'deve entender como o serviço ou produto da empresa funciona minusciosamente.';	
+		var perguntaAdmDoisAlternativaTres = 'deve estudar, compreender e traçar o perfil do seu publico alvo.';	
+		var perguntaAdmDoisAlternativaQuatro = 'deve cuidar das relações interpessoais internas';	
 		var perguntaAdmDoisAlternativas = new Array(perguntaAdmDoisAlternativaUm, perguntaAdmDoisAlternativaDois, perguntaAdmDoisAlternativaTres, perguntaAdmDoisAlternativaQuatro);
 		
-		var perguntaAdmDois = new Question(perguntaAdmDoisAlternativas, 0);
+		var perguntaAdmDois = new Question(perguntaAdmDoisAlternativas, 2);
 		
-			//REDES
-		var perguntaAdmTresAlternativaUm = 'Capacitar um sistema através do gerenciamento da potência gráfica de uma GPU.';	
-		var perguntaAdmTresAlternativaDois = 'Armazenar energia elétrica.';	
-		var perguntaAdmTresAlternativaTres = 'Estabelecer uma conexão vetorial em relação aos circuitos da placa mãe.';	
-		var perguntaAdmTresAlternativaQuatro = 'Realizar a Admutenção do uso da CPU em larga escala.';	
+			//FINANÇAS
+		var perguntaAdmTresAlternativaUm = 'As relações interpessoais.';	
+		var perguntaAdmTresAlternativaDois = 'Os recursos monetários.';	
+		var perguntaAdmTresAlternativaTres = 'O publico alvo.';	
+		var perguntaAdmTresAlternativaQuatro = 'Os funcionários.';	
 		var perguntaAdmTresAlternativas = new Array(perguntaAdmTresAlternativaUm, perguntaAdmTresAlternativaDois, perguntaAdmTresAlternativaTres, perguntaAdmTresAlternativaQuatro);
 		
 		var perguntaAdmTres = new Question(perguntaAdmTresAlternativas, 1);
 			//PROFESSORA
 		
 		var professoraAdmDialogoParteUm = new DialogoParte(`Agora, com os conhecimentos adquiridos, responda as questões a seguir.`, null);
-		var professoraAdmDialogoParteDois = new DialogoParte(`Se seu computador está lento, qual é o procedimento adequado?`, perguntaAdmUm);	
-		var professoraAdmDialogoParteTres = new DialogoParte(`Para automatizar a inicialização de um ventilador em função de uma temperatura X`, perguntaAdmDois);	
-		var professoraAdmDialogoParteQuatro = new DialogoParte(`Qual a função de um Capacitor?`, perguntaAdmTres);
+		var professoraAdmDialogoParteDois = new DialogoParte(`A administração de recursos humanos referem-se tanto a aspectos internos da organização quanto externos?`, perguntaAdmUm);	
+		var professoraAdmDialogoParteTres = new DialogoParte(`O profissional de marketing deve...`, perguntaAdmDois);	
+		var professoraAdmDialogoParteQuatro = new DialogoParte(`Em finanças, se compreende, analisa e manipula...`, perguntaAdmTres);
 		var professoraAdmDialogoPartefinal = new DialogoParte(`Fim do teste!`, null);
 		var professoraAdmDialogos = new Array(professoraAdmDialogoParteUm, professoraAdmDialogoParteDois, professoraAdmDialogoParteTres, professoraAdmDialogoParteQuatro, professoraAdmDialogoPartefinal); 
 		var professoraAdmDialogo = new DialogoInterativo('interactabilityDiv', 'img/telas/telaComputador.jpg', professoraAdmDialogos);
@@ -211,11 +294,11 @@ PRESSIONE "E" PARA SAIR...`, null);
 		
 		/*------------------------DECLARAÇÃO FINAL---------------------------*/
 		var computadorAdm = new ObjetoInterativo('computadorAdm', 'computador', 'Recursos Humanos', computadorAdmDialogo);
-		var robo = new ObjetoInterativo('computadorDois', 'robo', 'Prototipação', roboDialogo);
-		var circuito = new ObjetoInterativo('computadorTres', 'computador', 'Fundamentos Eletrônicos', circuitoDialogo);
-		var professoraAdm = new ObjetoInterativo('professoraAdm', 'professora', 'Exercícios', professoraAdmDialogo);
+		var tv = new ObjetoInterativo('tv', 'tv', 'Finanças', tvDialogo);
+		var computadorAdmDois = new ObjetoInterativo('computadorAdmDois', 'computador', 'Marketing', computadorAdmDoisDialogo);
+		var professoraAdm = new ObjetoInterativo('professora', 'professora', 'Exercícios', professoraAdmDialogo);
 		
-		var objetosAdministracao = new Array(portaSaida,computadorAdm,robo,circuito,professoraAdm);
+		var objetosAdministracao = new Array(portaSaida,computadorAdm,tv,computadorAdmDois,professoraAdm);
 		
 		/*---------------------------------------------------*/
 		
@@ -245,7 +328,7 @@ PRESSIONE "E" PARA AVANÇAR...`, null);
 	Bem maneiro né? eu sei. então venha pro curso e crie uma namorada pra mim!
 PRESSIONE "E" PARA SAIR...`, null);	
 		var roboDialogos = new Array(roboDialogoParteUm, roboDialogoParteDois, roboDialogoParteTres); 
-		var roboDialogo = new DialogoInterativo('interactabilityDiv', 'img/telas/telaComputador.jpg', roboDialogos);
+		var roboDialogo = new DialogoInterativo('interactabilityDiv', 'img/telas/telaRoboBorda.png', roboDialogos);
 		
 		
 			/*computadorDanificado TRÊS*/
@@ -314,7 +397,6 @@ PRESSIONE "E" PARA SAIR...`, null);
 		
 		//OBJETOS	
 		var objetosEnfermagem = new Array(portaSaida,computadorUm,computadorDois,computadorTres,professoraInf);
-		var objetosEdificacoes = new Array(portaSaida,computadorUm,computadorDois,computadorTres,professoraInf);
 		var objetosTurismo = new Array(portaSaida,computadorUm,computadorDois,computadorTres,professoraInf);
 		
 		var salaAtual = 0;	
@@ -401,6 +483,40 @@ PRESSIONE "E" PARA SAIR...`, null);
 			    		case 'porta':
 			    			mudarLugar(objetos[salaAtual][contar].getData());
 			    			break;
+			    		case 'placa':
+			    			var tela = document.getElementById(objetos[salaAtual][contar].getData().getId());
+			    			comandos = false;
+			    			tela.innerHTML = `
+			    			<div id='interactDiv' style='position:absolute;background-size: 100% 100%;background-repeat: no-repeat;z-index: 12;left: 25vw;top: 5vh;width: 40vw;height: 50vh;background-image: url(`+ objetos[salaAtual][contar].getData().getBackground() + `)' '>
+			    				
+			    				<div style='margin-left: 10%;width:80%;margin-top: 7.5vh;height: 70%;wrap'>
+			    					<textarea readonly="true" id='placaTexto' style='resize: none;'></textarea>
+			    				</div>
+			    				
+			    			</div>
+			    			<span id='spanFechar' style='top: 1vh;' onclick='comandos = true;limparElemento("` + objetos[salaAtual][contar].getData().getId()  + `")'>X</span>`;
+			    			
+			    			var computerDialogActualPart = objetos[salaAtual][contar].getData().getActualPart();
+			    			
+			    			escrever(objetos[salaAtual][contar].getData().getParts()[computerDialogActualPart].getText(),'placaTexto',10);
+			    			break;
+			    		case 'mesa':
+			    			var tela = document.getElementById(objetos[salaAtual][contar].getData().getId());
+			    			comandos = false;
+			    			var computerDialogActualPart = objetos[salaAtual][contar].getData().getActualPart();
+			    			tela.innerHTML = `
+			    			<div id='interactDiv' style='position:absolute;background-size: 100% 100%;background-repeat: no-repeat;z-index: 12;left: 25vw;top: 5vh;width: 40vw;height: 50vh;background-image: url(`+ objetos[salaAtual][contar].getData().getBackground() + `)' '>
+			    				
+			    				<div style='margin-left: 3%;width:93%;margin-top: 2.25vh;height: 90.2%;wrap'>
+			    					<textarea readonly="true" id='mesaTexto' style='resize: none;'>`+ objetos[salaAtual][contar].getData().getParts()[computerDialogActualPart].getText() +`</textarea>
+			    				</div>
+			    				
+			    			</div>
+			    			<span id='spanFechar' style='top: 1vh;' onclick='comandos = true;limparElemento("` + objetos[salaAtual][contar].getData().getId()  + `")'>X</span>`;
+			    			
+			    			
+			    			
+			    			break;	
 			    		case 'robo':
 			    			
 			    			var tela = document.getElementById(objetos[salaAtual][contar].getData().getId());
@@ -436,6 +552,42 @@ PRESSIONE "E" PARA SAIR...`, null);
 			    			var computerDialogActualPart = objetos[salaAtual][contar].getData().getActualPart();
 			    			
 			    			escrever(objetos[salaAtual][contar].getData().getParts()[computerDialogActualPart].getText(),'computadorTexto',40);
+			    			break;
+			    			
+			    		case 'cimento':
+			    			var tela = document.getElementById(objetos[salaAtual][contar].getData().getId());
+			    			comandos = false;
+			    			tela.innerHTML = `
+			    			<div id='interactDiv' style='position:absolute;background-size: 100% 100%;background-repeat: no-repeat;z-index: 12;left: 25vw;top: 5vh;width: 40vw;height: 50vh;background-image: url(`+ objetos[salaAtual][contar].getData().getBackground() + `)' '>
+			    				
+			    				<div style='width:100%;margin-top: 12vh;height: 58%;wrap'>
+			    					<textarea readonly="true" id='cimentoTexto' style='resize: none;'></textarea>
+			    				</div>
+			    				
+			    			</div>
+			    			<span id='spanFechar' style='top: 1vh;' onclick='comandos = true;limparElemento("` + objetos[salaAtual][contar].getData().getId()  + `")'>X</span>`;
+			    			
+			    			var computerDialogActualPart = objetos[salaAtual][contar].getData().getActualPart();
+			    			
+			    			escrever(objetos[salaAtual][contar].getData().getParts()[computerDialogActualPart].getText(),'cimentoTexto',1);
+			    			break;	
+			    			
+			    		case 'tv':
+			    			var tela = document.getElementById(objetos[salaAtual][contar].getData().getId());
+			    			comandos = false;
+			    			tela.innerHTML = `
+			    			<div id='interactDiv' style='position:absolute;background-size: 100% 100%;background-repeat: no-repeat;z-index: 12;left: 25vw;top: 2.5vh;width: 40vw;height: 50vh;background-image: url(`+ objetos[salaAtual][contar].getData().getBackground() + `)' '>
+			    				
+			    				<div style='margin-left: 2.5%;width: 94%;margin-top: 1.5vh;height: calc(100% - 3.5vh);wrap' >
+			    					<textarea readonly="true" id='televisaoTexto' style='resize: none;'></textarea>
+			    				</div>
+			    				
+			    			</div>
+			    			<span id='spanFechar' style='top: 1vh;' onclick='comandos = true;limparElemento("` + objetos[salaAtual][contar].getData().getId()  + `")'>X</span>`;
+			    			
+			    			var computerDialogActualPart = objetos[salaAtual][contar].getData().getActualPart();
+			    			
+			    			escrever(objetos[salaAtual][contar].getData().getParts()[computerDialogActualPart].getText(),'televisaoTexto',20);
 			    			break;	
 			    			
 			    		case 'professora':
@@ -638,7 +790,7 @@ PRESSIONE "E" PARA SAIR...`, null);
 	 				width: 9vw;">
  					</div>
 
- 					<div id="portaInformatica" style="
+ 					<div id="portaInformatica" class='relative' style="
 	 				background-image: url('img/portas/portaDS.png');
 					background-size: 100% 100%;
  					left: 20vw;
@@ -646,7 +798,7 @@ PRESSIONE "E" PARA SAIR...`, null);
 					width: 8vw;">
 
  					</div>
- 					<div id="portaEnfermagem" style="
+ 					<div id="portaEnfermagem" class='relative' style="
 					background-image: url('img/portas/portaENF.png');
 					background-size: 100% 100%;
  					left: 30vw;
@@ -654,7 +806,7 @@ PRESSIONE "E" PARA SAIR...`, null);
 					width: 8vw;">
 
 					</div>
-					<div id="portaEdificacoes" style="
+					<div id="portaEdificacoes" class='relative' style="
  					background-image: url('img/portas/portaEDI.png');
 					background-size: 100% 100%;
 					left: 40vw;
@@ -662,7 +814,7 @@ PRESSIONE "E" PARA SAIR...`, null);
 					width: 8vw;">
 
  					</div>
- 					<div id="portaTurismo" style="
+ 					<div id="portaTurismo" class='relative' style="
 					background-image: url('img/portas/portaTUR.png');
 					background-size: 100% 100%;
  					left: 50vw;
@@ -670,7 +822,7 @@ PRESSIONE "E" PARA SAIR...`, null);
 					width: 8vw;">
 	
  					</div>
- 					<div id="portaManutencao" style="
+ 					<div id="portaManutencao" class='relative' style="
  					background-image: url('img/portas/portaMAN.png');
 					background-size: 100% 100%;
  					left: 60vw;
@@ -678,7 +830,7 @@ PRESSIONE "E" PARA SAIR...`, null);
 					width: 8vw;">
 
  					</div>
- 					<div id="portaAdministracao" style="
+ 					<div id="portaAdministracao" class='relative' style="
 					background-image: url('img/portas/portaADM.png');
 					background-size: 100% 100%;
  					left: 70vw;
@@ -686,7 +838,7 @@ PRESSIONE "E" PARA SAIR...`, null);
 					width: 8vw;">
 
  					</div>
- 					<div id="portaInscricao" style="
+ 					<div id="portaInscricao" class='relative' style="
  					background-image: url('img/portas/portaINSC.png');
 					background-size: 100% 100%;
  					left: 90vw;
@@ -716,7 +868,7 @@ PRESSIONE "E" PARA SAIR...`, null);
 	 			width: 9vw;">
  				</div>
  				
- 				<div id="portaSaida" name='Sair' style="
+ 				<div id="portaSaida" class='relative' name='Sair' style="
 	 			background-image: url('img/portas/portaDS.png');
 				background-size: 100% 100%;
  				left: 0vw;
@@ -725,7 +877,7 @@ PRESSIONE "E" PARA SAIR...`, null);
 
 	    		</div>
 	
- 				<div id="computadorUm" name='Computador: Javascript' style="
+ 				<div id="computadorUm" class='relative' name='Computador: Javascript' style="
 	 			background-image: url('img/objetos/compUm.png');
 				background-size: 100% 100%;
  				left: 20vw;
@@ -733,7 +885,7 @@ PRESSIONE "E" PARA SAIR...`, null);
 				width: 16vw;">
 
 	    		</div>
-	    		<div id="computadorDois" name='Computador: HTML' style="
+	    		<div id="computadorDois" class='relative' name='Computador: HTML' style="
 	 			background-image: url('img/objetos/compUm.png');
 				background-size: 100% 100%;
  				left: 40vw;
@@ -741,7 +893,7 @@ PRESSIONE "E" PARA SAIR...`, null);
 				width: 16vw;">
 
 	    		</div>
-	    		<div id="computadorTres" name='Computador: CSS' style="
+	    		<div id="computadorTres" class='relative' name='Computador: CSS' style="
 	 			background-image: url('img/objetos/compUm.png');
 				background-size: 100% 100%;
 				transform: scaleX(-1);
@@ -750,7 +902,7 @@ PRESSIONE "E" PARA SAIR...`, null);
 				width: 16vw;">
 
 				 </div>
-				<div id="professora" name='Explicação' style="
+				<div id="professora" class='relative' name='Explicação' style="
 	 			background-image: url('img/objetos/profDS.png');
 				background-size: 100% 100%;
  				left: 80vw;
@@ -779,7 +931,7 @@ PRESSIONE "E" PARA SAIR...`, null);
 	 			width: 9vw;">
  				</div>
  				
- 				<div id="portaSaida" name='Sair' style="
+ 				<div id="portaSaida" class='relative' name='Sair' style="
 	 			background-image: url('img/portas/portaENF.png');
 				background-size: 100% 100%;
  				left: 0vw;
@@ -788,7 +940,7 @@ PRESSIONE "E" PARA SAIR...`, null);
 
 	    		</div>
 	
- 				<div id="computadorUm" name='Computador: Javascript' style="
+ 				<div id="computadorUm" class='relative' name='Computador: Javascript' style="
 	 			background-image: url('img/objetos/compUm.png');
 				background-size: 100% 100%;
  				left: 20vw;
@@ -796,7 +948,7 @@ PRESSIONE "E" PARA SAIR...`, null);
 				width: 16vw;">
 
 	    		</div>
-	    		<div id="computadorDois" name='Computador: HTML' style="
+	    		<div id="computadorDois" class='relative' name='Computador: HTML' style="
 	 			background-image: url('img/objetos/compUm.png');
 				background-size: 100% 100%;
  				left: 40vw;
@@ -804,7 +956,7 @@ PRESSIONE "E" PARA SAIR...`, null);
 				width: 16vw;">
 
 	    		</div>
-	    		<div id="computadorTres" name='Computador: CSS' style="
+	    		<div id="computadorTres" class='relative' name='Computador: CSS' style="
 	 			background-image: url('img/objetos/compUm.png');
 				background-size: 100% 100%;
 				transform: scaleX(-1);
@@ -813,7 +965,7 @@ PRESSIONE "E" PARA SAIR...`, null);
 				width: 16vw;">
 
 				 </div>
-				<div id="professora" name='Explicação' style="
+				<div id="professora" class='relative' name='Explicação' style="
 	 			background-image: url('img/objetos/profENF.png');
 				background-size: 100% 100%;
  				left: 80vw;
@@ -824,6 +976,70 @@ PRESSIONE "E" PARA SAIR...`, null);
 	    		</div>`;
 	    		salaAtual = sala;
 	    			break;
+	    		case 3:
+				document.body.innerHTML = `
+    			<div id="container" data-screen='edf' style='background-image: url("img/fundos/salaEDI.png");background-size: 100% 100%;'>
+				<div id="interactabilityDiv">
+			
+				</div>
+				<div id="showInfo">
+			
+				</div>
+	 			<div id='player' style="
+	 			background-image: url('img/heracles/stopped.gif');
+				background-size: 100% 100%;
+				background-position: 0px 0px;
+	 			left: 0.05vw;
+	 			height: 12vw;
+	 			width: 9vw;">
+ 				</div>
+ 				
+ 				<div id="portaSaida" class='relative' name='Sair' style="
+	 			background-image: url('img/portas/portaMAN.png');
+				background-size: 100% 100%;
+ 				left: 0vw;
+				height: 17vw;
+				width: 8vw;">
+
+	    		</div>
+	
+ 				<div id="placa" class='relative' name='Computador: Javascript' style="
+	 			background-image: url('img/objetos/placa.png');
+				background-size: 100% 100%;
+ 				left: 20vw;
+				height: 17vw;
+				width: 16vw;">
+
+	    		</div>
+	    		<div id="cimento" class='relative' name='Computador: HTML' style="
+	 			background-image: url('img/objetos/cimento.png');
+				background-size: 50% 50%;
+				background-repeat: no-repeat;
+				background-position: 50% 50%;
+ 				left: 40vw;
+				height: 15vw;
+				width: 16vw;">
+
+	    		</div>
+	    		<div id="mesa" class='relative' name='Computador: CSS' style="
+	 			background-image: url('img/objetos/mesa.png');
+				background-size: 100% 100%;
+ 				left: 60vw;
+				height: 17vw;
+				width: 16vw;">
+
+				 </div>
+				<div id="professora" class='relative' name='Explicação' style="
+	 			background-image: url('img/objetos/profEDI.png');
+				background-size: 100% 100%;
+ 				left: 80vw;
+				height: 17vw;
+				width: 8vw;
+				transform: scaleX(-1);">
+
+	    		</div>`;
+	    		salaAtual = sala;
+	    			break;	
 	    		case 5:
 				document.body.innerHTML = `
     			<div id="container" data-screen='adm' style='background-image: url("img/fundos/salaADM.png");background-size: 100% 100%;'>
@@ -842,8 +1058,8 @@ PRESSIONE "E" PARA SAIR...`, null);
 	 			width: 9vw;">
  				</div>
  				
- 				<div id="portaSaida" name='Sair' style="
-	 			background-image: url('img/portas/portaENF.png');
+ 				<div id="portaSaida" class='relative' name='Sair' style="
+	 			background-image: url('img/portas/portaADM.png');
 				background-size: 100% 100%;
  				left: 0vw;
 				height: 17vw;
@@ -851,7 +1067,7 @@ PRESSIONE "E" PARA SAIR...`, null);
 
 	    		</div>
 	
- 				<div id="computadorAdm" name='Computador: Javascript' style="
+ 				<div id="computadorAdm" class='relative' name='Computador: Javascript' style="
 	 			background-image: url('img/objetos/compUm.png');
 				background-size: 100% 100%;
  				left: 20vw;
@@ -859,15 +1075,15 @@ PRESSIONE "E" PARA SAIR...`, null);
 				width: 16vw;">
 
 	    		</div>
-	    		<div id="computadorDois" name='Computador: HTML' style="
-	 			background-image: url('img/objetos/compUm.png');
+	    		<div id="tv" class='relative' name='Computador: HTML' style="
+	 			background-image: url('img/objetos/television.png');
 				background-size: 100% 100%;
  				left: 40vw;
 				height: 17vw;
-				width: 16vw;">
+    			width: 16vw;">
 
 	    		</div>
-	    		<div id="computadorTres" name='Computador: CSS' style="
+	    		<div id="computadorAdmDois" class='relative' name='Computador: CSS' style="
 	 			background-image: url('img/objetos/compUm.png');
 				background-size: 100% 100%;
 				transform: scaleX(-1);
@@ -876,8 +1092,8 @@ PRESSIONE "E" PARA SAIR...`, null);
 				width: 16vw;">
 
 				 </div>
-				<div id="professoraAdm" name='Explicação' style="
-	 			background-image: url('img/objetos/profENF.png');
+				<div id="professora" class='relative' name='Explicação' style="
+	 			background-image: url('img/objetos/profADM.png');
 				background-size: 100% 100%;
  				left: 80vw;
 				height: 17vw;
@@ -905,7 +1121,7 @@ PRESSIONE "E" PARA SAIR...`, null);
 	 			width: 9vw;">
  				</div>
  				
- 				<div id="portaSaida" name='Sair' style="
+ 				<div id="portaSaida" class='relative' name='Sair' style="
 	 			background-image: url('img/portas/portaMAN.png');
 				background-size: 100% 100%;
  				left: 0vw;
@@ -914,7 +1130,7 @@ PRESSIONE "E" PARA SAIR...`, null);
 
 	    		</div>
 	
- 				<div id="computadorUnico" name='Computador: Javascript' style="
+ 				<div id="computadorUnico" class='relative' name='Computador: Javascript' style="
 	 			background-image: url('img/objetos/compUm.png');
 				background-size: 100% 100%;
  				left: 20vw;
@@ -922,7 +1138,7 @@ PRESSIONE "E" PARA SAIR...`, null);
 				width: 16vw;">
 
 	    		</div>
-	    		<div id="robo" name='Computador: HTML' style="
+	    		<div id="robo" class='relative' name='Computador: HTML' style="
 	 			background-image: url('img/objetos/robo.png');
 				background-size: 100% 100%;
  				left: 40vw;
@@ -930,7 +1146,7 @@ PRESSIONE "E" PARA SAIR...`, null);
 				width: 16vw;">
 
 	    		</div>
-	    		<div id="circuito" name='Computador: CSS' style="
+	    		<div id="circuito" class='relative' name='Computador: CSS' style="
 	 			background-image: url('img/objetos/circuitos.png');
 				background-size: 100% 100%;
 				transform: scaleX(-1);
@@ -939,7 +1155,7 @@ PRESSIONE "E" PARA SAIR...`, null);
 				width: 16vw;">
 
 				 </div>
-				<div id="professora" name='Explicação' style="
+				<div id="professora" class='relative' name='Explicação' style="
 	 			background-image: url('img/objetos/profMAN.png');
 				background-size: 100% 100%;
  				left: 80vw;
@@ -994,6 +1210,14 @@ PRESSIONE "E" PARA SAIR...`, null);
         	}
         	switch(objetos[salaAtual][contando].getTypeInteract())
         	{
+        		case 'mesa':
+        			if(objetos[salaAtual][contando].getData().nextPart())
+        			{
+        				comandos = true;
+        				document.getElementById(objetos[salaAtual][contando].getData().getId()).innerHTML = objetos[salaAtual][contando].getName();
+        			}
+        			break;
+        			
         		case 'computador':
         			if(objetos[salaAtual][contando].getData().nextPart())
         			{
@@ -1003,6 +1227,38 @@ PRESSIONE "E" PARA SAIR...`, null);
         			escrever(objetos[salaAtual][contando].getData().getParts()[objetos[salaAtual][contando].getData().getActualPart()].getText(),'computadorTexto',40);	
         			
         			break;
+        			
+        				
+        		case 'tv':
+        			if(objetos[salaAtual][contando].getData().nextPart())
+        			{
+        				comandos = true;
+        				document.getElementById(objetos[salaAtual][contando].getData().getId()).innerHTML = objetos[salaAtual][contando].getName();
+        			}
+        			escrever(objetos[salaAtual][contando].getData().getParts()[objetos[salaAtual][contando].getData().getActualPart()].getText(),'televisaoTexto',20);	
+        			
+        			break;
+        			
+        		case 'placa':
+        			if(objetos[salaAtual][contando].getData().nextPart())
+        			{
+        				comandos = true;
+        				document.getElementById(objetos[salaAtual][contando].getData().getId()).innerHTML = objetos[salaAtual][contando].getName();
+        			}
+        			escrever(objetos[salaAtual][contando].getData().getParts()[objetos[salaAtual][contando].getData().getActualPart()].getText(),'placaTexto',10);	
+        			
+        			break;	
+        			
+        		case 'cimento':
+        			if(objetos[salaAtual][contando].getData().nextPart())
+        			{
+        				comandos = true;
+        				document.getElementById(objetos[salaAtual][contando].getData().getId()).innerHTML = objetos[salaAtual][contando].getName();
+        			}
+        			escrever(objetos[salaAtual][contando].getData().getParts()[objetos[salaAtual][contando].getData().getActualPart()].getText(),'cimentoTexto',1);	
+        			
+        			break;		
+        			
         		case 'robo':
         			if(objetos[salaAtual][contando].getData().nextPart())
         			{

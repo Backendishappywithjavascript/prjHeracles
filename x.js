@@ -1,89 +1,84 @@
-//SALA 5 - AdmUTENÇÃO E SUPORTE  --------------------------------------------//
-		var computadorAdmDialogoParteUm = new DialogoParte(`RECURSOS HUMANOS.
-	Aplicação de um conjunto de conhecimentos e técnicas administrativas especializadas no gerenciamento das relações de pessoas com as organizações.
+//SALA 5 - EDIFICAÇÕES  --------------------------------------------//
+			/*PLACA*/
+		var placaDialogoParteUm = new DialogoParte(`PLANEJAMENTO.
+	Atua na construção civil como uma importante ferramenta no gerenciamento de empresas para coordenar, orientar e controlar as atividades decorrentes de uma obra.
 PRESSIONE "E" PARA AVANÇAR...`, null);	
-		var computadorAdmDialogoParteDois = new DialogoParte(`TUDO PERFEITAMENTE EQUILIBRADO.
-	Deve-se prover satisfação tanto para a organização, tais como as empresas, como para com as pessoas, tais como os funcionários.
+		var placaDialogoParteDois = new DialogoParte(`BRASIL, OH CÉUS.
+	O cenário atual da construção no Brasil mostra que a maioria das empresas ou não fazem o planejamento de suas obras ou o fazem de maneira inadequada.
 PRESSIONE "E" PARA SAIR...`, null)
-		var computadorAdmDialogos = new Array(computadorAdmDialogoParteUm, computadorAdmDialogoParteDois); 
-		var computadorAdmDialogo = new DialogoInterativo('interactabilityDiv', 'img/telas/telaComputador.jpg', computadorAdmDialogos);
+		var placaDialogos = new Array(placaDialogoParteUm, placaDialogoParteDois); 
+		var placaDialogo = new DialogoInterativo('interactabilityDiv', 'img/telas/telaComputador.jpg', placaDialogos);
 		
 		
-			/*COMPUTADOR DOIS*/
-		var roboDialogoParteUm = new DialogoParte(`Olá.
-	Eu sou, um Robô e fui criado pelo conhecimento advindo da prototipação que é fornecido no curso. 
-PRESSIONE "E" PARA AVANÇAR...`, null);	
-		var roboDialogoParteDois = new DialogoParte(`Como fui criado?
-	Através do Admuseio do Arduino, uma placa com microcontroladores - quase um mini computador - que é barata e eficiênte no auxílio da prototipação, isto é, programação voltada a Admipulação de um protótipo.
-PRESSIONE "E" PARA AVANÇAR...`, null);	
-		var roboDialogoParteTres = new DialogoParte(`Opa, quase esqueci!
-	Além disso o Arduino é um hardware livre, ou seja, com ele você pode criar e alterar qualquer projeto da Admeira que quiser.
-	Bem Admeiro né? eu sei. então venha pro curso e crie uma namorada pra mim!
+			/*SACO DE CIMENTO*/
+		var cimentoParteUm = new DialogoParte(`PROJETO.
+	O projeto é o planejamento gráfico visual feito com base no levantamento de diversas informações coletadas.
+PRESSIONE "E" PARA AVANÇAR...`, null)	
+		var cimentoParteDois = new DialogoParte(`INFORMAÇÕES.
+	Essas informações têm por objetivo refletir as necessidades e condicionantes atuantes em uma determinada obra.
+PRESSIONE "E" PARA AVANÇAR...`, null)
+		var cimentoParteTres = new DialogoParte(`PROFISSIONAL.
+	O profissional da área elabora os projetos com sabedoria e entendimento dos requisitos pedidos e das normas necessárias.
+PRESSIONE "E" PARA SAIR...`, null)
+		var cimentoDialogos = new Array(cimentoParteUm, cimentoParteDois, cimentoParteTres); 
+		var cimentoDialogo = new DialogoInterativo('interactabilityDiv', 'img/telas/tv.png', cimentoDialogos);
+		
+		
+			/*LOUSA*/
+		var lousaDialogoParteUm = new DialogoParte(`TÉCNICO.
+	O técnico em edificações deve lidar com diversas questões simultâneas em todas as etapas de uma obra, desta maneira é fundamental saber delegar e compreender a fundo todos os aspectos relativos á execução de obras, lidando com as etapas e os processos construtivos.
 PRESSIONE "E" PARA SAIR...`, null);	
-		var roboDialogos = new Array(roboDialogoParteUm, roboDialogoParteDois, roboDialogoParteTres); 
-		var roboDialogo = new DialogoInterativo('interactabilityDiv', 'img/telas/telaComputador.jpg', roboDialogos);
-		
-		
-			/*computadorDanificado TRÊS*/
-		var circuitoDialogoParteUm = new DialogoParte(`FUNDAMENTOS DA ELETRÔNICA.
-	Apresenta o conceito basico dos funcionamentos de diodos e capacitores, além de funções como técnicas de soldagem e relatório profissional.`, null);	
-		var circuitoDialogoParteDois = new DialogoParte(`Diodos? Que?
-	Um diodo é um componente eletrônico que permite a passagem da corrente elétrica somente em um sentido, ou seja, o diodo é como uma válvula que só deixa a agua fluir em um sentido, além disso ele tambem pode converter uma tensão elétrica alternada em contínua.`, null);	
-		var circuitoDialogoParteTres = new DialogoParte(`Capacitores? Ham?
-	Um capacitor é um despositivo capaz de acumular cargar elétricas em seus terminais quando a diferença da potência é estabelecida em seus terminais.`, null);	
-		var circuitoDialogos = new Array(circuitoDialogoParteUm, circuitoDialogoParteDois, circuitoDialogoParteTres); 
-		var circuitoDialogo = new DialogoInterativo('interactabilityDiv', 'img/telas/telaComputador.jpg', circuitoDialogos);
+		var lousaDialogos = new Array(lousaDialogoParteUm); 
+		var lousaDialogo = new DialogoInterativo('interactabilityDiv', 'img/telas/telaComputador.jpg', lousaDialogos);
 		
 		
 			
 			/*PROFESSOR*/
-		var professoraAdmDialogoParteUm = new DialogoParte(`Olá, agora que você adquiriu um pouco de conhecimento a respeito deste curso, responda algumas questões.`, null);	
+		var professoraEdfDialogoParteUm = new DialogoParte(`Olá, agora que você adquiriu na arte da construção civil, responda algumas questões.`, null);	
 		
 			//QUESTÕES
-			//PROGRAMAÇÃO
-		var perguntaAdmUmAlternativaUm = 'REINICIAR O COMPUTADOR.';	
-		var perguntaAdmUmAlternativaDois = 'FORMATAR O COMPUTADOR.';	
-		var perguntaAdmUmAlternativaTres = 'ABRIR O WINDOWS DEFENDER E REALIZAR UMA VARREDURA.';	
-		var perguntaAdmUmAlternativaQuatro = 'ABRIR O GERENCIADOR DE TAREFAS E LISTAR OS PROCESSOS EM ORDEM DE USO DA CPU.';	
-		var perguntaAdmUmAlternativas = new Array(perguntaAdmUmAlternativaUm, perguntaAdmUmAlternativaDois, perguntaAdmUmAlternativaTres, perguntaAdmUmAlternativaQuatro);
+			//RH
+		var perguntaEdfUmAlternativaUm = 'CERTO.';	
+		var perguntaEdfUmAlternativaDois = 'ERRADO.';	
+		var perguntaEdfUmAlternativas = new Array(perguntaEdfUmAlternativaUm, perguntaEdfUmAlternativaDois);
 		
-		var perguntaAdmUm = new Question(perguntaAdmUmAlternativas, 3);
+		var perguntaEdfUm = new Question(perguntaEdfUmAlternativas, 1);
 		
-			//BANCO DE DADOS
-		var perguntaAdmDoisAlternativaUm = 'Você deve implementar um sensor de temperatura.';	
-		var perguntaAdmDoisAlternativaDois = 'Você deve implementar um sensor de movimento.';	
-		var perguntaAdmDoisAlternativaTres = 'Você deve implementar um detector de umidade.';	
-		var perguntaAdmDoisAlternativaQuatro = 'Você deve implementar um Receptor infravermelho para captar a energia advinda da luz solar';	
-		var perguntaAdmDoisAlternativas = new Array(perguntaAdmDoisAlternativaUm, perguntaAdmDoisAlternativaDois, perguntaAdmDoisAlternativaTres, perguntaAdmDoisAlternativaQuatro);
+			//MARKETING
+		var perguntaEdfDoisAlternativaUm = 'é uma ferramenta para gerenciar as atividades de uma obra.';	
+		var perguntaEdfDoisAlternativaDois = 'Não se faz necessário na maioria das obras.';	
+		var perguntaEdfDoisAlternativaTres = 'O Brasil sempre realiza planejamentos impecáveis em suas obras.';	
+		var perguntaEdfDoisAlternativaQuatro = 'é utilizado, apenas, na construção de atrações turísticas, tais como parquinhos.';	
+		var perguntaEdfDoisAlternativas = new Array(perguntaEdfDoisAlternativaUm, perguntaEdfDoisAlternativaDois, perguntaEdfDoisAlternativaTres, perguntaEdfDoisAlternativaQuatro);
 		
-		var perguntaAdmDois = new Question(perguntaAdmDoisAlternativas, 0);
+		var perguntaEdfDois = new Question(perguntaEdfDoisAlternativas, 0);
 		
-			//REDES
-		var perguntaAdmTresAlternativaUm = 'Capacitar um sistema através do gerenciamento da potência gráfica de uma GPU.';	
-		var perguntaAdmTresAlternativaDois = 'Armazenar energia elétrica.';	
-		var perguntaAdmTresAlternativaTres = 'Estabelecer uma conexão vetorial em relação aos circuitos da placa mãe.';	
-		var perguntaAdmTresAlternativaQuatro = 'Realizar a Admutenção do uso da CPU em larga escala.';	
-		var perguntaAdmTresAlternativas = new Array(perguntaAdmTresAlternativaUm, perguntaAdmTresAlternativaDois, perguntaAdmTresAlternativaTres, perguntaAdmTresAlternativaQuatro);
+			//FINANÇAS
+		var perguntaEdfTresAlternativaUm = 'Em qual desenho fica mais bonito!!!';	
+		var perguntaEdfTresAlternativaDois = 'Na vontade do arquiteto, tal como o design e a quantidade de pilastras.';	
+		var perguntaEdfTresAlternativaTres = 'No raciocínio lógico, buscando sempre a obra ideal que se encontra no mundo das idéias, proposto por platão.';	
+		var perguntaEdfTresAlternativaQuatro = 'Nas informações coletadas sobre a determinada obra, tais como o relevo do local, temperatura ambiente, etc.';	
+		var perguntaEdfTresAlternativas = new Array(perguntaEdfTresAlternativaUm, perguntaEdfTresAlternativaDois, perguntaEdfTresAlternativaTres, perguntaEdfTresAlternativaQuatro);
 		
-		var perguntaAdmTres = new Question(perguntaAdmTresAlternativas, 1);
+		var perguntaEdfTres = new Question(perguntaEdfTresAlternativas, 3);
 			//PROFESSORA
 		
-		var professoraAdmDialogoParteUm = new DialogoParte(`Agora, com os conhecimentos adquiridos, responda as questões a seguir.`, null);
-		var professoraAdmDialogoParteDois = new DialogoParte(`Se seu computador está lento, qual é o procedimento adequado?`, perguntaAdmUm);	
-		var professoraAdmDialogoParteTres = new DialogoParte(`Para automatizar a inicialização de um ventilador em função de uma temperatura X`, perguntaAdmDois);	
-		var professoraAdmDialogoParteQuatro = new DialogoParte(`Qual a função de um Capacitor?`, perguntaAdmTres);
-		var professoraAdmDialogoPartefinal = new DialogoParte(`Fim do teste!`, null);
-		var professoraAdmDialogos = new Array(professoraAdmDialogoParteUm, professoraAdmDialogoParteDois, professoraAdmDialogoParteTres, professoraAdmDialogoParteQuatro, professoraAdmDialogoPartefinal); 
-		var professoraAdmDialogo = new DialogoInterativo('interactabilityDiv', 'img/telas/telaComputador.jpg', professoraAdmDialogos);
+		var professoraEdfDialogoParteUm = new DialogoParte(`Agora, com os conhecimentos adquiridos, responda as questões a seguir.`, null);
+		var professoraEdfDialogoParteDois = new DialogoParte(`O técnico em edificações só se faz necessário na etapa de execução da obra.`, perguntaEdfUm);	
+		var professoraEdfDialogoParteTres = new DialogoParte(`Sobre o planejamento, é correto afirmar:`, perguntaEdfDois);	
+		var professoraEdfDialogoParteQuatro = new DialogoParte(`O projeto é um planejamento visual com base...`, perguntaEdfTres);
+		var professoraEdfDialogoPartefinal = new DialogoParte(`Fim do teste!`, null);
+		var professoraEdfDialogos = new Array(professoraEdfDialogoParteUm, professoraEdfDialogoParteDois, professoraEdfDialogoParteTres, professoraEdfDialogoParteQuatro, professoraEdfDialogoPartefinal); 
+		var professoraEdfDialogo = new DialogoInterativo('interactabilityDiv', 'img/telas/telaComputador.jpg', professoraEdfDialogos);
 		
 		
 		
 		/*------------------------DECLARAÇÃO FINAL---------------------------*/
-		var computadorAdm = new ObjetoInterativo('computadorAdm', 'computador', 'Recursos Humanos', computadorUnicoDialogo);
-		var robo = new ObjetoInterativo('robo', 'robo', 'Prototipação', roboDialogo);
-		var circuito = new ObjetoInterativo('circuito', 'computador', 'Fundamentos Eletrônicos', circuitoDialogo);
-		var professoraAdm = new ObjetoInterativo('professoraAdm', 'professora', 'Exercícios', professoraAdmDialogo);
+		var placa = new ObjetoInterativo('placa', 'computador', 'Planejamento', placaDialogo);
+		var cimento = new ObjetoInterativo('cimento', 'computador', 'Projeto', cimentoDialogo);
+		var lousa = new ObjetoInterativo('lousa', 'computador', 'Técnico', cimentoDialogo);
+		var professoraEdf = new ObjetoInterativo('professora', 'professora', 'Exercícios', professoraEdfDialogo);
 		
-		var objetosAdministracao = new Array(portaSaida,computadorAdm,robo,circuito,professoraAdm);
+		var objetosAdministracao = new Array(portaSaida,placa,cimento,lousa,professoraEdf);
 		
 		/*---------------------------------------------------*/
