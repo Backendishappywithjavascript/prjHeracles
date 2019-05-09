@@ -128,6 +128,90 @@ PRESSIONE "E" PARA SAIR...`, null);
 		
 		var objetosInformatica = new Array(portaSaida,computadorUm,computadorDois,computadorTres,professoraInf);
 		
+		//SALA 2 - ENFERMAGEM --------------------------------------------//
+			
+			/*COMPUTADOR UM*/
+		var roupaDialogoParteUm = new DialogoParte(`GESTÃO DE SAÚDE.
+	A gestão da saúde implica administrar empreendimentos de saúde, tanto na esfera pública como privada.
+PRESSIONE "E" PARA AVANÇAR...`, null);	
+		var roupaDialogoParteDois = new DialogoParte(`FUNÇÕES.
+	CAvaliar as necessidades da instituição, gerenciar processos e programas, criar e aplicar políticas, garantir o conforto e a segurança dos pacientes e gerenciar equipes são algumas das atribuições da área de gestão em saúde.
+PRESSIONE "E" PARA SAIR...`, null);	
+		var roupaDialogos = new Array(roupaDialogoParteUm, roupaDialogoParteDois); 
+		var roupaDialogo = new DialogoInterativo('interactabilityDiv', 'img/telas/telaMesa.png', roupaDialogos);
+		
+		
+			/*COMPUTADOR DOIS*/
+		var coracaoDialogoParteUm = new DialogoParte(`PRIMEIROS SOCORROS.
+	Define-se os primeiros socorros como a prestação e assistência médica imediata a uma pessoa ou uma ferida até à chegada de ajuda profissional. 
+PRESSIONE "E" PARA AVANÇAR...`, null);	
+		var coracaoDialogoParteDois = new DialogoParte(`INTUITO.
+	Centra-se não só no dano físico ou de doença, mas também no atendimento inicial, incluindo o apoio psicológico para pessoas que sofrem emocionalmente devido a vivência ou testemunho de um evento traumático.
+PRESSIONE "E" PARA SAIR...`, null);	
+		var coracaoDialogos = new Array(coracaoDialogoParteUm, coracaoDialogoParteDois); 
+		var coracaoDialogo = new DialogoInterativo('interactabilityDiv', 'img/telas/telaMesa.png', coracaoDialogos);
+		
+		
+			/*COMPUTADOR TRÊS*/
+		var macaDialogoParteUm = new DialogoParte(`ENFERMAGEM DOMICILIÁRIA.
+	Uma área crescente para atuação do enfermeiro. Atualmente, muitas pessoas optam pela internação domiciliar dos seus familiares, com o objetivo de proporcionar uma qualidade maior na assistência médica a estes pacientes.`, null);	
+		var macaDialogoParteDois = new DialogoParte(`HOSPITAL PREOCUPANTE.
+	Outra questão que influencia nessa escolha é o grande potencial de contaminação existente nas unidades hospitalares e a probabilidade deste paciente adquirir uma infecção grave, que possa comprometer definitivamente a saúde.`, null);	
+		var macaDialogoParteTres = new DialogoParte(`SOLUÇÃO.
+	Nesse contexto, a enfermagem domiciliar se encaixa perfeitamente, pois é possível aliar a qualidade na assistência prestada ao paciente com a segurança que a profissão passa aos familiares destes pacientes.`, null);	
+		var macaDialogos = new Array(macaDialogoParteUm, macaDialogoParteDois, macaDialogoParteTres); 
+		var macaDialogo = new DialogoInterativo('interactabilityDiv', 'img/telas/telaComputador.png', macaDialogos);
+		/*---------------------------------------------------*/
+		
+		
+			/*PROFESSOR*/
+		var professoraDialogoParteUm = new DialogoParte(`Olá, agora que você adquiriu um pouco de conhecimento a respeito deste curso, responda algumas questões.`, null);	
+		
+			//QUESTÕES
+			//PROGRAMAÇÃO
+		var perguntaEnfUmAlternativaUm = 'Limpar o Sangue.';	
+		var perguntaEnfUmAlternativaDois = 'Colocar sal com álcool para evitar infecção.';	
+		var perguntaEnfUmAlternativaTres = 'Estancar o sangramento e limpa-lo com água.';	
+		var perguntaEnfUmAlternativaQuatro = 'Deixa-lo sentado e aguardar o sangramento diminuir.';	
+		var perguntaEnfUmAlternativas = new Array(perguntaEnfUmAlternativaUm, perguntaEnfUmAlternativaDois, perguntaEnfUmAlternativaTres, perguntaEnfUmAlternativaQuatro);
+		
+		var perguntaEnfUm = new Question(perguntaEnfUmAlternativas, 2);
+		
+			//BANCO DE DADOS
+		var perguntaEnfDoisAlternativaUm = 'Mantê-lo em uma posição que deixe o confortável e deixa-lo nela';	
+		var perguntaEnfDoisAlternativaDois = 'Manter um funcionário 24 junto dele.';	
+		var perguntaEnfDoisAlternativaTres = 'Deixa-lo em uma posição confortável junto a um comunicador para caso ele queira trocar de posição';	
+		var perguntaEnfDoisAlternativaQuatro = 'Administrar doses de anestesias fortes.';	
+		var perguntaEnfDoisAlternativas = new Array(perguntaEnfDoisAlternativaUm, perguntaEnfDoisAlternativaDois, perguntaEnfDoisAlternativaTres, perguntaEnfDoisAlternativaQuatro);
+		
+		var perguntaEnfDois = new Question(perguntaEnfDoisAlternativas, 2);
+		
+			//REDES
+		var perguntaEnfTresAlternativaUm = 'Receber visitas por menor que seja a enfermidade.';	
+		var perguntaEnfTresAlternativaDois = 'Ir ao hospital periodicamente para tratamento.';	
+		var perguntaEnfTresAlternativaTres = 'Não ter contato físico com o medico designado.';	
+		var perguntaEnfTresAlternativaQuatro = 'Nenhuma das Anteriores.';	
+		var perguntaEnfTresAlternativas = new Array(perguntaEnfTresAlternativaUm, perguntaEnfTresAlternativaDois, perguntaEnfTresAlternativaTres, perguntaEnfTresAlternativaQuatro);
+		
+		var perguntaEnfTres = new Question(perguntaEnfTresAlternativas, 3);
+			//PROFESSORA
+		
+		var professoraEnfDialogoParteUm = new DialogoParte(`Agora, com os conhecimentos adquiridos, responda as questões a seguir.`, null);
+		var professoraEnfDialogoParteDois = new DialogoParte(`Em um acidente de transito onde o motorista sofre de sangramentos graves nas pernas deve-se primeiro:`, perguntaEnfUm);	
+		var professoraEnfDialogoParteTres = new DialogoParte(`No caso de um paciente com problemas na coluna, o ideal seria:`, perguntaEnfDois);	
+		var professoraEnfDialogoParteQuatro = new DialogoParte(`Um paciente que receba tratamento domiciliar não deve:`, perguntaEnfTres);
+		var professoraEnfDialogoPartefinal = new DialogoParte(`Fim do teste!`, null);
+		var professoraEnfDialogos = new Array(professoraEnfDialogoParteUm, professoraEnfDialogoParteDois, professoraEnfDialogoParteTres, professoraEnfDialogoParteQuatro, professoraEnfDialogoPartefinal); 
+		var professoraEnfDialogo = new DialogoInterativo('interactabilityDiv', 'img/telas/telaComputador.jpg', professoraEnfDialogos);
+		
+		/*------------------------DECLARAÇÃO FINAL---------------------------*/
+		var portaSaida = new ObjetoInterativo('portaSaida', 'porta', 'Saída', 0);
+		var roupa = new ObjetoInterativo('roupa', 'placa', 'GESTÃO DE SAÚDE', roupaDialogo);
+		var coracao = new ObjetoInterativo('coracao', 'placa', 'PRIMEIROS SOCORROS', coracaoDialogo);
+		var maca = new ObjetoInterativo('maca', 'placa', 'EFERMAGEM DOMICILIÁRIA', macaDialogo);
+		var professoraEnf = new ObjetoInterativo('professora', 'professora', 'Exercícios', professoraEnfDialogo);
+		
+		var objetosEnfermagem = new Array(portaSaida,roupa,coracao,maca,professoraEnf);
 		
 		//SALA 3 - EDIFICAÇÕES  --------------------------------------------//
 			/*PLACA*/
@@ -157,7 +241,7 @@ PRESSIONE "E" PARA SAIR...`, null)
 		
 			/*mesa*/
 		var mesaDialogoParteUm = new DialogoParte(`TÉCNICO.
-O técnico em edificações deve lidar com diversas questões simultâneas em todas as etapas de uma obra, desta forma é fundamental saber delegar e compreender a fundo todos os aspectos relativos á execução de obras, lidan     do com as etapas e os processos construtivos.
+O técnico em edificações deve lidar com diversas questões simultâneas em todas as etapas de uma obra, desta forma é fundamental saber delegar e compreender a fundo todos os aspectos relativos á execução de obras, lidando com as etapas e os processos construtivos.
 PRESSIONE "E" PARA SAIR...`, null);	
 		var mesaDialogos = new Array(mesaDialogoParteUm); 
 		var mesaDialogo = new DialogoInterativo('interactabilityDiv', 'img/telas/telaMesa.png', mesaDialogos);
@@ -214,6 +298,89 @@ PRESSIONE "E" PARA SAIR...`, null);
 		
 		/*---------------------------------------------------*/
 		
+		//SALA 4 - TURISMO --------------------------------------------//
+			
+			/*COMPUTADOR UM*/
+		var balaoDialogoParteUm = new DialogoParte(`ATIVIDADES RECREATIVAS.
+	O profissional de turismo precisa também planejar o lazer para seus consumidores, estruturando assim uma programação para atender as necessidades dos mesmos.
+PRESSIONE "E" PARA AVANÇAR...`, null);	
+		var balaoDialogoParteDois = new DialogoParte(`DIVERSÃO.
+	Também é bom salientar, que quanto mais feliz, melhores as memórias, quanto melhores as memórias, maior a chance deles voltarem a consumir seus serviços.
+PRESSIONE "E" PARA SAIR...`, null);	
+		var balaoDialogos = new Array(balaoDialogoParteUm, balaoDialogoParteDois); 
+		var balaoDialogo = new DialogoInterativo('interactabilityDiv', 'img/telas/telaMesa.png', balaoDialogos);
+		
+		
+			/*COMPUTADOR DOIS*/
+		var mesaTurDialogoParteUm = new DialogoParte(`GEOGRAFIA TURISTICA.
+	É o estudo da viagem como atividade cultural e social. Cobra diversos assuntos incluindo a economia do lazer, a indústria, gerenciamento e sociologia do turismo.
+PRESSIONE "E" PARA AVANÇAR...`, null);	
+		var mesaTurDialogoParteDois = new DialogoParte(`IMPORTÂNCIA.
+	Além disso é importante planejar como será conduzido o turismo, principalmente relacionado a preservação de patrimônios históricos e naturais.	
+PRESSIONE "E" PARA SAIR...`, null);	
+		var mesaTurDialogos = new Array(mesaTurDialogoParteUm, mesaTurDialogoParteDois); 
+		var mesaTurDialogo = new DialogoInterativo('interactabilityDiv', 'img/telas/telaMesa.png', mesaTurDialogos);
+		
+		
+			/*COMPUTADOR TRÊS*/
+		var computadorTurDialogoParteUm = new DialogoParte(`APLICATIVOS INFORMATIZADOS.
+	Os sistemas de turismo auxiliam muito a vida de empresas que trabalham com turismo, como agências de viagem, agências de intercâmbio, cias aéreas, redes hoteleiras, hotéis, pousadas, e por aí vai.
+PRESSIONE "E" PARA AVANÇAR...`, null);	
+		var computadorTurDialogoParteDois = new DialogoParte(`EMPRESAS.
+	Inclusive empresas do mundo corporativo que não tem nada a ver com turismo, mas que tem grande volumes de compras de passagens, reservas de hotéis e locação de carros para as viagens de negócio, precisam de sistemas para ajudar na administração de viagens de suas empresas.
+PRESSIONE "E" PARA SAIR...`, null);	
+
+		var computadorTurDialogos = new Array(computadorTurDialogoParteUm, computadorTurDialogoParteDois); 
+		var computadorTurDialogo = new DialogoInterativo('interactabilityDiv', 'img/telas/telaComputador.jpg', computadorTurDialogos);
+		/*---------------------------------------------------*/
+		
+		
+			/*PROFESSOR*/
+		var professoraDialogoParteUm = new DialogoParte(`Olá, agora que você adquiriu um pouco de conhecimento a respeito deste curso, responda algumas questões.`, null);	
+		
+			//QUESTÕES
+			//PROGRAMAÇÃO
+		var perguntaTurUmAlternativaUm = 'Seco.';	
+		var perguntaTurUmAlternativaDois = 'Extremamente Frio.';	
+		var perguntaTurUmAlternativaTres = 'Ensolarado.';	
+		var perguntaTurUmAlternativaQuatro = 'Chuvoso.';	
+		var perguntaTurUmAlternativas = new Array(perguntaTurUmAlternativaUm, perguntaTurUmAlternativaDois, perguntaTurUmAlternativaTres, perguntaTurUmAlternativaQuatro);
+		
+		var perguntaTurUm = new Question(perguntaTurUmAlternativas, 2);
+		
+			//BANCO DE DADOS
+		var perguntaTurDoisAlternativaUm = 'Certo.';	
+		var perguntaTurDoisAlternativaDois = 'Errado.';
+		var perguntaTurDoisAlternativas = new Array(perguntaTurDoisAlternativaUm, perguntaTurDoisAlternativaDois);
+		
+		var perguntaTurDois = new Question(perguntaTurDoisAlternativas, 1);
+		
+			//REDES
+		var perguntaTurTresAlternativaUm = 'Maratonas.';	
+		var perguntaTurTresAlternativaDois = 'Esportes Radicais.';	
+		var perguntaTurTresAlternativaTres = 'Musculação.';	
+		var perguntaTurTresAlternativaQuatro = 'Caminhadas e alongamentos.';	
+		var perguntaTurTresAlternativas = new Array(perguntaTurTresAlternativaUm, perguntaTurTresAlternativaDois, perguntaTurTresAlternativaTres, perguntaTurTresAlternativaQuatro);
+		
+		var perguntaTurTres = new Question(perguntaTurTresAlternativas, 3);
+			//PROFESSORA
+		
+		var perguntaTurDialogoParteUm = new DialogoParte(`Agora, com os conhecimentos adquiridos, responda as questões a seguir.`, null);
+		var perguntaTurDialogoParteDois = new DialogoParte(`Um grupo de turistas querendo aproveitar as férias para praticar esportes seria melhor alocado em um local com clima:`, perguntaTurUm);	
+		var perguntaTurDialogoParteTres = new DialogoParte(`Uma empresa ao criar um sistema de viagens particulares facilitaria seu trabalho com uso de Equipamentos Analógicos e manuais para maior produtividades.`, perguntaTurDois);	
+		var perguntaTurDialogoParteQuatro = new DialogoParte(`Um grupo de turistas predominantemente idosos e sedentários seria melhor direcionado para atividades como:`, perguntaTurTres);
+		var perguntaTurDialogoPartefinal = new DialogoParte(`Fim do teste!`, null);
+		var perguntaTurDialogos = new Array(perguntaTurDialogoParteUm, perguntaTurDialogoParteDois, perguntaTurDialogoParteTres, perguntaTurDialogoParteQuatro, perguntaTurDialogoPartefinal); 
+		var perguntaTurDialogo = new DialogoInterativo('interactabilityDiv', 'img/telas/telaComputador.jpg', perguntaTurDialogos);
+		
+		/*------------------------DECLARAÇÃO FINAL---------------------------*/
+		var portaSaida = new ObjetoInterativo('portaSaida', 'porta', 'Saída', 0);
+		var balao = new ObjetoInterativo('balao', 'placa', 'ATIVIDADES RECREATIVAS', balaoDialogo);
+		var mesaTur = new ObjetoInterativo('mesaTur', 'placa', 'GEOGRAFIA TURISTICA', mesaTurDialogo);
+		var computadorTur = new ObjetoInterativo('computadorTur', 'computador', 'APLICATIVOS INFORMATIZADOS NA AREA DE TURISMO', computadorTurDialogo);
+		var perguntaTur = new ObjetoInterativo('professora', 'professora', 'Exercícios', perguntaTurDialogo);
+		
+		var objetosTurismo = new Array(portaSaida,balao,mesaTur,computadorTur,perguntaTur);
 		
 		
 		
@@ -396,8 +563,6 @@ PRESSIONE "E" PARA SAIR...`, null);
 		/*---------------------------------------------------*/
 		
 		//OBJETOS	
-		var objetosEnfermagem = new Array(portaSaida,computadorUm,computadorDois,computadorTres,professoraInf);
-		var objetosTurismo = new Array(portaSaida,computadorUm,computadorDois,computadorTres,professoraInf);
 		
 		var salaAtual = 0;	
 		var objetos = new Array(objetosPrincipal,objetosInformatica,objetosEnfermagem,objetosEdificacoes,objetosTurismo,objetosAdministracao,objetosManutencao);
@@ -533,7 +698,7 @@ PRESSIONE "E" PARA SAIR...`, null);
 			    			
 			    			var computerDialogActualPart = objetos[salaAtual][contar].getData().getActualPart();
 			    			
-			    			escrever(objetos[salaAtual][contar].getData().getParts()[computerDialogActualPart].getText(),'roboTexto',60);
+			    			escrever(objetos[salaAtual][contar].getData().getParts()[computerDialogActualPart].getText(),'roboTexto',50);
 			    			break;	
 			    				
 			    		case 'computador':
@@ -551,7 +716,7 @@ PRESSIONE "E" PARA SAIR...`, null);
 			    			
 			    			var computerDialogActualPart = objetos[salaAtual][contar].getData().getActualPart();
 			    			
-			    			escrever(objetos[salaAtual][contar].getData().getParts()[computerDialogActualPart].getText(),'computadorTexto',40);
+			    			escrever(objetos[salaAtual][contar].getData().getParts()[computerDialogActualPart].getText(),'computadorTexto',25);
 			    			break;
 			    			
 			    		case 'cimento':
@@ -721,7 +886,7 @@ PRESSIONE "E" PARA SAIR...`, null);
 				}
 				else
 				{
-					player.style.left = (parseFloat(player.style.left.substr(0,parseFloat(player.style.left.length) - 2)) + 0.15)+'vw';
+					player.style.left = (parseFloat(player.style.left.substr(0,parseFloat(player.style.left.length) - 2)) + 0.30)+'vw';
 					checkInteractability();
 					if(player.style.transform == "scaleX(-1)")
 					{
@@ -742,7 +907,7 @@ PRESSIONE "E" PARA SAIR...`, null);
 				}
 				else
 				{
-					player.style.left = (parseFloat(player.style.left.substr(0,parseFloat(player.style.left.length) - 2)) - 0.15)+'vw';
+					player.style.left = (parseFloat(player.style.left.substr(0,parseFloat(player.style.left.length) - 2)) - 0.30)+'vw';
 					checkInteractability();
 					if(player.style.transform == "scaleX(1)")
 					{
@@ -940,24 +1105,24 @@ PRESSIONE "E" PARA SAIR...`, null);
 
 	    		</div>
 	
- 				<div id="computadorUm" class='relative' name='Computador: Javascript' style="
-	 			background-image: url('img/objetos/compUm.png');
+ 				<div id="roupa" class='relative' name='Computador: Javascript' style="
+	 			background-image: url('img/objetos/roupa.png');
 				background-size: 100% 100%;
  				left: 20vw;
 				height: 17vw;
 				width: 16vw;">
 
 	    		</div>
-	    		<div id="computadorDois" class='relative' name='Computador: HTML' style="
-	 			background-image: url('img/objetos/compUm.png');
+	    		<div id="coracao" class='relative' name='Computador: HTML' style="
+	 			background-image: url('img/objetos/coracao.png');
 				background-size: 100% 100%;
  				left: 40vw;
 				height: 17vw;
 				width: 16vw;">
 
 	    		</div>
-	    		<div id="computadorTres" class='relative' name='Computador: CSS' style="
-	 			background-image: url('img/objetos/compUm.png');
+	    		<div id="maca" class='relative' name='Computador: CSS' style="
+	 			background-image: url('img/objetos/maca.png');
 				background-size: 100% 100%;
 				transform: scaleX(-1);
  				left: 60vw;
@@ -1039,7 +1204,72 @@ PRESSIONE "E" PARA SAIR...`, null);
 
 	    		</div>`;
 	    		salaAtual = sala;
-	    			break;	
+	    			break;
+	    		case 4:
+				document.body.innerHTML = `
+    			<div id="container" data-screen='tur' style='background-image: url("img/fundos/salaTUR.png");background-size: 100% 100%;'>
+				<div id="interactabilityDiv">
+			
+				</div>
+				<div id="showInfo">
+			
+				</div>
+	 			<div id='player' style="
+	 			background-image: url('img/heracles/stopped.gif');
+				background-size: 100% 100%;
+				background-position: 0px 0px;
+	 			left: 0.05vw;
+	 			height: 12vw;
+	 			width: 9vw;">
+ 				</div>
+ 				
+ 				<div id="portaSaida" class='relative' name='Sair' style="
+	 			background-image: url('img/portas/portaTUR.png');
+				background-size: 100% 100%;
+ 				left: 0vw;
+				height: 17vw;
+				width: 8vw;">
+
+	    		</div>
+	
+ 				<div id="balao" class='relative' name='Computador: Javascript' style="
+	 			background-image: url('img/objetos/balao.png');
+				background-size: 100% 100%;
+ 				left: 20vw;
+				height: 17vw;
+				width: 19vw;">
+
+	    		</div>
+	    		<div id="mesaTur" class='relative' name='Computador: HTML' style="
+	 			background-image: url('img/objetos/mesaTur.png');
+				background-size: 100% 100%;
+				background-repeat: no-repeat;
+				background-position: 100% 100%;
+ 				left: 40vw;
+				height: 15vw;
+				width: 16vw;">
+
+	    		</div>
+	    		<div id="computadorTur" class='relative' name='Computador: CSS' style="
+	 			background-image: url('img/objetos/compUm.png');
+				background-size: 100% 100%;
+ 				left: 60vw;
+				height: 17vw;
+				width: 16vw;
+				transform: scaleX(-1);">
+
+				 </div>
+				<div id="professora" class='relative' name='Explicação' style="
+	 			background-image: url('img/objetos/profTUR.png');
+				background-size: 100% 100%;
+ 				left: 80vw;
+				height: 17vw;
+				width: 8vw;
+				transform: scaleX(-1);">
+
+	    		</div>`;
+	    		salaAtual = sala;
+	    			break;		
 	    		case 5:
 				document.body.innerHTML = `
     			<div id="container" data-screen='adm' style='background-image: url("img/fundos/salaADM.png");background-size: 100% 100%;'>
@@ -1224,7 +1454,7 @@ PRESSIONE "E" PARA SAIR...`, null);
         				comandos = true;
         				document.getElementById(objetos[salaAtual][contando].getData().getId()).innerHTML = objetos[salaAtual][contando].getName();
         			}
-        			escrever(objetos[salaAtual][contando].getData().getParts()[objetos[salaAtual][contando].getData().getActualPart()].getText(),'computadorTexto',40);	
+        			escrever(objetos[salaAtual][contando].getData().getParts()[objetos[salaAtual][contando].getData().getActualPart()].getText(),'computadorTexto',25);	
         			
         			break;
         			
@@ -1265,7 +1495,7 @@ PRESSIONE "E" PARA SAIR...`, null);
         				comandos = true;
         				document.getElementById(objetos[salaAtual][contando].getData().getId()).innerHTML = objetos[salaAtual][contando].getName();
         			}
-        			escrever(objetos[salaAtual][contando].getData().getParts()[objetos[salaAtual][contando].getData().getActualPart()].getText(),'roboTexto',60);	
+        			escrever(objetos[salaAtual][contando].getData().getParts()[objetos[salaAtual][contando].getData().getActualPart()].getText(),'roboTexto',50);	
         			
         			break;	
         		case 'professora':
@@ -1359,7 +1589,6 @@ PRESSIONE "E" PARA SAIR...`, null);
         	{
         		objetos[salaNaHora][conta].getData().getParts()[dialogoParte].getExtra().hit = false;
         	}
-        	alert(objetos[salaNaHora][conta].getData().getParts()[dialogoParte].getExtra().hit);
         	interactDialog();
         }
 </script>

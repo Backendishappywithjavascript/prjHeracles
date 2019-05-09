@@ -114,7 +114,7 @@ body
 {
 	top: calc(100% - 29vw - 0.5vw);
 }
-#computadorUm, #computadorUnico, #computadorAdm
+#computadorUm, #computadorUnico, #computadorAdm, #roupa, #balao
 {
     top: calc(100% - 46vw - 0.5vw);
 }
@@ -122,7 +122,7 @@ body
 {
     top: calc(100% - 50vw - 0.5vw);
 }
-#computadorDois, #robo, #cimento
+#computadorDois, #robo, #cimento, #coracao, #mesaTur
 {
     top: calc(100% - 63vw - 0.5vw);
 }
@@ -134,7 +134,7 @@ body
 {
 	top: calc(100% - 80vw - 0.5vw);
 }
-#computadorTres, #circuito, #lousa
+#computadorTres, #circuito, #lousa, #maca, #computadorTur
 {
     top: calc(100% - 80vw - 0.5vw);
 }
